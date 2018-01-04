@@ -24,13 +24,26 @@ export default class GlobalPokerHand {
         this.buttonSeatNumber = handData.seats.find(seat => seat.playerId === buttonPlayerId).seatId + 1;
 
         this.cardsMap = {
+            'ONE': CARDS.ONE,
+            'TWO': CARDS.TWO,
+            'THREE': CARDS.THREE,
+            'FOUR': CARDS.FOUR,
+            'FIVE': CARDS.FIVE,
+            'SIX': CARDS.SIX,
+            'SEVEN': CARDS.SEVEN,
+            'EIGHT': CARDS.EIGHT,
+            'NINE': CARDS.NINE,
+            'TEN': CARDS.TEN,
             'JACK': CARDS.JACK,
             'QUEEN': CARDS.QUEEN,
+            'KING': CARDS.TEN,
         };
 
         this.suitsMap = {
-            'HEARTS': SUITS.HEARTS,
+            'SPADES': SUITS.SPADES,
             'CLUBS': SUITS.CLUBS,
+            'HEARTS': SUITS.HEARTS,
+            'DIAMONDS': SUITS.DIAMONDS,
         };
     }
 
