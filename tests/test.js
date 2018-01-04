@@ -1,6 +1,6 @@
 let assert = require('assert');
 
-import { convertHand, convertTitle, convertDescription } from '../src/converter';
+import { convertHand, convertTitle, convertDescription, convertPlayerStartingChips } from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
 import fixture from './fixture.json';
@@ -23,7 +23,19 @@ describe('Converter', () => {
     describe('#convertDescription()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
-            assert.equal("Table 'Odessa 40-100 bb' 6-max Seat #0 is the button", convertDescription(hand));
+            assert.equal("Table 'Odessa 40-100 bb' 6-max Seat #1 is the button", convertDescription(hand));
+        });
+    });
+
+    describe('#convertPlayerStartingChips()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                "Seat 1: mr_feek ($4.8 in chips)\n\
+Seat 3: Player#3699 ($9.54 in chips)\n\
+Seat 4: Player#4531 ($2.11 in chips)\n",
+                convertPlayerStartingChips(hand)
+            );
         });
     });
 });

@@ -14,3 +14,11 @@ export function convertDescription(hand) {
     // Table 'Klinkenberg Zoom 40-100 bb' 6-max Seat #1 is the button
     return `Table '${hand.tableName} ${hand.minBuyIn}-${hand.maxBuyIn} bb' ${hand.maxSeats}-max Seat #${hand.buttonSeatNumber} is the button`;
 }
+
+export function convertPlayerStartingChips(hand) {
+    let output = '';
+    hand.players.forEach((player) => {
+        output += `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)\n`;
+    });
+    return output;
+}
