@@ -7,7 +7,7 @@ ${convertPlayerStartingChips(hand)}
 Small Blind: posts small blind $${hand.smallBlind}
 Big Blind: posts big blind $${hand.bigBlind}
 *** HOLE CARDS ***
-${convertActions(hand)}
+${convertPreFlopActions(hand)}
     `;
 }
 
@@ -29,6 +29,19 @@ export function convertPlayerStartingChips(hand) {
     return output;
 }
 
-export function convertActions(hand) {
-    return 'asuh';
+export function convertPreFlopActions(hand) {
+    // todo: Dealt to Hero [Tc 9s] at top
+    /**
+     * UTG: folds
+     UTG+1: folds
+     UTG+2: folds
+     Hero: raises $0.07 to $0.12
+     Small Blind: calls $0.10
+     * @type {string}
+     */
+    let output = '';
+    hand.preFlopActions.forEach((action) => {
+        output += `${action.playerName}: ${action.action}\n`;
+    });
+    return output;
 }

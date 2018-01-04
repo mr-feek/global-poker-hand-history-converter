@@ -55,4 +55,72 @@ export default class GlobalPokerHand {
             return seat;
         });
     }
+
+    /**
+     *
+     * @returns {Array}
+     * [ { type: 'PlayerAction',
+    time: 1515047425736,
+    cards: [],
+    action: 'CALL',
+    amount: { type: 'BET', amount: 0.04 },
+    timeout: false,
+    playerId: 4531,
+    balanceAfterAction: 2.07 },
+     { type: 'PlayerAction',
+       time: 1515047440390,
+       cards: [],
+       action: 'CALL',
+       amount: { type: 'BET', amount: 0.02 },
+       timeout: false,
+       playerId: 1359767,
+       balanceAfterAction: 4.76 },
+     { type: 'PlayerAction',
+       time: 1515047441110,
+       cards: [],
+       action: 'CHECK',
+       amount: { type: 'BET', amount: 0 },
+       timeout: false,
+       playerId: 3699,
+       playerName: 'mr_feek'
+       balanceAfterAction: 9.5 } ]
+     */
+    get preFlopActions() {
+        let events = this.handData.events;
+
+        let lastCardDealtIndex = events.length -1 - events.slice().reverse().findIndex(event => event.type === 'PlayerCardsDealt');
+
+        let preFlopEvents = events.slice(
+            lastCardDealtIndex + 1,
+            events.findIndex(event => event.type === 'PotUpdate')
+        );
+
+        return this.parseHandEvents(preFlopEvents);
+    }
+
+    getPlayerNameById(playerId) {
+        return this.handData.seats.find(seat =>  seat.playerId === playerId).name;
+    }
+
+    parseHandEvents(handActions) {
+        return handActions.map((event) => {
+            switch(event.action) {
+                case 'CALL': {
+                    event.action = `calls $${event.amount.amount}`;
+                    break;
+                }
+                case 'CHECK': {
+                    event.action = 'checks';
+                    break;
+                }
+                case 'MUCK_CARDS': {
+                    event.action = 'folds';
+                    break;
+                }
+            }
+
+            event.playerName = this.getPlayerNameById(event.playerId);
+            return event;
+        });
+    }
 }
