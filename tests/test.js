@@ -1,6 +1,6 @@
 let assert = require('assert');
 
-import { convertHand, convertTitle } from '../src/converter';
+import { convertHand, convertTitle, convertDescription } from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
 import fixture from './fixture.json';
@@ -17,6 +17,13 @@ describe('Converter', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
             assert.equal("PokerStars Game #00d02b4c-8f1d-4fc4-8993-7ffe9758c177:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET", convertTitle(hand));
+        });
+    });
+
+    describe('#convertDescription()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal("Table 'Odessa 40-100 bb' 6-max Seat #0 is the button", convertDescription(hand));
         });
     });
 });
