@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "mocha ./tests --recursive"
+  },
   "dependencies": {
     "mocha": "^4.1.0"
   }
