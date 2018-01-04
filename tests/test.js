@@ -24,14 +24,14 @@ describe('Converter', () => {
     describe('#convertTitle()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
-            assert.equal("PokerStars Game #00d02b4c-8f1d-4fc4-8993-7ffe9758c177:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET", convertTitle(hand));
+            assert.equal(convertTitle(hand), "PokerStars Game #00d02b4c-8f1d-4fc4-8993-7ffe9758c177:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET");
         });
     });
 
     describe('#convertDescription()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
-            assert.equal("Table 'Odessa 40-100 bb' 6-max Seat #1 is the button", convertDescription(hand));
+            assert.equal(convertDescription(hand), "Table 'Odessa 40-100 bb' 6-max Seat #1 is the button");
         });
     });
 
@@ -39,10 +39,10 @@ describe('Converter', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
+                convertPlayerStartingChips(hand),
 "Seat 1: mr_feek ($4.8 in chips)\n\
 Seat 3: Player#3699 ($9.54 in chips)\n\
-Seat 4: Player#4531 ($2.11 in chips)\n",
-                convertPlayerStartingChips(hand)
+Seat 4: Player#4531 ($2.11 in chips)\n"
             );
         });
     });
@@ -51,10 +51,10 @@ Seat 4: Player#4531 ($2.11 in chips)\n",
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
+                convertPreFlopActions(hand),
 "Player#4531: calls $0.04\n\
 mr_feek: calls $0.02\n\
-Player#3699: checks\n",
-                convertPreFlopActions(hand)
+Player#3699: checks\n"
             );
         });
     });
