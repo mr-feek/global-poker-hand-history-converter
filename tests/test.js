@@ -31,7 +31,7 @@ describe('Converter', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
-                "Seat 1: mr_feek ($4.8 in chips)\n\
+"Seat 1: mr_feek ($4.8 in chips)\n\
 Seat 3: Player#3699 ($9.54 in chips)\n\
 Seat 4: Player#4531 ($2.11 in chips)\n",
                 convertPlayerStartingChips(hand)
@@ -43,7 +43,7 @@ Seat 4: Player#4531 ($2.11 in chips)\n",
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
-                "Player#4531: calls $0.04\n\
+"Player#4531: calls $0.04\n\
 mr_feek: calls $0.02\n\
 Player#3699: checks\n",
                 convertPreFlopActions(hand)
