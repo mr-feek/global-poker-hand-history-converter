@@ -4,8 +4,7 @@ export function convertHand(hand) {
 ${convertTitle(hand)} 
 ${convertDescription(hand)} 
 ${convertPlayerStartingChips(hand)}
-Small Blind: posts small blind $${hand.smallBlind}
-Big Blind: posts big blind $${hand.bigBlind}
+${convertBlindsPosted(hand)}
 *** HOLE CARDS ***
 ${convertHoleCards(hand)}
 ${convertPreFlopActions(hand)}
@@ -28,6 +27,12 @@ export function convertPlayerStartingChips(hand) {
         output += `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)\n`;
     });
     return output;
+}
+
+export function convertBlindsPosted(hand) {
+    // todo
+    return `Small Blind: posts small blind $${hand.smallBlind} \
+    Big Blind: posts big blind $${hand.bigBlind}`;
 }
 
 export function convertHoleCards(hand) {
