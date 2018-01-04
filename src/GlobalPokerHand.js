@@ -1,6 +1,8 @@
 import moment from 'moment';
+import { CARDS, SUITS } from './PokerStars';
 
 export default class GlobalPokerHand {
+
     constructor(handData) {
         this.handData = handData;
 
@@ -13,18 +15,23 @@ export default class GlobalPokerHand {
         // 2014/01/06 7:47:13 ET
         this.timePlayed = moment(timestamp).format('YYYY/MM/DD h:m:s') + ' ET'; // todo: time zone
 
-
-
-
         this.tableName = handData.table.tableName;
         this.minBuyIn = 40; // todo
         this.maxBuyIn = 100; // todo
         this.maxSeats = handData.settings.capacity;
 
-
-
         let buttonPlayerId = handData.events.filter(event => event.type === 'PlayerCardsDealt')[2].playerId;
         this.buttonSeatNumber = handData.seats.find(seat => seat.playerId === buttonPlayerId).seatId + 1;
+
+        this.cardsMap = {
+            'JACK': CARDS.JACK,
+            'QUEEN': CARDS.QUEEN,
+        };
+
+        this.suitsMap = {
+            'HEARTS': SUITS.HEARTS,
+            'CLUBS': SUITS.CLUBS,
+        };
     }
 
     /**
@@ -62,26 +69,8 @@ export default class GlobalPokerHand {
         });
 
         return event.cards.map((card) => {
-            let number;
-            let suit;
-
-            switch (card.rank) {
-                case 'JACK':
-                    number = 'J';
-                    break;
-                case 'QUEEN':
-                    number = 'Q';
-                    break;
-            }
-
-            switch (card.suit) {
-                case 'HEARTS':
-                    suit = 'h';
-                    break;
-                case 'CLUBS':
-                    suit = 'c';
-                    break;
-            }
+            let number = this.cardsMap[card.rank];
+            let suit = this.suitsMap[card.suit];
 
             return `${number}${suit}`;
         }).join(' ');
