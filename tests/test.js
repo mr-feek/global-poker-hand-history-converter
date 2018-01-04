@@ -43,32 +43,33 @@ Seat 4: Player#4531 ($2.11 in chips)\n",
 
 
 function getExpected() {
-    return "PokerStars Game #109682170558:  Hold'em No Limit ($0.05/$0.10 USD) - 2014/01/06 7:47:13 ET" +
-    "Table 'Klinkenberg Zoom 40-100 bb' 6-max Seat #1 is the button" +
-    "Seat 1: rocketsteph ($32.20 in chips)" +
-    "Seat 2: cenopelepi ($10.62 in chips)" +
-    "Seat 3: zoomast ($19.96 in chips)" +
-    "Seat 4: dem0n-GMRF ($10.15 in chips)" +
-    "Seat 5: shauneta ($4.59 in chips)" +
-    "Seat 6: pichcora 811 ($11.83 in chips)" +
-    "cenopelepi: posts small blind $0.05" +
-    "zoomast: posts big blind $0.10" +
-    "*** HOLE CARDS ***" +
-    "dem0n-GMRF: folds" +
-    "shauneta: folds" +
-    "pichcora 811: folds" +
-    "rocketsteph: folds" +
-    "cenopelepi: raises $0.22 to $0.32" +
-    "zoomast: folds" +
-    "Uncalled bet ($0.22) returned to cenopelepi" +
-    "cenopelepi collected $0.20 from pot" +
-    "cenopelepi: doesn't show hand" +
-    "*** SUMMARY ***" +
-    "Total pot $0.20 | Rake $0" +
-    "Seat 1: rocketsteph (button) folded before Flop (didn't bet)" +
-    "Seat 2: cenopelepi (small blind) collected ($0.20)" +
-    "Seat 3: zoomast (big blind) folded before Flop" +
-    "Seat 4: dem0n-GMRF folded before Flop (didn't bet)" +
-    "Seat 5: shauneta folded before Flop (didn't bet)" +
-    "Seat 6: pichcora 811 folded before Flop (didn't bet)";
+    return "PokerStars Game #109682170558:  Hold'em No Limit ($0.05/$0.10 USD) - 2014/01/06 7:47:13 ET\n\
+Table 'Klinkenberg Zoom 40-100 bb' 6-max Seat #1 is the button\n\
+Seat 1: rocketsteph ($32.20 in chips)\n\
+Seat 2: cenopelepi ($10.62 in chips)\n\
+Seat 3: zoomast ($19.96 in chips)\n\
+Seat 4: dem0n-GMRF ($10.15 in chips)\n\
+Seat 5: shauneta ($4.59 in chips)\n\
+Seat 6: pichcora 811 ($11.83 in chips)\n\
+cenopelepi: posts small blind $0.05\n\
+zoomast: posts big blind $0.10\n\
+*** HOLE CARDS ***\n\
+dem0n-GMRF: folds\n\
+shauneta: folds\n\
+pichcora 811: folds\n\
+rocketsteph: folds\n\
+cenopelepi: raises $0.22 to $0.32\n\
+zoomast: folds\n\
+Uncalled bet ($0.22) returned to cenopelepi\n\
+cenopelepi collected $0.20 from pot\n\
+cenopelepi: doesn't show hand\n\
+*** SUMMARY ***\n\
+Total pot $0.20 | Rake $0\n\
+Seat 1: rocketsteph (button) folded before Flop (didn't bet)\n\
+Seat 2: cenopelepi (small blind) collected ($0.20)\n\
+Seat 3: zoomast (big blind) folded before Flop\n\
+Seat 4: dem0n-GMRF folded before Flop (didn't bet)\n\
+Seat 5: shauneta folded before Flop (didn't bet)\n\
+Seat 6: pichcora 811 folded before Flop (didn't bet)\
+    ";
 }

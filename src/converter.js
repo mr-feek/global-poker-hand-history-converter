@@ -1,8 +1,14 @@
-import GlobalPokerHand from './GlobalPokerHand';
-
 export function convertHand(hand) {
-    let title = convertTitle(hand);
-    return title;
+    // todo determine if blinds were posted
+    return `
+${convertTitle(hand)} 
+${convertDescription(hand)} 
+${convertPlayerStartingChips(hand)}
+Small Blind: posts small blind $${hand.smallBlind}
+Big Blind: posts big blind $${hand.bigBlind}
+*** HOLE CARDS ***
+${convertActions(hand)}
+    `;
 }
 
 export function convertTitle(hand) {
@@ -21,4 +27,8 @@ export function convertPlayerStartingChips(hand) {
         output += `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)\n`;
     });
     return output;
+}
+
+export function convertActions(hand) {
+    return 'asuh';
 }
