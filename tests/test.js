@@ -1,8 +1,11 @@
-var assert = require('assert');
-describe('Array', function() {
-    describe('#indexOf()', function() {
-        it('should return -1 when the value is not present', function() {
-            assert.equal(-1, [1,2,3].indexOf(4));
+let assert = require('assert');
+
+import { convert } from '../src/converter';
+
+describe('Converter', () => {
+    describe('#convert()', () => {
+        it('works', () => {
+            assert.equal('asuh', convert(''))
         });
     });
 });

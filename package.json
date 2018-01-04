@@ -4,9 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha ./tests --recursive"
+    "build": "babel src -d dist",
+    "test": "mocha ./tests --recursive --require babel-register"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "mocha": "^4.1.0"
   }
 }
