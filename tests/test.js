@@ -1,6 +1,14 @@
 let assert = require('assert');
 
-import { convertHand, convertTitle, convertDescription, convertPlayerStartingChips, convertPreFlopActions, convertHoleCards } from '../src/converter';
+import {
+    convertHand,
+    convertTitle,
+    convertDescription,
+    convertPlayerStartingChips,
+    convertPreFlopActions,
+    convertHoleCards,
+    convertFlopCards,
+} from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
 import fixture from './fixture.json';
@@ -54,9 +62,20 @@ Player#3699: checks\n",
     describe('#convertHoleCards()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
+            console.log(convertHoleCards(hand));
             assert.equal(
-                ['Jh Qc'],
-                convertHoleCards(hand)
+                convertHoleCards(hand),
+                '[Jh Qc]'
+            );
+        });
+    });
+
+    describe('#convertFlopCards()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                convertFlopCards(hand),
+                '[9d Kc Td]'
             );
         });
     });

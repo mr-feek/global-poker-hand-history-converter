@@ -36,7 +36,7 @@ export default class GlobalPokerHand {
             'TEN': CARDS.TEN,
             'JACK': CARDS.JACK,
             'QUEEN': CARDS.QUEEN,
-            'KING': CARDS.TEN,
+            'KING': CARDS.KING,
         };
 
         this.suitsMap = {
@@ -81,12 +81,26 @@ export default class GlobalPokerHand {
             return event.type === 'PlayerCardsDealt' && event.cards[0].suit && event.cards[0].rank;
         });
 
-        return event.cards.map((card) => {
-            let number = this.cardsMap[card.rank];
-            let suit = this.suitsMap[card.suit];
+        return this.convertCards(event.cards);
+    }
 
-            return `${number}${suit}`;
+    get flopCards() {
+        let event = this.handData.events.find(event => event.type === 'TableCardsDealt');
+        return this.convertCards(event.cards);
+    }
+
+    convertCards(cards) {
+        return cards.map((card) => {
+            return this.convertCard(card);
         }).join(' ');
+    }
+
+    // converts a global poker hand to a poker stars hand. belongs in converter but im lazy
+    convertCard(card) {
+        let number = this.cardsMap[card.rank];
+        let suit = this.suitsMap[card.suit];
+
+        return `${number}${suit}`;
     }
 
     /**
