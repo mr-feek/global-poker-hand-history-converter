@@ -7,6 +7,7 @@ ${convertPlayerStartingChips(hand)}
 Small Blind: posts small blind $${hand.smallBlind}
 Big Blind: posts big blind $${hand.bigBlind}
 *** HOLE CARDS ***
+${convertHoleCards(hand)}
 ${convertPreFlopActions(hand)}
     `;
 }
@@ -29,8 +30,11 @@ export function convertPlayerStartingChips(hand) {
     return output;
 }
 
+export function convertHoleCards(hand) {
+    return hand.holeCards;
+}
+
 export function convertPreFlopActions(hand) {
-    // todo: Dealt to Hero [Tc 9s] at top
     /**
      * UTG: folds
      UTG+1: folds

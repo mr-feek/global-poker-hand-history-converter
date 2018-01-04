@@ -56,6 +56,37 @@ export default class GlobalPokerHand {
         });
     }
 
+    get holeCards() {
+        let event = this.handData.events.find((event) => {
+            return event.type === 'PlayerCardsDealt' && event.cards[0].suit && event.cards[0].rank;
+        });
+
+        return event.cards.map((card) => {
+            let number;
+            let suit;
+
+            switch (card.rank) {
+                case 'JACK':
+                    number = 'J';
+                    break;
+                case 'QUEEN':
+                    number = 'Q';
+                    break;
+            }
+
+            switch (card.suit) {
+                case 'HEARTS':
+                    suit = 'h';
+                    break;
+                case 'CLUBS':
+                    suit = 'c';
+                    break;
+            }
+
+            return `${number}${suit}`;
+        }).join(' ');
+    }
+
     /**
      *
      * @returns {Array}

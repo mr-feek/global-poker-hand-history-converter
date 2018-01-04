@@ -1,6 +1,6 @@
 let assert = require('assert');
 
-import { convertHand, convertTitle, convertDescription, convertPlayerStartingChips, convertPreFlopActions } from '../src/converter';
+import { convertHand, convertTitle, convertDescription, convertPlayerStartingChips, convertPreFlopActions, convertHoleCards } from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
 import fixture from './fixture.json';
@@ -47,6 +47,16 @@ Seat 4: Player#4531 ($2.11 in chips)\n",
 mr_feek: calls $0.02\n\
 Player#3699: checks\n",
                 convertPreFlopActions(hand)
+            );
+        });
+    });
+
+    describe('#convertHoleCards()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                ['Jh Qc'],
+                convertHoleCards(hand)
             );
         });
     });
