@@ -19,6 +19,7 @@ import {
 import GlobalPokerHand from '../../src/GlobalPokerHand';
 
 import fixture from '../Fixtures/CashHandMadeToRiverShowdown.json';
+import CashHandWithPreFlopRaisesFixture from '../Fixtures/CashHandWithPreFlopRaises.json';
 
 describe('Converter', () => {
     describe('#convertTitle()', () => {
@@ -55,6 +56,18 @@ Seat 4: Player#4531 ($2.11 in chips)"
 "Player#4531: calls $0.04\n\
 mr_feek: calls $0.02\n\
 Player#3699: checks"
+            );
+        });
+
+        it('determinesRaiseAmountsOverBlinds', () => {
+            const hand = new GlobalPokerHand(CashHandWithPreFlopRaisesFixture);
+            assert.equal(convertPreFlopActions(hand),
+"mr_feek: raises $0.08 to $0.12\n\
+Player#7442: folds\n\
+Player#6503: calls $0.1\n\
+Player#8836: raises $0.36 to $0.48\n\
+mr_feek: calls $0.36\n\
+Player#6503: folds"
             );
         });
     });

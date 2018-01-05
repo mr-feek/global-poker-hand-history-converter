@@ -209,7 +209,7 @@ export default class GlobalPokerHand {
     }
 
     parseHandEvents(handActions) {
-        let previousBet = 0;
+        let previousBet = this.bigBlind;
         let totalBetAmount = 0;
         let raiseAmount = 0;
 
