@@ -95,7 +95,7 @@ export default class GlobalPokerHand {
     }
 
     get riverCard() {
-        let cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterTurnCardsDealt());
+        let cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterTurnCardDealt());
         return this.convertCard(cardEvent.cards[0]);
     }
 
@@ -167,7 +167,7 @@ export default class GlobalPokerHand {
     }
 
     get turnActions() {
-        let slicedLeft = this.getActionsAfterTurnCardsDealt();
+        let slicedLeft = this.getActionsAfterTurnCardDealt();
         let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
 
         return this.parseHandEvents(sliced);
@@ -179,7 +179,7 @@ export default class GlobalPokerHand {
         return events.slice(flopCardsDealtIndex + 1);
     }
 
-    getActionsAfterTurnCardsDealt() {
+    getActionsAfterTurnCardDealt() {
         let events = this.getActionsAfterFlopCardsDealt();
         let turnCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
         return events.slice(turnCardsDealtIndex + 1);
