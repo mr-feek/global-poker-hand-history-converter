@@ -1,10 +1,9 @@
-const assert = require('assert');
-
+import { describe, it } from 'mocha';
+import assert from 'assert';
 import {
     convertHand,
 } from '../src/Converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
-
 import fixture from './Fixtures/CashHandMadeToRiverShowdown.json';
 import CashHandEndingAtTurn from './Fixtures/CashHandEndingAtTurn.json';
 

@@ -1,6 +1,10 @@
 {
     "extends": ["eslint:recommended", "airbnb-base"],
     "rules": {
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "no-plusplus": "off",
+        "no-underscore-dangle": "off",
+        "no-param-reassign": "off",
+        "no-multi-str": "off"
     }
 }

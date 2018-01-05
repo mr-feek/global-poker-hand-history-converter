@@ -23,7 +23,9 @@ export default class GlobalPokerHand {
         this.maxSeats = this.handData.settings.capacity;
 
         const buttonPlayerId = this.handData.events.filter(event => event.type === 'PlayerCardsDealt')[2].playerId;
-        this.buttonSeatNumber = this.handData.seats.find(seat => seat.playerId === buttonPlayerId).seatId + 1;
+        this.buttonSeatNumber = this.handData.seats
+            .find(seat => seat.playerId === buttonPlayerId)
+            .seatId + 1;
 
         this.totalPot = this.handData.results.transfers[0].pot.potSize; // todo: side pots?
         this.totalRake = this.handData.results.totalRake;
@@ -86,13 +88,13 @@ export default class GlobalPokerHand {
     }
 
     get holeCards() {
-        const event = this.handData.events.find(event => event.type === 'PlayerCardsDealt' && event.cards[0].suit && event.cards[0].rank);
+        const event = this.handData.events.find(e => e.type === 'PlayerCardsDealt' && e.cards[0].suit && e.cards[0].rank);
 
         return this.convertCards(event.cards);
     }
 
     get flopCards() {
-        const event = this.handData.events.find(event => event.type === 'TableCardsDealt');
+        const event = this.handData.events.find(e => e.type === 'TableCardsDealt');
         return this.convertCards(event.cards);
     }
 
@@ -152,7 +154,7 @@ export default class GlobalPokerHand {
        balanceAfterAction: 9.5 } ]
      */
     get preFlopActions() {
-        const events = this.handData.events;
+        const { events } = this.handData;
 
         const lastCardDealtIndex = events.length - 1 - events.slice().reverse().findIndex(event => event.type === 'PlayerCardsDealt');
 
@@ -184,7 +186,7 @@ export default class GlobalPokerHand {
     }
 
     getActionsAfterFlopCardsDealt() {
-        const events = this.handData.events;
+        const { events } = this.handData;
         const flopCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
         return events.slice(flopCardsDealtIndex + 1);
     }
@@ -261,7 +263,7 @@ export default class GlobalPokerHand {
                 event.action = 'UNKNOWN';
                 break;
             default:
-                throw `unknown action ${event.action}`;
+                throw new Error(`unknown action ${event.action}`);
             }
 
             event.playerName = this.getPlayerNameById(event.playerId);
