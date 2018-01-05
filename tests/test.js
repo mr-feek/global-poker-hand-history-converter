@@ -89,7 +89,6 @@ Player#4531: folds\n"
     describe('#convertHoleCards()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
-            console.log(convertHoleCards(hand));
             assert.equal(
                 convertHoleCards(hand),
                 '[Jh Qc]'
