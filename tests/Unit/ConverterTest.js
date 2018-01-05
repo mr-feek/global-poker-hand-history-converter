@@ -42,7 +42,7 @@ describe('Converter', () => {
                 convertPlayerStartingChips(hand),
 "Seat 1: mr_feek ($4.8 in chips)\n\
 Seat 3: Player#3699 ($9.54 in chips)\n\
-Seat 4: Player#4531 ($2.11 in chips)\n"
+Seat 4: Player#4531 ($2.11 in chips)"
             );
         });
     });
@@ -54,7 +54,7 @@ Seat 4: Player#4531 ($2.11 in chips)\n"
                 convertPreFlopActions(hand),
 "Player#4531: calls $0.04\n\
 mr_feek: calls $0.02\n\
-Player#3699: checks\n"
+Player#3699: checks"
             );
         });
     });
@@ -66,7 +66,7 @@ Player#3699: checks\n"
                 convertFlopActions(hand),
 "mr_feek: bets $0.12\n\
 Player#3699: calls $0.12\n\
-Player#4531: calls $0.12\n"
+Player#4531: calls $0.12"
             );
         });
     });
@@ -78,7 +78,7 @@ Player#4531: calls $0.12\n"
                 convertTurnActions(hand),
 "mr_feek: bets $0.48\n\
 Player#3699: calls $0.48\n\
-Player#4531: folds\n"
+Player#4531: folds"
             );
         });
     });
@@ -91,7 +91,7 @@ Player#4531: folds\n"
 "mr_feek: bets $0.72\n\
 Player#3699: raises $1.12 to $1.84\n\
 mr_feek: raises $2.32 to $4.16\n\
-Player#3699: calls $2.32\n"
+Player#3699: calls $2.32"
             );
         });
     });

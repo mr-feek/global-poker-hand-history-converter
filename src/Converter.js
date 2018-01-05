@@ -1,7 +1,7 @@
 export function convertHand(hand) {
-    return `
-${convertTitle(hand)} 
-${convertDescription(hand)} 
+    return `\
+${convertTitle(hand)}
+${convertDescription(hand)}
 ${convertPlayerStartingChips(hand)}
 ${convertBlindsPosted(hand)}
 *** HOLE CARDS ***
@@ -15,8 +15,7 @@ ${convertTurnActions(hand)}
 ${convertRiverActions(hand)}
 *** SUMMARY ***
 ${convertPotInfo(hand)}
-${convertFinalBoard(hand)}
-    `;
+${convertFinalBoard(hand)}`;
 }
 
 export function convertTitle(hand) {
@@ -31,16 +30,19 @@ export function convertDescription(hand) {
 
 export function convertPlayerStartingChips(hand) {
     let output = '';
-    hand.players.forEach((player) => {
-        output += `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)\n`;
+    hand.players.forEach((player, index, array) => {
+        output += `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)`;
+        if (index < array.length - 1) {
+            output += '\n';
+        }
     });
     return output;
 }
 
 export function convertBlindsPosted(hand) {
-    // todo
-    return `Small Blind: posts small blind $${hand.smallBlind} \
-    Big Blind: posts big blind $${hand.bigBlind}`;
+    // todo ensure blinds are actually posted
+    return `Small Blind: posts small blind $${hand.smallBlind}\n\
+Big Blind: posts big blind $${hand.bigBlind}`;
 }
 
 export function convertHoleCards(hand) {
@@ -66,33 +68,29 @@ export function convertFinalBoard(hand) {
 }
 
 export function convertPreFlopActions(hand) {
-    let output = '';
-    hand.preFlopActions.forEach((action) => {
-        output += `${action.playerName}: ${action.action}\n`;
-    });
-    return output;
+    return buildOutputForActions(hand.preFlopActions);
 }
 
 export function convertFlopActions(hand) {
-    let output = '';
-    hand.flopActions.forEach((action) => {
-        output += `${action.playerName}: ${action.action}\n`;
-    });
-    return output;
+    return buildOutputForActions(hand.flopActions);
 }
 
 export function convertTurnActions(hand) {
-    let output = '';
-    hand.turnActions.forEach((action) => {
-        output += `${action.playerName}: ${action.action}\n`;
-    });
-    return output;
+    return buildOutputForActions(hand.turnActions);
 }
 
 export function convertRiverActions(hand) {
+    return buildOutputForActions(hand.riverActions);
+}
+
+function buildOutputForActions(actions) {
     let output = '';
-    hand.riverActions.forEach((action) => {
-        output += `${action.playerName}: ${action.action}\n`;
+    actions.forEach((action, index, array) => {
+        output += `${action.playerName}: ${action.action}`;
+
+        if (index < array.length - 1) {
+            output += '\n';
+        }
     });
     return output;
 }
