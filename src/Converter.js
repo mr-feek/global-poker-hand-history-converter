@@ -36,7 +36,7 @@ export function convertHand(hand) {
         convertFinalBoard(hand),
     );
 
-    return outputParts.join('\n');
+    return outputParts.filter((part) => part !== '').join('\n');
 }
 
 export function convertTitle(hand) {

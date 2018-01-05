@@ -275,14 +275,14 @@ export default class GlobalPokerHand {
     }
 
     get madeItToFlop() {
-        return this.flopActions.length > 0;
+        return this.handData.events.filter((event) => event.type === 'TableCardsDealt').length >= 1;
     }
 
     get madeItToTurn() {
-        return this.turnActions.length > 0;
+        return this.handData.events.filter((event) => event.type === 'TableCardsDealt').length >= 2;
     }
 
     get madeItToRiver() {
-        return this.riverActions.length > 0;
+        return this.handData.events.filter((event) => event.type === 'TableCardsDealt').length >= 3;
     }
 }
