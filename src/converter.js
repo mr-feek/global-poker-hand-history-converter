@@ -15,6 +15,7 @@ ${convertTurnActions(hand)}
 ${convertRiverActions(hand)}
 *** SUMMARY ***
 ${convertPotInfo(hand)}
+${convertFinalBoard(hand)}
     `;
 }
 
@@ -56,6 +57,12 @@ export function convertTurnCards(hand) {
 
 export function convertRiverCards(hand) {
     return `${convertTurnCards(hand)} [${hand.riverCard}]`;
+}
+
+export function convertFinalBoard(hand) {
+    let riverCards = convertRiverCards(hand);
+    let replaced = riverCards.replace(/[\[\]]+/gi, '');
+    return `Board [${replaced}]`;
 }
 
 export function convertPreFlopActions(hand) {
