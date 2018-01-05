@@ -5,7 +5,7 @@ import {
 } from '../src/Converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
-import fixture from './Fixtures/fixture.json';
+import fixture from './Fixtures/CashHandMadeToRiverShowdown.json';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
