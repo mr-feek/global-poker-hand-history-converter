@@ -125,7 +125,7 @@ Player#3699: calls $2.32',
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertHoleCards(hand),
-                '[Jh Qc]',
+                'Dealt to mr_feek [Jh Qc]',
             );
         });
     });

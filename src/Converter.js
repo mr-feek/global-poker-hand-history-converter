@@ -23,7 +23,7 @@ export function convertBlindsPosted(hand) {
 }
 
 export function convertHoleCards(hand) {
-    return `[${hand.holeCards}]`;
+    return `Dealt to ${hand.holeCards.playerName} [${hand.holeCards.cards}]`;
 }
 
 export function convertFlopCards(hand) {

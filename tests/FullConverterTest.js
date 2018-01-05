@@ -19,7 +19,7 @@ Seat 4: Player#4531 ($2.11 in chips)\n\
 mr_feek: posts small blind $0.02\n\
 Player#3699: posts big blind $0.04\n\
 *** HOLE CARDS ***\n\
-[Jh Qc]\n\
+Dealt to mr_feek [Jh Qc]\n\
 Player#4531: calls $0.04\n\
 mr_feek: calls $0.02\n\
 Player#3699: checks\n\
@@ -59,7 +59,7 @@ Seat 6: Player#8807 ($2 in chips)\n\
 mr_feek: posts small blind $0.02\n\
 Player#5079: posts big blind $0.04\n\
 *** HOLE CARDS ***\n\
-[3h Js]\n\
+Dealt to mr_feek [3h Js]\n\
 Player#9470: calls $0.04\n\
 Player#8807: raises $0.14 to $0.18\n\
 mr_feek: folds\n\
