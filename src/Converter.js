@@ -87,7 +87,7 @@ export function convertPlayerSummary(hand) {
         let output = `Seat ${object.seatNumber}: ${object.playerName} showed (a hand...) `;
 
         if (object.netWin > 0) {
-            output += `and won ${object.totalWin}`;
+            output += `and won ($${object.totalWin})`;
         } else {
             output += 'and lost with (a hand...)';
         }

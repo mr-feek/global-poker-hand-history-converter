@@ -82,7 +82,7 @@ Player#8807 shows [6h Qh] (a hand...)\n\
 Total pot $4.2 | Rake $0.21\n\
 Board [5s 8h 7s 9d 2d]\n\
 Seat 3: Player#5079 showed (a hand...) and lost with (a hand...)\n\
-Seat 6: Player#8807 showed (a hand...) and won 3.99\n\
+Seat 6: Player#8807 showed (a hand...) and won ($3.99)\n\
 Seat 4: Player#9470 showed (a hand...) and lost with (a hand...)\n\
 Seat 1: mr_feek showed (a hand...) and lost with (a hand...)";
             const hand = new GlobalPokerHand(CashHandEndingAtTurn);
