@@ -57,14 +57,11 @@ export function convertDescription(hand) {
 }
 
 export function convertPlayerStartingChips(hand) {
-    let output = '';
-    hand.players.forEach((player, index, array) => {
-        output += `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)`;
-        if (index < array.length - 1) {
-            output += '\n';
-        }
+    let parts = [];
+    hand.players.forEach((player) => {
+        parts.push(`Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)`);
     });
-    return output;
+    return parts.join('\n');
 }
 
 export function convertBlindsPosted(hand) {
@@ -111,15 +108,11 @@ export function convertRiverActions(hand) {
 }
 
 function buildOutputForActions(actions) {
-    let output = '';
-    actions.forEach((action, index, array) => {
-        output += `${action.playerName}: ${action.action}`;
-
-        if (index < array.length - 1) {
-            output += '\n';
-        }
+    let parts = [];
+    actions.forEach((action) => {
+        parts.push(`${action.playerName}: ${action.action}`);
     });
-    return output;
+    return parts.join('\n');
 }
 
 export function convertPotInfo(hand) {
