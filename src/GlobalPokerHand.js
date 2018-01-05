@@ -303,4 +303,21 @@ export default class GlobalPokerHand {
     get madeItToShowDown() {
         return !!this.handData.events.find((event) => event.type === 'ShowDownSummary');
     }
+
+    /**
+     *
+     * @return {Array} { playerName: '', totalWin: 10.00, netWin: 5.00 }
+     */
+    get playerSummaries() {
+        let results = Array.from(Object.values(this.handData.results.results));
+
+        return results.map((result) => {
+            return {
+                seatNumber: this.players.find((player) => player.playerId === result.playerId).seatId,
+                playerName: this.getPlayerNameById(result.playerId),
+                totalWin: result.totalWin, // total pot awarded
+                netWin: result.netWin, // money won in this hand
+            }
+        });
+    }
 }

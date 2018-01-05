@@ -41,6 +41,7 @@ export function convertHand(hand) {
         '*** SUMMARY ***',
         convertPotInfo(hand),
         convertFinalBoard(hand),
+        convertPlayerSummary(hand),
     );
 
     return outputParts.filter((part) => part !== '').join('\n');
@@ -120,4 +121,18 @@ export function convertCardsShown(hand) {
     return hand.cardsShown.map((object) => {
         return `${object.playerName} shows [${object.cards}] (a hand...)`;
     }).join('\n');
+}
+
+export function convertPlayerSummary(hand) {
+    return hand.playerSummaries.map((object) => {
+        let output = `Seat ${object.seatNumber}: ${object.playerName} showed (a hand...) `;
+
+        if (object.netWin > 0) {
+            output += `and won ${object.totalWin}`;
+        } else {
+            output += `and lost with (a hand...)`;
+        }
+
+        return output;
+    }).join('\n')
 }
