@@ -202,6 +202,10 @@ export default class GlobalPokerHand {
     }
 
     parseHandEvents(handActions) {
+        let previousBet = 0;
+        let totalBetAmount = 0;
+        let raiseAmount = 0;
+
         return handActions.map((event) => {
             switch(event.action) {
                 case 'CALL':
@@ -218,10 +222,15 @@ export default class GlobalPokerHand {
                     event.action = 'mucks';
                     break;
                 case 'RAISE':
-                    event.action = `raises $${event.amount.amount} to $${event.amount.amount}`;
+                    totalBetAmount = event.amount.amount;
+                    raiseAmount = (totalBetAmount - previousBet).toFixed(2);
+                    event.action = `raises $${raiseAmount} to $${totalBetAmount}`;
+                    previousBet = totalBetAmount;
                     break;
                 case 'BET':
-                    event.action = `bets $${event.amount.amount}`;
+                    totalBetAmount = event.amount.amount;
+                    event.action = `bets $${totalBetAmount}`;
+                    previousBet = totalBetAmount;
                     break;
                 case 'TIME_BANK':
                     // todo what does poker stars say when hand isn't shown at showdown?
