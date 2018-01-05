@@ -37,7 +37,7 @@ Player#3699: raises $1.12 to $1.84\n\
 mr_feek: raises $2.32 to $4.16\n\
 Player#3699: calls $2.32\n\
 *** SHOW DOWN ***\n\
-mr_feek shows [Jh Qc] (a hand...)\n\
+mr_feek: shows [Jh Qc] (a hand...)\n\
 *** SUMMARY ***\n\
 Total pot $9.76 | Rake $0.48\n\
 Board [9d Kc Td 6c 2s]\n\
@@ -76,8 +76,8 @@ Player#5079: calls $0.7\n\
 *** TURN *** [5s 8h 7s] [9d]\n\
 *** RIVER *** [5s 8h 7s] [9d] [2d]\n\
 *** SHOW DOWN ***\n\
-Player#5079 shows [Ts 8c] (a hand...)\n\
-Player#8807 shows [6h Qh] (a hand...)\n\
+Player#5079: shows [Ts 8c] (a hand...)\n\
+Player#8807: shows [6h Qh] (a hand...)\n\
 *** SUMMARY ***\n\
 Total pot $4.2 | Rake $0.21\n\
 Board [5s 8h 7s 9d 2d]\n\

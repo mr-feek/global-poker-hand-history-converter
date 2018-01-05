@@ -275,8 +275,7 @@ export default class GlobalPokerHand {
                 event.action = 'folds';
                 break;
             case 'MUCK_CARDS':
-                // todo what does poker stars say when hand isn't shown at showdown?
-                event.action = 'mucks';
+                event.action = 'mucks hand';
                 break;
             case 'RAISE':
                 totalBetAmount = event.amount.amount;

@@ -79,7 +79,7 @@ export function convertPotInfo(hand) {
 }
 
 export function convertCardsShown(hand) {
-    return hand.cardsShown.map(object => `${object.playerName} shows [${object.cards}] (a hand...)`).join('\n');
+    return hand.cardsShown.map(object => `${object.playerName}: shows [${object.cards}] (a hand...)`).join('\n');
 }
 
 export function convertPlayerSummary(hand) {
