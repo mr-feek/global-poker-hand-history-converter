@@ -17,11 +17,6 @@ export default class GlobalPokerHand {
         this.maxBuyIn = 100; // todo
         this.maxSeats = this.handData.settings.capacity;
 
-        const buttonPlayerId = this.handData.events.filter(event => event.type === 'PlayerCardsDealt')[2].playerId;
-        this.buttonSeatNumber = this.handData.seats
-            .find(seat => seat.playerId === buttonPlayerId)
-            .seatId + 1;
-
         this.totalPot = this.handData.results.transfers[0].pot.potSize; // todo: side pots?
         this.totalRake = this.handData.results.totalRake;
 
@@ -47,6 +42,22 @@ export default class GlobalPokerHand {
             HEARTS: SUITS.HEARTS,
             DIAMONDS: SUITS.DIAMONDS,
         };
+    }
+
+    get buttonSeatNumber() {
+        // man this sucks but theres literally no other way to figure it out..
+        let playerName = this.bigBlind.playerName;
+
+        if (this.smallBlind.playerName) {
+            playerName = this.smallBlind.playerName;
+        }
+
+        let blindIndex = this.players.findIndex((player) => player.name === playerName);
+        if (blindIndex === 0) {
+            // go to end of array
+            return this.players[this.players.length -1].seatId;
+        }
+        return this.players[blindIndex - 1].seatId;
     }
 
     get smallBlind() {
@@ -106,7 +117,9 @@ export default class GlobalPokerHand {
      */
     get players() {
         return this.handData.seats.map((seat) => {
+            // global poker does seats 0-5, pt4 expects 1-6
             seat.seatId++;
+
             return seat;
         });
     }

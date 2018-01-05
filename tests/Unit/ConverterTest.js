@@ -18,6 +18,7 @@ import {
 } from '../../src/Converter';
 import GlobalPokerHand from '../../src/GlobalPokerHand';
 import fixture from '../Fixtures/CashHandMadeToRiverShowdown.json';
+import dealerButtonBugFixture from '../Fixtures/seatNumberBug.json';
 import CashHandWithPreFlopRaisesFixture from '../Fixtures/CashHandWithPreFlopRaises.json';
 
 describe('Converter', () => {
@@ -31,7 +32,12 @@ describe('Converter', () => {
     describe('#convertDescription()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
-            assert.equal(convertDescription(hand), "Table 'Odessa 40-100 bb' 6-max Seat #1 is the button");
+            assert.equal(convertDescription(hand), "Table 'Odessa 40-100 bb' 6-max Seat #4 is the button");
+        });
+
+        it('knowsWhichSeatIsButton', () => {
+            const hand = new GlobalPokerHand(dealerButtonBugFixture);
+            assert.equal(convertDescription(hand), "Table 'Clarksville 40-100 bb' 6-max Seat #1 is the button");
         });
     });
 
