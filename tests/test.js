@@ -10,7 +10,8 @@ import {
     convertFlopCards,
     convertFlopActions,
     convertTurnActions,
-    convertTurnCards
+    convertTurnCards,
+    convertRiverCards,
 } from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
@@ -112,6 +113,16 @@ Player#4531: folds\n"
             assert.equal(
                 convertTurnCards(hand),
                 '[9d Kc Td] [6c]'
+            );
+        });
+    });
+
+    describe('#convertRiverCards()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                convertRiverCards(hand),
+                '[9d Kc Td] [6c] [2s]'
             );
         });
     });

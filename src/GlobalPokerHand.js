@@ -97,6 +97,13 @@ export default class GlobalPokerHand {
         return this.convertCard(turnCardEvent.cards[0]);
     }
 
+    get riverCard() {
+        let slicedLeft = this.getActionsAfterTurnCardsDealt();
+        let riverCardEvent = slicedLeft.find(event => event.type === 'TableCardsDealt');
+
+        return this.convertCard(riverCardEvent.cards[0]);
+    }
+
     convertCards(cards) {
         return cards.map((card) => {
             return this.convertCard(card);

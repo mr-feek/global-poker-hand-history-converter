@@ -11,6 +11,7 @@ ${convertPreFlopActions(hand)}
 ${convertFlopActions(hand)}
 *** TURN *** ${convertTurnCards(hand)}
 ${convertTurnActions(hand)}
+*** RIVER *** ${convertRiverCards(hand)}
     `;
 }
 
@@ -48,6 +49,10 @@ export function convertFlopCards(hand) {
 
 export function convertTurnCards(hand) {
     return `${convertFlopCards(hand)} [${hand.turnCard}]`;
+}
+
+export function convertRiverCards(hand) {
+    return `${convertTurnCards(hand)} [${hand.riverCard}]`;
 }
 
 export function convertPreFlopActions(hand) {
