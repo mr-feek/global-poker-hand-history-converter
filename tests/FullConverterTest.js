@@ -6,6 +6,7 @@ import {
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
 import fixture from './Fixtures/CashHandMadeToRiverShowdown.json';
+import CashHandEndingAtTurn from './Fixtures/CashHandEndingAtTurn.json';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -40,6 +41,13 @@ Player#3699: calls $2.32\n\
 Total pot $9.76 | Rake $0.48\n\
 Board [9d Kc Td 6c 2s]";
             const hand = new GlobalPokerHand(fixture);
+            assert.equal(convertHand(hand), expected);
+        });
+
+        it('convertsCashHandEndingAtRiver', () => {
+            return;
+            const expected = "";
+            const hand = new GlobalPokerHand(CashHandEndingAtTurn);
             assert.equal(convertHand(hand), expected);
         });
     });

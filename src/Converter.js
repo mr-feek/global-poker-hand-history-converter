@@ -1,21 +1,42 @@
 export function convertHand(hand) {
-    return `\
-${convertTitle(hand)}
-${convertDescription(hand)}
-${convertPlayerStartingChips(hand)}
-${convertBlindsPosted(hand)}
-*** HOLE CARDS ***
-${convertHoleCards(hand)}
-${convertPreFlopActions(hand)}
-*** FLOP *** ${convertFlopCards(hand)}
-${convertFlopActions(hand)}
-*** TURN *** ${convertTurnCards(hand)}
-${convertTurnActions(hand)}
-*** RIVER *** ${convertRiverCards(hand)}
-${convertRiverActions(hand)}
-*** SUMMARY ***
-${convertPotInfo(hand)}
-${convertFinalBoard(hand)}`;
+    let outputParts = [
+        convertTitle(hand),
+        convertDescription(hand),
+        convertPlayerStartingChips(hand),
+        convertBlindsPosted(hand),
+        '*** HOLE CARDS ***',
+        convertHoleCards(hand),
+        convertPreFlopActions(hand),
+    ];
+
+    if (true) {
+        outputParts.push(
+            `*** FLOP *** ${convertFlopCards(hand)}`,
+            convertFlopActions(hand),
+        );
+    }
+
+    if (true) {
+        outputParts.push(
+            `*** TURN *** ${convertTurnCards(hand)}`,
+            convertTurnActions(hand),
+        );
+    }
+
+    if (true) {
+        outputParts.push(
+            `*** RIVER *** ${convertRiverCards(hand)}`,
+            convertRiverActions(hand),
+        );
+    }
+
+    outputParts.push(
+        '*** SUMMARY ***',
+        convertPotInfo(hand),
+        convertFinalBoard(hand),
+    );
+
+    return outputParts.join('\n');
 }
 
 export function convertTitle(hand) {
