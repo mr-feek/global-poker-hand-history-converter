@@ -5,6 +5,7 @@ import GlobalPokerHand from '../src/GlobalPokerHand';
 import fixture from './Fixtures/CashHandMadeToRiverShowdown.json';
 import CashHandEndingAtTurn from './Fixtures/CashHandEndingAtTurn.json';
 import fixture2 from './Fixtures/bug.json';
+import fixture3 from './Fixtures/bug2.json';
 import CashGameNoSmallBlind from './Fixtures/CashGameNoSmallBlind.json';
 
 describe('Converter', () => {
@@ -92,6 +93,13 @@ Seat 1: mr_feek folded";
         it('convertsThisHandItWasBreakingOn', () => {
             // just assert no errors thrown im lazy
             const hand = new GlobalPokerHand(fixture2);
+            convertHand(hand);
+        });
+
+        it('convertsIfThereAreNoHoleCards', () => {
+            // just assert no errors thrown im lazy
+            // this is if hero was not in the hand
+            const hand = new GlobalPokerHand(fixture3);
             convertHand(hand);
         });
 

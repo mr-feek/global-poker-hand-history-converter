@@ -23,6 +23,9 @@ export function convertBlindsPosted(hand) {
 }
 
 export function convertHoleCards(hand) {
+    if (!hand.holeCards) {
+        return '';
+    }
     return `Dealt to ${hand.holeCards.playerName} [${hand.holeCards.cards}]`;
 }
 

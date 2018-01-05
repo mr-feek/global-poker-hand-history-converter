@@ -113,7 +113,9 @@ export default class GlobalPokerHand {
 
     get holeCards() {
         const event = this.handData.events.find(e => e.type === 'PlayerCardsDealt' && e.cards[0].suit && e.cards[0].rank);
-
+        if (!event) {
+            return;
+        }
         return {
             playerName: this.getPlayerNameById(event.playerId),
             cards: this.convertCards(event.cards)
