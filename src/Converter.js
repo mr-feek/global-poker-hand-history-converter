@@ -9,21 +9,21 @@ export function convertHand(hand) {
         convertPreFlopActions(hand),
     ];
 
-    if (true) {
+    if (hand.madeItToFlop) {
         outputParts.push(
             `*** FLOP *** ${convertFlopCards(hand)}`,
             convertFlopActions(hand),
         );
     }
 
-    if (true) {
+    if (hand.madeItToTurn) {
         outputParts.push(
             `*** TURN *** ${convertTurnCards(hand)}`,
             convertTurnActions(hand),
         );
     }
 
-    if (true) {
+    if (hand.madeItToRiver) {
         outputParts.push(
             `*** RIVER *** ${convertRiverCards(hand)}`,
             convertRiverActions(hand),

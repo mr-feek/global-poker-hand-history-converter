@@ -254,4 +254,16 @@ export default class GlobalPokerHand {
             return event;
         }).filter(event => event.action !== 'UNKNOWN');
     }
+
+    get madeItToFlop() {
+        return this.flopActions.length > 0;
+    }
+
+    get madeItToTurn() {
+        return this.turnActions.length > 0;
+    }
+
+    get madeItToRiver() {
+        return this.riverActions.length > 0;
+    }
 }

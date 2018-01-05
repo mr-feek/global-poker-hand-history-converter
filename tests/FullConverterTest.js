@@ -45,7 +45,6 @@ Board [9d Kc Td 6c 2s]";
         });
 
         it('convertsCashHandEndingAtRiver', () => {
-            return;
             const expected = "";
             const hand = new GlobalPokerHand(CashHandEndingAtTurn);
             assert.equal(convertHand(hand), expected);
