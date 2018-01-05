@@ -27,7 +27,7 @@ export default class GlobalPokerHand {
         this.totalRake = handData.results.totalRake;
 
         this.cardsMap = {
-            'ONE': CARDS.ONE,
+            'ACE': CARDS.ACE,
             'TWO': CARDS.TWO,
             'THREE': CARDS.THREE,
             'FOUR': CARDS.FOUR,
