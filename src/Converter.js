@@ -1,5 +1,5 @@
 export function convertTitle(hand) {
-    return `PokerStars Game #${hand.handId}:  Hold'em No Limit ($${hand.smallBlind}/$${hand.bigBlind} USD) - ${hand.timePlayed}`;
+    return `PokerStars Game #${hand.handId}:  Hold'em No Limit ($${hand.smallBlind.amount}/$${hand.bigBlind.amount} USD) - ${hand.timePlayed}`;
 }
 
 export function convertDescription(hand) {
@@ -11,8 +11,15 @@ export function convertPlayerStartingChips(hand) {
 }
 
 export function convertBlindsPosted(hand) {
-    return `${hand.smallBlindPlayerName}: posts small blind $${hand.smallBlind}\n\
-${hand.bigBlindPlayerName}: posts big blind $${hand.bigBlind}`;
+    let output = '';
+
+    if (hand.smallBlind.playerName) {
+        output += `${hand.smallBlind.playerName}: posts small blind $${hand.smallBlind.amount}\n`;
+    }
+
+    output += `${hand.bigBlind.playerName}: posts big blind $${hand.bigBlind.amount}`;
+
+    return output;
 }
 
 export function convertHoleCards(hand) {

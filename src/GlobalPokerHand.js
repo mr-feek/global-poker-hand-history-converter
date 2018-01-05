@@ -6,10 +6,6 @@ export default class GlobalPokerHand {
         this._handData = handData;
 
         this.handId = this.handData.id;
-        this.smallBlind = this.handData.settings.smallBlind;
-        this.bigBlind = this.handData.settings.bigBlind;
-        this.smallBlindPlayerName = this.getPlayerNameById(this.handData.events.find(event => event.action === 'SMALL_BLIND').playerId);
-        this.bigBlindPlayerName = this.getPlayerNameById(this.handData.events.find(event => event.action === 'BIG_BLIND').playerId);
 
         const timestamp = this.handData.startTime;
 
@@ -51,6 +47,35 @@ export default class GlobalPokerHand {
             HEARTS: SUITS.HEARTS,
             DIAMONDS: SUITS.DIAMONDS,
         };
+    }
+
+    get smallBlind() {
+        const blindEvent = this.handData.events.find(event => event.action === 'SMALL_BLIND');
+
+        let playerName = '';
+
+        if (blindEvent) {
+            playerName = this.getPlayerNameById(blindEvent.playerId);
+        }
+
+        return {
+            playerName: playerName,
+            amount: this.handData.settings.smallBlind,
+        }
+    }
+
+    get bigBlind() {
+        const blindEvent = this.handData.events.find(event => event.action === 'BIG_BLIND');
+        let playerName = '';
+
+        if (blindEvent) {
+            playerName = this.getPlayerNameById(blindEvent.playerId);
+        }
+
+        return {
+            playerName: playerName,
+            amount: this.handData.settings.bigBlind,
+        }
     }
 
     get handData() {
@@ -223,7 +248,7 @@ export default class GlobalPokerHand {
     }
 
     parseHandEvents(handActions) {
-        let previousBet = this.bigBlind;
+        let previousBet = this.bigBlind.amount;
         let totalBetAmount = 0;
         let raiseAmount = 0;
 

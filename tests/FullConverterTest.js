@@ -5,6 +5,7 @@ import GlobalPokerHand from '../src/GlobalPokerHand';
 import fixture from './Fixtures/CashHandMadeToRiverShowdown.json';
 import CashHandEndingAtTurn from './Fixtures/CashHandEndingAtTurn.json';
 import fixture2 from './Fixtures/bug.json';
+import CashGameNoSmallBlind from './Fixtures/CashGameNoSmallBlind.json';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -91,6 +92,12 @@ Seat 1: mr_feek showed (a hand...) and lost with (a hand...)";
         it('convertsThisHandItWasBreakingOn', () => {
             // just assert no errors thrown im lazy
             const hand = new GlobalPokerHand(fixture2);
+            convertHand(hand);
+        });
+
+        it('convertsAHandWithNoSmallBlind', () => {
+            // just assert no errors thrown im lazy
+            const hand = new GlobalPokerHand(CashGameNoSmallBlind);
             convertHand(hand);
         });
     });
