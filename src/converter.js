@@ -1,5 +1,4 @@
 export function convertHand(hand) {
-    // todo determine if blinds were posted
     return `
 ${convertTitle(hand)} 
 ${convertDescription(hand)} 
@@ -11,6 +10,7 @@ ${convertPreFlopActions(hand)}
 *** FLOP *** ${convertFlopCards(hand)}
 ${convertFlopActions(hand)}
 *** TURN *** ${convertTurnCards(hand)}
+${convertTurnActions(hand)}
     `;
 }
 
@@ -69,6 +69,14 @@ export function convertPreFlopActions(hand) {
 export function convertFlopActions(hand) {
     let output = '';
     hand.flopActions.forEach((action) => {
+        output += `${action.playerName}: ${action.action}\n`;
+    });
+    return output;
+}
+
+export function convertTurnActions(hand) {
+    let output = '';
+    hand.turnActions.forEach((action) => {
         output += `${action.playerName}: ${action.action}\n`;
     });
     return output;

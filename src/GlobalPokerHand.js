@@ -154,14 +154,29 @@ export default class GlobalPokerHand {
     }
 
     get flopActions() {
-        let events = this.handData.events;
-
-        let flopCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
-
-        let slicedLeft = events.slice(flopCardsDealtIndex + 1);
+        let slicedLeft = this.getActionsAfterFlopCardsDealt();
         let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
 
         return this.parseHandEvents(sliced);
+    }
+
+    get turnActions() {
+        let slicedLeft = this.getActionsAfterTurnCardsDealt();
+        let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
+
+        return this.parseHandEvents(sliced);
+    }
+
+    getActionsAfterFlopCardsDealt() {
+        let events = this.handData.events;
+        let flopCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
+        return events.slice(flopCardsDealtIndex + 1);
+    }
+
+    getActionsAfterTurnCardsDealt() {
+        let events = this.getActionsAfterFlopCardsDealt();
+        let turnCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
+        return events.slice(turnCardsDealtIndex + 1);
     }
 
     getPlayerNameById(playerId) {
@@ -179,8 +194,13 @@ export default class GlobalPokerHand {
                     event.action = 'checks';
                     break;
                 }
-                case 'MUCK_CARDS': {
+                case 'FOLD': {
                     event.action = 'folds';
+                    break;
+                }
+                case 'MUCK_CARDS': {
+                    // todo what does poker stars say when hand isn't shown at showdown?
+                    event.action = 'mucks';
                     break;
                 }
                 case 'BET': {

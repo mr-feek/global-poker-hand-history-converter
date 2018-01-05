@@ -9,6 +9,7 @@ import {
     convertHoleCards,
     convertFlopCards,
     convertFlopActions,
+    convertTurnActions,
     convertTurnCards
 } from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
@@ -69,6 +70,18 @@ Player#3699: checks\n"
 "mr_feek: raises $0.12\n\
 Player#3699: calls $0.12\n\
 Player#4531: calls $0.12\n"
+            );
+        });
+    });
+
+    describe('#convertTurnActions()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                convertTurnActions(hand),
+"mr_feek: raises $0.48\n\
+Player#3699: calls $0.48\n\
+Player#4531: folds\n"
             );
         });
     });
