@@ -69,7 +69,7 @@ Player#3699: checks\n"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertFlopActions(hand),
-"mr_feek: raises $0.12\n\
+"mr_feek: bets $0.12\n\
 Player#3699: calls $0.12\n\
 Player#4531: calls $0.12\n"
             );
@@ -81,7 +81,7 @@ Player#4531: calls $0.12\n"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertTurnActions(hand),
-"mr_feek: raises $0.48\n\
+"mr_feek: bets $0.48\n\
 Player#3699: calls $0.48\n\
 Player#4531: folds\n"
             );
@@ -93,7 +93,7 @@ Player#4531: folds\n"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertRiverActions(hand),
-"mr_feek: raises $0.72\n\
+"mr_feek: bets $0.72\n\
 Player#3699: raises $1.84\n\
 mr_feek: raises $4.16\n\
 Player#3699: calls $2.32\n"

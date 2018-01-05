@@ -218,10 +218,10 @@ export default class GlobalPokerHand {
                     event.action = 'mucks';
                     break;
                 case 'RAISE':
-                    event.action = `raises $${event.amount.amount}`;
+                    event.action = `raises $${event.amount.amount} to $${event.amount.amount}`;
                     break;
                 case 'BET':
-                    event.action = `raises $${event.amount.amount}`;
+                    event.action = `bets $${event.amount.amount}`;
                     break;
                 case 'TIME_BANK':
                     // todo what does poker stars say when hand isn't shown at showdown?
