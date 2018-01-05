@@ -57,11 +57,9 @@ export function convertDescription(hand) {
 }
 
 export function convertPlayerStartingChips(hand) {
-    let parts = [];
-    hand.players.forEach((player) => {
-        parts.push(`Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)`);
-    });
-    return parts.join('\n');
+    return hand.players.map((player) => {
+        return `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)`;
+    }).join('\n');
 }
 
 export function convertBlindsPosted(hand) {
@@ -108,11 +106,9 @@ export function convertRiverActions(hand) {
 }
 
 function buildOutputForActions(actions) {
-    let parts = [];
-    actions.forEach((action) => {
-        parts.push(`${action.playerName}: ${action.action}`);
-    });
-    return parts.join('\n');
+    return actions.map((action) => {
+        return `${action.playerName}: ${action.action}`;
+    }).join('\n');
 }
 
 export function convertPotInfo(hand) {
@@ -121,9 +117,7 @@ export function convertPotInfo(hand) {
 }
 
 export function convertCardsShown(hand) {
-    let parts = [];
-    hand.cardsShown.forEach((object) => {
-        parts.push(`${object.playerName} shows [${object.cards}] (a hand...)`);
-    });
-    return parts.join('\n');
+    return hand.cardsShown.map((object) => {
+        return `${object.playerName} shows [${object.cards}] (a hand...)`;
+    }).join('\n');
 }
