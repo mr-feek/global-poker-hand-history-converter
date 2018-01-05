@@ -4,13 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "babel src -d build",
     "test": "mocha ./tests --recursive --require babel-register",
-    "lint": "./node_modules/.bin/eslint src/ tests/ --fix"
+    "lint": "./node_modules/.bin/eslint src/ tests/ --fix",
+    "go": "node ./build/index"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
     "eslint": "^4.14.0",
     "mocha": "^4.1.0",

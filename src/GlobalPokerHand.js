@@ -8,7 +8,6 @@ export default class GlobalPokerHand {
         this.handId = this.handData.id;
         this.smallBlind = this.handData.settings.smallBlind;
         this.bigBlind = this.handData.settings.bigBlind;
-
         this.smallBlindPlayerName = this.getPlayerNameById(this.handData.events.find(event => event.action === 'SMALL_BLIND').playerId);
         this.bigBlindPlayerName = this.getPlayerNameById(this.handData.events.find(event => event.action === 'BIG_BLIND').playerId);
 
@@ -95,16 +94,28 @@ export default class GlobalPokerHand {
 
     get flopCards() {
         const event = this.handData.events.find(e => e.type === 'TableCardsDealt');
+        if (!event) {
+            console.error(`called .flopCards even though there were no events of type TableCardsDealt. HAND: ${this.handId}`);
+            //return;
+        }
         return this.convertCards(event.cards);
     }
 
     get turnCard() {
         const cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterFlopCardsDealt());
+        if (!cardEvent) {
+            console.error(`called .turnCard even though there were no events of type TableCardsDealt. HAND: ${this.handId}`);
+            //return;
+        }
         return this.convertCard(cardEvent.cards[0]);
     }
 
     get riverCard() {
         const cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterTurnCardDealt());
+        if (!cardEvent) {
+            console.error(`called .riverCard even though there were no events of type TableCardsDealt. HAND: ${this.handId}`);
+            //return;
+        }
         return this.convertCard(cardEvent.cards[0]);
     }
 
@@ -204,6 +215,10 @@ export default class GlobalPokerHand {
     }
 
     getPlayerNameById(playerId) {
+        if (!this.handData.seats.find(seat => seat.playerId === playerId)) {
+            console.error(`could not find player name by player id. HAND: ${this.handId} PlayerID: ${playerId}`);
+            //return '';
+        }
         return this.handData.seats.find(seat => seat.playerId === playerId).name;
     }
 

@@ -1,11 +1,10 @@
 import { describe, it } from 'mocha';
 import assert from 'assert';
-import {
-    convertHand,
-} from '../src/Converter';
+import { convertHand } from '../src/Converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 import fixture from './Fixtures/CashHandMadeToRiverShowdown.json';
 import CashHandEndingAtTurn from './Fixtures/CashHandEndingAtTurn.json';
+import fixture2 from './Fixtures/bug.json';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -87,6 +86,12 @@ Seat 4: Player#9470 showed (a hand...) and lost with (a hand...)\n\
 Seat 1: mr_feek showed (a hand...) and lost with (a hand...)";
             const hand = new GlobalPokerHand(CashHandEndingAtTurn);
             assert.equal(convertHand(hand), expected);
+        });
+
+        it('convertsThisHandItWasBreakingOn', () => {
+            // just assert no errors thrown im lazy
+            const hand = new GlobalPokerHand(fixture2);
+            convertHand(hand);
         });
     });
 });

@@ -7,10 +7,7 @@ Convert Global Poker hand histories to PokerStars format
  
  ## Usage
  ```javascript
- import {
-     convertHand
- } from './src/Converter';
-
+ import { convertHand } from './src/Converter';
  import GlobalPokerHand from './src/GlobalPokerHand';
  
  // fetch your JSON blob of hand history from global poker API (outside the scope of this package)

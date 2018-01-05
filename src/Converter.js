@@ -32,8 +32,18 @@ export function convertRiverCards(hand) {
 }
 
 export function convertFinalBoard(hand) {
-    const riverCards = convertRiverCards(hand);
-    const replaced = riverCards.replace(/[[\]]+/gi, '');
+    let cards;
+    if (hand.madeItToRiver) {
+        cards = convertRiverCards(hand);
+    } else if (hand.madeItToTurn) {
+        cards = convertTurnCards(hand);
+    } else if (hand.madeItToFlop) {
+        cards = convertFlopCards(hand);
+    } else {
+        return 'Board []';
+    }
+
+    const replaced = cards.replace(/[[\]]+/gi, '');
     return `Board [${replaced}]`;
 }
 
