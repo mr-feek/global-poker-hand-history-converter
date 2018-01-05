@@ -1,8 +1,10 @@
 {
-  "name": "global-poker-converter",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@mr-feek/global-poker-hand-history-converter",
+  "version": "0.0.1",
+  "description": "Convert Global Poker hand histories to the PokerStars format",
+  "main": "src/index.js",
   "license": "MIT",
+  "author": "mr-feek <fpm5022@gmail.com>",
   "scripts": {
     "build": "babel src -d build",
     "test": "mocha ./tests --recursive --require babel-register",
