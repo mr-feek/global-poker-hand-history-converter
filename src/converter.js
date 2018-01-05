@@ -13,6 +13,8 @@ ${convertFlopActions(hand)}
 ${convertTurnActions(hand)}
 *** RIVER *** ${convertRiverCards(hand)}
 ${convertRiverActions(hand)}
+*** SUMMARY ***
+${convertPotInfo(hand)}
     `;
 }
 
@@ -86,4 +88,9 @@ export function convertRiverActions(hand) {
         output += `${action.playerName}: ${action.action}\n`;
     });
     return output;
+}
+
+export function convertPotInfo(hand) {
+    // Total pot $1.57 | Rake $0.07
+    return `Total pot $${hand.totalPot} | Rake $${hand.totalRake}`;
 }

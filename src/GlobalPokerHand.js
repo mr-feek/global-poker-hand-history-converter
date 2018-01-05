@@ -23,6 +23,9 @@ export default class GlobalPokerHand {
         let buttonPlayerId = handData.events.filter(event => event.type === 'PlayerCardsDealt')[2].playerId;
         this.buttonSeatNumber = handData.seats.find(seat => seat.playerId === buttonPlayerId).seatId + 1;
 
+        this.totalPot = handData.results.transfers[0].pot.potSize; // todo: side pots?
+        this.totalRake = handData.results.totalRake;
+
         this.cardsMap = {
             'ONE': CARDS.ONE,
             'TWO': CARDS.TWO,

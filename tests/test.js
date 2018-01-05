@@ -13,6 +13,7 @@ import {
     convertRiverActions,
     convertTurnCards,
     convertRiverCards,
+    convertPotInfo,
 } from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
@@ -137,6 +138,16 @@ Player#3699: calls $2.32\n"
             assert.equal(
                 convertRiverCards(hand),
                 '[9d Kc Td] [6c] [2s]'
+            );
+        });
+    });
+
+    describe('#convertPotInfo()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                convertPotInfo(hand),
+                'Total pot $9.76 | Rake $0.48'
             );
         });
     });
