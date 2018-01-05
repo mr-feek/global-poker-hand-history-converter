@@ -9,6 +9,7 @@ ${convertBlindsPosted(hand)}
 ${convertHoleCards(hand)}
 ${convertPreFlopActions(hand)}
 *** FLOP *** ${convertFlopCards(hand)}
+${converFlopActions(hand)}
     `;
 }
 
@@ -55,6 +56,14 @@ export function convertPreFlopActions(hand) {
      */
     let output = '';
     hand.preFlopActions.forEach((action) => {
+        output += `${action.playerName}: ${action.action}\n`;
+    });
+    return output;
+}
+
+export function convertFlopActions(hand) {
+    let output = '';
+    hand.flopActions.forEach((action) => {
         output += `${action.playerName}: ${action.action}\n`;
     });
     return output;

@@ -8,6 +8,7 @@ import {
     convertPreFlopActions,
     convertHoleCards,
     convertFlopCards,
+    convertFlopActions,
 } from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
@@ -55,6 +56,18 @@ Seat 4: Player#4531 ($2.11 in chips)\n"
 "Player#4531: calls $0.04\n\
 mr_feek: calls $0.02\n\
 Player#3699: checks\n"
+            );
+        });
+    });
+
+    describe('#convertFlopActions()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                convertFlopActions(hand),
+"mr_feek: raises $0.12\n\
+Player#3699: calls $0.12\n\
+Player#4531: calls $0.12\n"
             );
         });
     });

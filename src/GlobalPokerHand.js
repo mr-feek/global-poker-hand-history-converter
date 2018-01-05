@@ -145,6 +145,17 @@ export default class GlobalPokerHand {
         return this.parseHandEvents(preFlopEvents);
     }
 
+    get flopActions() {
+        let events = this.handData.events;
+
+        let flopCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
+
+        let slicedLeft = events.slice(flopCardsDealtIndex + 1);
+        let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
+
+        return this.parseHandEvents(sliced);
+    }
+
     getPlayerNameById(playerId) {
         return this.handData.seats.find(seat =>  seat.playerId === playerId).name;
     }
@@ -163,6 +174,13 @@ export default class GlobalPokerHand {
                 case 'MUCK_CARDS': {
                     event.action = 'folds';
                     break;
+                }
+                case 'BET': {
+                    event.action = `raises $${event.amount.amount}`;
+                    break;
+                }
+                default: {
+                    throw `unknown action ${event.action}`;
                 }
             }
 
