@@ -1,5 +1,5 @@
 export function convertHand(hand) {
-    let outputParts = [
+    const outputParts = [
         convertTitle(hand),
         convertDescription(hand),
         convertPlayerStartingChips(hand),
@@ -44,7 +44,7 @@ export function convertHand(hand) {
         convertPlayerSummary(hand),
     );
 
-    return outputParts.filter((part) => part !== '').join('\n');
+    return outputParts.filter(part => part !== '').join('\n');
 }
 
 export function convertTitle(hand) {
@@ -58,9 +58,7 @@ export function convertDescription(hand) {
 }
 
 export function convertPlayerStartingChips(hand) {
-    return hand.players.map((player) => {
-        return `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)`;
-    }).join('\n');
+    return hand.players.map(player => `Seat ${player.seatId}: ${player.name} ($${player.initialBalance} in chips)`).join('\n');
 }
 
 export function convertBlindsPosted(hand) {
@@ -85,8 +83,8 @@ export function convertRiverCards(hand) {
 }
 
 export function convertFinalBoard(hand) {
-    let riverCards = convertRiverCards(hand);
-    let replaced = riverCards.replace(/[\[\]]+/gi, '');
+    const riverCards = convertRiverCards(hand);
+    const replaced = riverCards.replace(/[\[\]]+/gi, '');
     return `Board [${replaced}]`;
 }
 
@@ -107,9 +105,7 @@ export function convertRiverActions(hand) {
 }
 
 function buildOutputForActions(actions) {
-    return actions.map((action) => {
-        return `${action.playerName}: ${action.action}`;
-    }).join('\n');
+    return actions.map(action => `${action.playerName}: ${action.action}`).join('\n');
 }
 
 export function convertPotInfo(hand) {
@@ -118,9 +114,7 @@ export function convertPotInfo(hand) {
 }
 
 export function convertCardsShown(hand) {
-    return hand.cardsShown.map((object) => {
-        return `${object.playerName} shows [${object.cards}] (a hand...)`;
-    }).join('\n');
+    return hand.cardsShown.map(object => `${object.playerName} shows [${object.cards}] (a hand...)`).join('\n');
 }
 
 export function convertPlayerSummary(hand) {
@@ -130,9 +124,9 @@ export function convertPlayerSummary(hand) {
         if (object.netWin > 0) {
             output += `and won ${object.totalWin}`;
         } else {
-            output += `and lost with (a hand...)`;
+            output += 'and lost with (a hand...)';
         }
 
         return output;
-    }).join('\n')
+    }).join('\n');
 }

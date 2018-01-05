@@ -2,7 +2,6 @@ import moment from 'moment';
 import { CARDS, SUITS } from './PokerStars';
 
 export default class GlobalPokerHand {
-
     constructor(handData) {
         this._handData = handData;
 
@@ -10,46 +9,46 @@ export default class GlobalPokerHand {
         this.smallBlind = this.handData.settings.smallBlind;
         this.bigBlind = this.handData.settings.bigBlind;
 
-        this.smallBlindPlayerName = this.getPlayerNameById(this.handData.events.find((event) => event.action === 'SMALL_BLIND').playerId);
-        this.bigBlindPlayerName = this.getPlayerNameById(this.handData.events.find((event) => event.action === 'BIG_BLIND').playerId);
+        this.smallBlindPlayerName = this.getPlayerNameById(this.handData.events.find(event => event.action === 'SMALL_BLIND').playerId);
+        this.bigBlindPlayerName = this.getPlayerNameById(this.handData.events.find(event => event.action === 'BIG_BLIND').playerId);
 
-        let timestamp = this.handData.startTime;
+        const timestamp = this.handData.startTime;
 
         // 2014/01/06 7:47:13 ET
-        this.timePlayed = moment(timestamp).format('YYYY/MM/DD h:m:s') + ' ET'; // todo: time zone
+        this.timePlayed = `${moment(timestamp).format('YYYY/MM/DD h:m:s')} ET`; // todo: time zone
 
         this.tableName = this.handData.table.tableName;
         this.minBuyIn = 40; // todo
         this.maxBuyIn = 100; // todo
         this.maxSeats = this.handData.settings.capacity;
 
-        let buttonPlayerId = this.handData.events.filter(event => event.type === 'PlayerCardsDealt')[2].playerId;
+        const buttonPlayerId = this.handData.events.filter(event => event.type === 'PlayerCardsDealt')[2].playerId;
         this.buttonSeatNumber = this.handData.seats.find(seat => seat.playerId === buttonPlayerId).seatId + 1;
 
         this.totalPot = this.handData.results.transfers[0].pot.potSize; // todo: side pots?
         this.totalRake = this.handData.results.totalRake;
 
         this.cardsMap = {
-            'ACE': CARDS.ACE,
-            'TWO': CARDS.TWO,
-            'THREE': CARDS.THREE,
-            'FOUR': CARDS.FOUR,
-            'FIVE': CARDS.FIVE,
-            'SIX': CARDS.SIX,
-            'SEVEN': CARDS.SEVEN,
-            'EIGHT': CARDS.EIGHT,
-            'NINE': CARDS.NINE,
-            'TEN': CARDS.TEN,
-            'JACK': CARDS.JACK,
-            'QUEEN': CARDS.QUEEN,
-            'KING': CARDS.KING,
+            ACE: CARDS.ACE,
+            TWO: CARDS.TWO,
+            THREE: CARDS.THREE,
+            FOUR: CARDS.FOUR,
+            FIVE: CARDS.FIVE,
+            SIX: CARDS.SIX,
+            SEVEN: CARDS.SEVEN,
+            EIGHT: CARDS.EIGHT,
+            NINE: CARDS.NINE,
+            TEN: CARDS.TEN,
+            JACK: CARDS.JACK,
+            QUEEN: CARDS.QUEEN,
+            KING: CARDS.KING,
         };
 
         this.suitsMap = {
-            'SPADES': SUITS.SPADES,
-            'CLUBS': SUITS.CLUBS,
-            'HEARTS': SUITS.HEARTS,
-            'DIAMONDS': SUITS.DIAMONDS,
+            SPADES: SUITS.SPADES,
+            CLUBS: SUITS.CLUBS,
+            HEARTS: SUITS.HEARTS,
+            DIAMONDS: SUITS.DIAMONDS,
         };
     }
 
@@ -80,32 +79,30 @@ export default class GlobalPokerHand {
      *
      */
     get players() {
-        return this.handData.seats.map(seat => {
+        return this.handData.seats.map((seat) => {
             seat.seatId++;
             return seat;
         });
     }
 
     get holeCards() {
-        let event = this.handData.events.find((event) => {
-            return event.type === 'PlayerCardsDealt' && event.cards[0].suit && event.cards[0].rank;
-        });
+        const event = this.handData.events.find(event => event.type === 'PlayerCardsDealt' && event.cards[0].suit && event.cards[0].rank);
 
         return this.convertCards(event.cards);
     }
 
     get flopCards() {
-        let event = this.handData.events.find(event => event.type === 'TableCardsDealt');
+        const event = this.handData.events.find(event => event.type === 'TableCardsDealt');
         return this.convertCards(event.cards);
     }
 
     get turnCard() {
-        let cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterFlopCardsDealt());
+        const cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterFlopCardsDealt());
         return this.convertCard(cardEvent.cards[0]);
     }
 
     get riverCard() {
-        let cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterTurnCardDealt());
+        const cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterTurnCardDealt());
         return this.convertCard(cardEvent.cards[0]);
     }
 
@@ -114,15 +111,13 @@ export default class GlobalPokerHand {
     }
 
     convertCards(cards) {
-        return cards.map((card) => {
-            return this.convertCard(card);
-        }).join(' ');
+        return cards.map(card => this.convertCard(card)).join(' ');
     }
 
     // converts a global poker hand to a poker stars hand. belongs in converter but im lazy
     convertCard(card) {
-        let number = this.cardsMap[card.rank];
-        let suit = this.suitsMap[card.suit];
+        const number = this.cardsMap[card.rank];
+        const suit = this.suitsMap[card.suit];
 
         return `${number}${suit}`;
     }
@@ -157,57 +152,57 @@ export default class GlobalPokerHand {
        balanceAfterAction: 9.5 } ]
      */
     get preFlopActions() {
-        let events = this.handData.events;
+        const events = this.handData.events;
 
-        let lastCardDealtIndex = events.length -1 - events.slice().reverse().findIndex(event => event.type === 'PlayerCardsDealt');
+        const lastCardDealtIndex = events.length - 1 - events.slice().reverse().findIndex(event => event.type === 'PlayerCardsDealt');
 
-        let preFlopEvents = events.slice(
+        const preFlopEvents = events.slice(
             lastCardDealtIndex + 1,
-            events.findIndex(event => event.type === 'PotUpdate')
+            events.findIndex(event => event.type === 'PotUpdate'),
         );
 
         return this.parseHandEvents(preFlopEvents);
     }
 
     get flopActions() {
-        let slicedLeft = this.getActionsAfterFlopCardsDealt();
-        let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
+        const slicedLeft = this.getActionsAfterFlopCardsDealt();
+        const sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
 
         return this.parseHandEvents(sliced);
     }
 
     get turnActions() {
-        let slicedLeft = this.getActionsAfterTurnCardDealt();
-        let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
+        const slicedLeft = this.getActionsAfterTurnCardDealt();
+        const sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
         return this.parseHandEvents(sliced);
     }
 
     get riverActions() {
-        let slicedLeft = this.getActionsAfterRiverCardDealt();
-        let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
+        const slicedLeft = this.getActionsAfterRiverCardDealt();
+        const sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
         return this.parseHandEvents(sliced);
     }
 
     getActionsAfterFlopCardsDealt() {
-        let events = this.handData.events;
-        let flopCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
+        const events = this.handData.events;
+        const flopCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
         return events.slice(flopCardsDealtIndex + 1);
     }
 
     getActionsAfterTurnCardDealt() {
-        let events = this.getActionsAfterFlopCardsDealt();
-        let turnCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
+        const events = this.getActionsAfterFlopCardsDealt();
+        const turnCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
         return events.slice(turnCardsDealtIndex + 1);
     }
 
     getActionsAfterRiverCardDealt() {
-        let events = this.getActionsAfterTurnCardDealt();
-        let riverCardDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
+        const events = this.getActionsAfterTurnCardDealt();
+        const riverCardDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
         return events.slice(riverCardDealtIndex + 1);
     }
 
     getPlayerNameById(playerId) {
-        return this.handData.seats.find(seat =>  seat.playerId === playerId).name;
+        return this.handData.seats.find(seat => seat.playerId === playerId).name;
     }
 
     parseHandEvents(handActions) {
@@ -218,55 +213,55 @@ export default class GlobalPokerHand {
         return handActions.map((event) => {
             let action = '';
 
-            switch(event.action) {
-                case 'CALL':
-                    action = `calls $${event.amount.amount}`;
+            switch (event.action) {
+            case 'CALL':
+                action = `calls $${event.amount.amount}`;
 
-                    if (event.balanceAfterAction < 0) {
-                        action += 'and is all-in';
-                    }
+                if (event.balanceAfterAction < 0) {
+                    action += 'and is all-in';
+                }
 
-                    event.action = action;
-                    break;
-                case 'CHECK':
-                    event.action = 'checks';
-                    break;
-                case 'FOLD':
-                    event.action = 'folds';
-                    break;
-                case 'MUCK_CARDS':
-                    // todo what does poker stars say when hand isn't shown at showdown?
-                    event.action = 'mucks';
-                    break;
-                case 'RAISE':
-                    totalBetAmount = event.amount.amount;
-                    raiseAmount = (totalBetAmount - previousBet).toFixed(2);
-                    action = `raises $${raiseAmount} to $${totalBetAmount}`;
-                    previousBet = totalBetAmount;
+                event.action = action;
+                break;
+            case 'CHECK':
+                event.action = 'checks';
+                break;
+            case 'FOLD':
+                event.action = 'folds';
+                break;
+            case 'MUCK_CARDS':
+                // todo what does poker stars say when hand isn't shown at showdown?
+                event.action = 'mucks';
+                break;
+            case 'RAISE':
+                totalBetAmount = event.amount.amount;
+                raiseAmount = (totalBetAmount - previousBet).toFixed(2);
+                action = `raises $${raiseAmount} to $${totalBetAmount}`;
+                previousBet = totalBetAmount;
 
-                    if (event.balanceAfterAction < 0) {
-                        action += 'and is all-in';
-                    }
+                if (event.balanceAfterAction < 0) {
+                    action += 'and is all-in';
+                }
 
-                    event.action = action;
-                    break;
-                case 'BET':
-                    totalBetAmount = event.amount.amount;
-                    action = `bets $${totalBetAmount}`;
-                    previousBet = totalBetAmount;
+                event.action = action;
+                break;
+            case 'BET':
+                totalBetAmount = event.amount.amount;
+                action = `bets $${totalBetAmount}`;
+                previousBet = totalBetAmount;
 
-                    if (event.balanceAfterAction < 0) {
-                        action += 'and is all-in';
-                    }
+                if (event.balanceAfterAction < 0) {
+                    action += 'and is all-in';
+                }
 
-                    event.action = action;
-                    break;
-                case 'TIME_BANK':
-                    // todo what does poker stars say when hand isn't shown at showdown?
-                    event.action = 'UNKNOWN';
-                    break;
-                default:
-                    throw `unknown action ${event.action}`;
+                event.action = action;
+                break;
+            case 'TIME_BANK':
+                // todo what does poker stars say when hand isn't shown at showdown?
+                event.action = 'UNKNOWN';
+                break;
+            default:
+                throw `unknown action ${event.action}`;
             }
 
             event.playerName = this.getPlayerNameById(event.playerId);
@@ -279,29 +274,27 @@ export default class GlobalPokerHand {
      */
     get cardsShown() {
         return this.handData.events
-            .filter((event) => event.type === 'PlayerCardsExposed')
-            .map((event) => {
-                return {
-                    playerName: this.getPlayerNameById(event.playerId),
-                    cards: this.convertCards(event.cards),
-                };
-            });
+            .filter(event => event.type === 'PlayerCardsExposed')
+            .map(event => ({
+                playerName: this.getPlayerNameById(event.playerId),
+                cards: this.convertCards(event.cards),
+            }));
     }
 
     get madeItToFlop() {
-        return this.handData.events.filter((event) => event.type === 'TableCardsDealt').length >= 1;
+        return this.handData.events.filter(event => event.type === 'TableCardsDealt').length >= 1;
     }
 
     get madeItToTurn() {
-        return this.handData.events.filter((event) => event.type === 'TableCardsDealt').length >= 2;
+        return this.handData.events.filter(event => event.type === 'TableCardsDealt').length >= 2;
     }
 
     get madeItToRiver() {
-        return this.handData.events.filter((event) => event.type === 'TableCardsDealt').length >= 3;
+        return this.handData.events.filter(event => event.type === 'TableCardsDealt').length >= 3;
     }
 
     get madeItToShowDown() {
-        return !!this.handData.events.find((event) => event.type === 'ShowDownSummary');
+        return !!this.handData.events.find(event => event.type === 'ShowDownSummary');
     }
 
     /**
@@ -309,15 +302,13 @@ export default class GlobalPokerHand {
      * @return {Array} { playerName: '', totalWin: 10.00, netWin: 5.00 }
      */
     get playerSummaries() {
-        let results = Array.from(Object.values(this.handData.results.results));
+        const results = Array.from(Object.values(this.handData.results.results));
 
-        return results.map((result) => {
-            return {
-                seatNumber: this.players.find((player) => player.playerId === result.playerId).seatId,
-                playerName: this.getPlayerNameById(result.playerId),
-                totalWin: result.totalWin, // total pot awarded
-                netWin: result.netWin, // money won in this hand
-            }
-        });
+        return results.map(result => ({
+            seatNumber: this.players.find(player => player.playerId === result.playerId).seatId,
+            playerName: this.getPlayerNameById(result.playerId),
+            totalWin: result.totalWin, // total pot awarded
+            netWin: result.netWin, // money won in this hand
+        }));
     }
 }

@@ -1,7 +1,7 @@
-let assert = require('assert');
+const assert = require('assert');
 
 import {
-    convertHand
+    convertHand,
 } from '../src/Converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 

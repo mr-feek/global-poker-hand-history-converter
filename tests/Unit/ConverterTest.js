@@ -1,5 +1,5 @@
 
-let assert = require('assert');
+const assert = require('assert');
 
 import {
     convertTitle,
@@ -42,9 +42,9 @@ describe('Converter', () => {
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertPlayerStartingChips(hand),
-"Seat 1: mr_feek ($4.8 in chips)\n\
+                'Seat 1: mr_feek ($4.8 in chips)\n\
 Seat 3: Player#3699 ($9.54 in chips)\n\
-Seat 4: Player#4531 ($2.11 in chips)"
+Seat 4: Player#4531 ($2.11 in chips)',
             );
         });
     });
@@ -54,8 +54,8 @@ Seat 4: Player#4531 ($2.11 in chips)"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertBlindsPosted(hand),
-"mr_feek: posts small blind $0.02\n\
-Player#3699: posts big blind $0.04"
+                'mr_feek: posts small blind $0.02\n\
+Player#3699: posts big blind $0.04',
             );
         });
     });
@@ -65,21 +65,22 @@ Player#3699: posts big blind $0.04"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertPreFlopActions(hand),
-"Player#4531: calls $0.04\n\
+                'Player#4531: calls $0.04\n\
 mr_feek: calls $0.02\n\
-Player#3699: checks"
+Player#3699: checks',
             );
         });
 
         it('determinesRaiseAmountsOverBlinds', () => {
             const hand = new GlobalPokerHand(CashHandWithPreFlopRaisesFixture);
-            assert.equal(convertPreFlopActions(hand),
-"mr_feek: raises $0.08 to $0.12\n\
+            assert.equal(
+                convertPreFlopActions(hand),
+                'mr_feek: raises $0.08 to $0.12\n\
 Player#7442: folds\n\
 Player#6503: calls $0.1\n\
 Player#8836: raises $0.36 to $0.48\n\
 mr_feek: calls $0.36\n\
-Player#6503: folds"
+Player#6503: folds',
             );
         });
     });
@@ -89,9 +90,9 @@ Player#6503: folds"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertFlopActions(hand),
-"mr_feek: bets $0.12\n\
+                'mr_feek: bets $0.12\n\
 Player#3699: calls $0.12\n\
-Player#4531: calls $0.12"
+Player#4531: calls $0.12',
             );
         });
     });
@@ -101,9 +102,9 @@ Player#4531: calls $0.12"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertTurnActions(hand),
-"mr_feek: bets $0.48\n\
+                'mr_feek: bets $0.48\n\
 Player#3699: calls $0.48\n\
-Player#4531: folds"
+Player#4531: folds',
             );
         });
     });
@@ -113,10 +114,10 @@ Player#4531: folds"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertRiverActions(hand),
-"mr_feek: bets $0.72\n\
+                'mr_feek: bets $0.72\n\
 Player#3699: raises $1.12 to $1.84\n\
 mr_feek: raises $2.32 to $4.16\n\
-Player#3699: calls $2.32"
+Player#3699: calls $2.32',
             );
         });
     });
@@ -126,7 +127,7 @@ Player#3699: calls $2.32"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertHoleCards(hand),
-                '[Jh Qc]'
+                '[Jh Qc]',
             );
         });
     });
@@ -136,7 +137,7 @@ Player#3699: calls $2.32"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertFlopCards(hand),
-                '[9d Kc Td]'
+                '[9d Kc Td]',
             );
         });
     });
@@ -146,7 +147,7 @@ Player#3699: calls $2.32"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertTurnCards(hand),
-                '[9d Kc Td] [6c]'
+                '[9d Kc Td] [6c]',
             );
         });
     });
@@ -156,7 +157,7 @@ Player#3699: calls $2.32"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertRiverCards(hand),
-                '[9d Kc Td] [6c] [2s]'
+                '[9d Kc Td] [6c] [2s]',
             );
         });
     });
@@ -166,7 +167,7 @@ Player#3699: calls $2.32"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertPotInfo(hand),
-                'Total pot $9.76 | Rake $0.48'
+                'Total pot $9.76 | Rake $0.48',
             );
         });
     });
@@ -176,7 +177,7 @@ Player#3699: calls $2.32"
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertFinalBoard(hand),
-                'Board [9d Kc Td 6c 2s]'
+                'Board [9d Kc Td 6c 2s]',
             );
         });
     });
