@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { CARDS, SUITS } from './PokerStars';
+import { CARDS, SUITS, HAND_VALUES } from './PokerStars';
 
 export default class GlobalPokerHand {
     constructor(handData) {
@@ -41,6 +41,11 @@ export default class GlobalPokerHand {
             CLUBS: SUITS.CLUBS,
             HEARTS: SUITS.HEARTS,
             DIAMONDS: SUITS.DIAMONDS,
+        };
+
+        this.handTypeMap = {
+            STRAIGHT: HAND_VALUES.STRAIGHT,
+            PAIR: HAND_VALUES.PAIR,
         };
     }
 
@@ -337,6 +342,7 @@ export default class GlobalPokerHand {
             .map(event => ({
                 playerName: this.getPlayerNameById(event.playerId),
                 cards: this.convertCards(event.cards),
+                handType: this.getPlayerHandType(event.playerId),
             }));
     }
 
@@ -368,9 +374,11 @@ export default class GlobalPokerHand {
             const cardsShownObject = this.cardsShown.find(player => player.playerName === playerName);
 
             let cardsShown;
+            let handType = 'hand';
 
             if (cardsShownObject) {
                 cardsShown = cardsShownObject.cards;
+                handType = cardsShownObject.handType;
             }
 
             return {
@@ -379,7 +387,16 @@ export default class GlobalPokerHand {
                 cardsShown,
                 totalWin: result.totalWin, // total pot awarded
                 netWin: result.netWin, // money won in this hand
+                handType
             }
         });
+    }
+
+    getPlayerHandType(playerId) {
+        const event = this.handData.events.filter(event => event.type === 'PlayerBestHand').find(event => event.playerHand.playerId === playerId);
+        if (!event) {
+            return 'hand';
+        }
+        return this.handTypeMap[event.handInfoCommon.handType];
     }
 }

@@ -38,13 +38,13 @@ Player#3699: raises $1.12 to $1.84\n\
 mr_feek: raises $2.32 to $4.16\n\
 Player#3699: calls $2.32\n\
 *** SHOW DOWN ***\n\
-mr_feek: shows [Jh Qc] (a hand...)\n\
+mr_feek: shows [Jh Qc] (a straight)\n\
 *** SUMMARY ***\n\
 Total pot $9.76 | Rake $0.48\n\
 Board [9d Kc Td 6c 2s]\n\
 Seat 3: Player#3699 folded\n\
 Seat 4: Player#4531 folded\n\
-Seat 1: mr_feek showed [Jh Qc] and won ($9.28) with (a hand...)";
+Seat 1: mr_feek showed [Jh Qc] and won ($9.28) with a straight";
             const hand = new GlobalPokerHand(fixture);
             assert.equal(convertHand(hand), expected);
         });
@@ -77,13 +77,13 @@ Player#5079: calls $0.7\n\
 *** TURN *** [5s 8h 7s] [9d]\n\
 *** RIVER *** [5s 8h 7s] [9d] [2d]\n\
 *** SHOW DOWN ***\n\
-Player#5079: shows [Ts 8c] (a hand...)\n\
-Player#8807: shows [6h Qh] (a hand...)\n\
+Player#5079: shows [Ts 8c] (a pair)\n\
+Player#8807: shows [6h Qh] (a straight)\n\
 *** SUMMARY ***\n\
 Total pot $4.2 | Rake $0.21\n\
 Board [5s 8h 7s 9d 2d]\n\
-Seat 3: Player#5079 showed [Ts 8c] and lost with (a hand...)\n\
-Seat 6: Player#8807 showed [6h Qh] and won ($3.99) with (a hand...)\n\
+Seat 3: Player#5079 showed [Ts 8c] and lost with a pair\n\
+Seat 6: Player#8807 showed [6h Qh] and won ($3.99) with a straight\n\
 Seat 4: Player#9470 folded\n\
 Seat 1: mr_feek folded";
             const hand = new GlobalPokerHand(CashHandEndingAtTurn);

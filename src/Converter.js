@@ -82,7 +82,7 @@ export function convertPotInfo(hand) {
 }
 
 export function convertCardsShown(hand) {
-    return hand.cardsShown.map(object => `${object.playerName}: shows [${object.cards}] (a hand...)`).join('\n');
+    return hand.cardsShown.map(object => `${object.playerName}: shows [${object.cards}] (a ${object.handType})`).join('\n');
 }
 
 export function convertPlayerSummary(hand) {
@@ -91,15 +91,14 @@ export function convertPlayerSummary(hand) {
 
         if (object.cardsShown) {
             output += `showed [${object.cardsShown}] `;
-            // todo: hand valuation
             if (object.netWin > 0) {
-                output += `and won ($${object.totalWin}) with (a hand...)`;
+                output += `and won ($${object.totalWin}) with a ${object.handType}`;
             } else {
-                output += 'and lost with (a hand...)';
+                output += `and lost with a ${object.handType}`;
             }
         } else {
             if (object.netWin > 0) {
-                output += `won ($${object.totalWin}) with (a hand...)`;
+                output += `won ($${object.totalWin}) with a ${object.handType}`;
             } else {
                 // todo: what street folded on
                 output += 'folded';

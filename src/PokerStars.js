@@ -20,3 +20,8 @@ export const SUITS = {
     HEARTS: 'h',
     DIAMONDS: 'd',
 };
+
+export const HAND_VALUES = {
+    PAIR: 'pair',
+    STRAIGHT: 'straight',
+};
