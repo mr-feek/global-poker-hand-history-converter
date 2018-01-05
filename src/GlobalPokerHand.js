@@ -89,6 +89,14 @@ export default class GlobalPokerHand {
         return this.convertCards(event.cards);
     }
 
+    get turnCard() {
+        let flopCardsDealtIndex = this.handData.events.findIndex(event => event.type === 'TableCardsDealt') + 1;
+        let sliced = this.handData.events.slice(flopCardsDealtIndex);
+        let turnCardEvent = sliced.find(event => event.type === 'TableCardsDealt');
+
+        return this.convertCard(turnCardEvent.cards[0]);
+    }
+
     convertCards(cards) {
         return cards.map((card) => {
             return this.convertCard(card);

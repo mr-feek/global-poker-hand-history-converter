@@ -9,6 +9,7 @@ import {
     convertHoleCards,
     convertFlopCards,
     convertFlopActions,
+    convertTurnCards
 } from '../src/converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 
@@ -89,6 +90,16 @@ Player#4531: calls $0.12\n"
             assert.equal(
                 convertFlopCards(hand),
                 '[9d Kc Td]'
+            );
+        });
+    });
+
+    describe('#convertTurnCards()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                convertTurnCards(hand),
+                '[9d Kc Td] [6c]'
             );
         });
     });

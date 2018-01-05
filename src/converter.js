@@ -9,7 +9,8 @@ ${convertBlindsPosted(hand)}
 ${convertHoleCards(hand)}
 ${convertPreFlopActions(hand)}
 *** FLOP *** ${convertFlopCards(hand)}
-${converFlopActions(hand)}
+${convertFlopActions(hand)}
+*** TURN *** ${convertTurnCards(hand)}
     `;
 }
 
@@ -43,6 +44,10 @@ export function convertHoleCards(hand) {
 
 export function convertFlopCards(hand) {
     return `[${hand.flopCards}]`;
+}
+
+export function convertTurnCards(hand) {
+    return `${convertFlopCards(hand)} [${hand.turnCard}]`;
 }
 
 export function convertPreFlopActions(hand) {
