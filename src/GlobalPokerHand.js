@@ -348,11 +348,23 @@ export default class GlobalPokerHand {
     get playerSummaries() {
         const results = Array.from(Object.values(this.handData.results.results));
 
-        return results.map(result => ({
-            seatNumber: this.players.find(player => player.playerId === result.playerId).seatId,
-            playerName: this.getPlayerNameById(result.playerId),
-            totalWin: result.totalWin, // total pot awarded
-            netWin: result.netWin, // money won in this hand
-        }));
+        return results.map(result => {
+            const playerName = this.getPlayerNameById(result.playerId);
+            const cardsShownObject = this.cardsShown.find(player => player.playerName === playerName);
+
+            let cardsShown;
+
+            if (cardsShownObject) {
+                cardsShown = cardsShownObject.cards;
+            }
+
+            return {
+                seatNumber: this.players.find(player => player.playerId === result.playerId).seatId,
+                playerName,
+                cardsShown,
+                totalWin: result.totalWin, // total pot awarded
+                netWin: result.netWin, // money won in this hand
+            }
+        });
     }
 }

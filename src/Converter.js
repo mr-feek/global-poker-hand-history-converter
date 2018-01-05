@@ -84,12 +84,19 @@ export function convertCardsShown(hand) {
 
 export function convertPlayerSummary(hand) {
     return hand.playerSummaries.map((object) => {
-        let output = `Seat ${object.seatNumber}: ${object.playerName} showed (a hand...) `;
+        let output = `Seat ${object.seatNumber}: ${object.playerName} `;
 
-        if (object.netWin > 0) {
-            output += `and won ($${object.totalWin})`;
+        if (object.cardsShown) {
+            output += `showed [${object.cardsShown}] `;
+            // todo: hand valuation
+            if (object.netWin > 0) {
+                output += `and won ($${object.totalWin}) with (a hand...)`;
+            } else {
+                output += 'and lost with (a hand...)';
+            }
         } else {
-            output += 'and lost with (a hand...)';
+            // todo: what street folded on
+            output += 'folded';
         }
 
         return output;
