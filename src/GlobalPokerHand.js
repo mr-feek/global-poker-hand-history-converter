@@ -4,7 +4,7 @@ import { CARDS, SUITS } from './PokerStars';
 export default class GlobalPokerHand {
 
     constructor(handData) {
-        this.handData = handData;
+        this._handData = handData;
 
         this.handId = handData.id;
         this.smallBlind = handData.settings.smallBlind;
@@ -48,6 +48,10 @@ export default class GlobalPokerHand {
             'HEARTS': SUITS.HEARTS,
             'DIAMONDS': SUITS.DIAMONDS,
         };
+    }
+
+    get handData() {
+        return JSON.parse(JSON.stringify(this._handData));
     }
 
     /**
