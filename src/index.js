@@ -11,4 +11,4 @@ const converted = handHistories.map((handHistoryBlob) => {
     return convertHand(new GlobalPokerHand(handHistoryBlob));
 });
 
-fs.writeFileSync(OUTPUT_FILE_LOCATION, converted.join('\n'), 'utf8');
+fs.writeFileSync(OUTPUT_FILE_LOCATION, converted.join('\n\n\n'), 'utf8');
