@@ -274,6 +274,20 @@ export default class GlobalPokerHand {
         }).filter(event => event.action !== 'UNKNOWN');
     }
 
+    /**
+     * @return Array { playerName: '', cards: 'Ah Th' }
+     */
+    get cardsShown() {
+        return this.handData.events
+            .filter((event) => event.type === 'PlayerCardsExposed')
+            .map((event) => {
+                return {
+                    playerName: this.getPlayerNameById(event.playerId),
+                    cards: this.convertCards(event.cards),
+                };
+            });
+    }
+
     get madeItToFlop() {
         return this.handData.events.filter((event) => event.type === 'TableCardsDealt').length >= 1;
     }
@@ -284,5 +298,9 @@ export default class GlobalPokerHand {
 
     get madeItToRiver() {
         return this.handData.events.filter((event) => event.type === 'TableCardsDealt').length >= 3;
+    }
+
+    get madeItToShowDown() {
+        return !!this.handData.events.find((event) => event.type === 'ShowDownSummary');
     }
 }

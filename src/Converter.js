@@ -30,6 +30,13 @@ export function convertHand(hand) {
         );
     }
 
+    if (hand.madeItToShowDown) {
+        outputParts.push(
+            '*** SHOW DOWN ***',
+            convertCardsShown(hand),
+        );
+    }
+
     outputParts.push(
         '*** SUMMARY ***',
         convertPotInfo(hand),
@@ -118,4 +125,12 @@ function buildOutputForActions(actions) {
 export function convertPotInfo(hand) {
     // Total pot $1.57 | Rake $0.07
     return `Total pot $${hand.totalPot} | Rake $${hand.totalRake}`;
+}
+
+export function convertCardsShown(hand) {
+    let parts = [];
+    hand.cardsShown.forEach((object) => {
+        parts.push(`${object.playerName} shows [${object.cards}] (a hand...)`);
+    });
+    return parts.join('\n');
 }
