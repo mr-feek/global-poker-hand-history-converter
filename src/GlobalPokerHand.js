@@ -173,6 +173,12 @@ export default class GlobalPokerHand {
         return this.parseHandEvents(sliced);
     }
 
+    get riverActions() {
+        let slicedLeft = this.getActionsAfterRiverCardDealt();
+        let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
+        return this.parseHandEvents(sliced);
+    }
+
     getActionsAfterFlopCardsDealt() {
         let events = this.handData.events;
         let flopCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
@@ -185,6 +191,12 @@ export default class GlobalPokerHand {
         return events.slice(turnCardsDealtIndex + 1);
     }
 
+    getActionsAfterRiverCardDealt() {
+        let events = this.getActionsAfterTurnCardDealt();
+        let riverCardDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
+        return events.slice(riverCardDealtIndex + 1);
+    }
+
     getPlayerNameById(playerId) {
         return this.handData.seats.find(seat =>  seat.playerId === playerId).name;
     }
@@ -192,34 +204,35 @@ export default class GlobalPokerHand {
     parseHandEvents(handActions) {
         return handActions.map((event) => {
             switch(event.action) {
-                case 'CALL': {
+                case 'CALL':
                     event.action = `calls $${event.amount.amount}`;
                     break;
-                }
-                case 'CHECK': {
+                case 'CHECK':
                     event.action = 'checks';
                     break;
-                }
-                case 'FOLD': {
+                case 'FOLD':
                     event.action = 'folds';
                     break;
-                }
-                case 'MUCK_CARDS': {
+                case 'MUCK_CARDS':
                     // todo what does poker stars say when hand isn't shown at showdown?
                     event.action = 'mucks';
                     break;
-                }
-                case 'BET': {
+                case 'RAISE':
                     event.action = `raises $${event.amount.amount}`;
                     break;
-                }
-                default: {
+                case 'BET':
+                    event.action = `raises $${event.amount.amount}`;
+                    break;
+                case 'TIME_BANK':
+                    // todo what does poker stars say when hand isn't shown at showdown?
+                    event.action = 'UNKNOWN';
+                    break;
+                default:
                     throw `unknown action ${event.action}`;
-                }
             }
 
             event.playerName = this.getPlayerNameById(event.playerId);
             return event;
-        });
+        }).filter(event => event.action !== 'UNKNOWN');
     }
 }

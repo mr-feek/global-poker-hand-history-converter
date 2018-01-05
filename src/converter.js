@@ -12,6 +12,7 @@ ${convertFlopActions(hand)}
 *** TURN *** ${convertTurnCards(hand)}
 ${convertTurnActions(hand)}
 *** RIVER *** ${convertRiverCards(hand)}
+${convertRiverActions(hand)}
     `;
 }
 
@@ -56,14 +57,6 @@ export function convertRiverCards(hand) {
 }
 
 export function convertPreFlopActions(hand) {
-    /**
-     * UTG: folds
-     UTG+1: folds
-     UTG+2: folds
-     Hero: raises $0.07 to $0.12
-     Small Blind: calls $0.10
-     * @type {string}
-     */
     let output = '';
     hand.preFlopActions.forEach((action) => {
         output += `${action.playerName}: ${action.action}\n`;
@@ -82,6 +75,14 @@ export function convertFlopActions(hand) {
 export function convertTurnActions(hand) {
     let output = '';
     hand.turnActions.forEach((action) => {
+        output += `${action.playerName}: ${action.action}\n`;
+    });
+    return output;
+}
+
+export function convertRiverActions(hand) {
+    let output = '';
+    hand.riverActions.forEach((action) => {
         output += `${action.playerName}: ${action.action}\n`;
     });
     return output;
