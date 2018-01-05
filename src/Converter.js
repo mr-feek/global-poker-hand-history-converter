@@ -40,9 +40,8 @@ export function convertPlayerStartingChips(hand) {
 }
 
 export function convertBlindsPosted(hand) {
-    // todo ensure blinds are actually posted
-    return `Small Blind: posts small blind $${hand.smallBlind}\n\
-Big Blind: posts big blind $${hand.bigBlind}`;
+    return `${hand.smallBlindPlayerName}: posts small blind $${hand.smallBlind}\n\
+${hand.bigBlindPlayerName}: posts big blind $${hand.bigBlind}`;
 }
 
 export function convertHoleCards(hand) {

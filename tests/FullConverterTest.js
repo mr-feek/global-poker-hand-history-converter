@@ -16,8 +16,8 @@ Table 'Odessa 40-100 bb' 6-max Seat #1 is the button\n\
 Seat 1: mr_feek ($4.8 in chips)\n\
 Seat 3: Player#3699 ($9.54 in chips)\n\
 Seat 4: Player#4531 ($2.11 in chips)\n\
-Small Blind: posts small blind $0.02\n\
-Big Blind: posts big blind $0.04\n\
+mr_feek: posts small blind $0.02\n\
+Player#3699: posts big blind $0.04\n\
 *** HOLE CARDS ***\n\
 [Jh Qc]\n\
 Player#4531: calls $0.04\n\

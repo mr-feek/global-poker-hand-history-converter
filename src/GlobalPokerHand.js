@@ -6,25 +6,28 @@ export default class GlobalPokerHand {
     constructor(handData) {
         this._handData = handData;
 
-        this.handId = handData.id;
-        this.smallBlind = handData.settings.smallBlind;
-        this.bigBlind = handData.settings.bigBlind;
+        this.handId = this.handData.id;
+        this.smallBlind = this.handData.settings.smallBlind;
+        this.bigBlind = this.handData.settings.bigBlind;
 
-        let timestamp = handData.startTime;
+        this.smallBlindPlayerName = this.getPlayerNameById(this.handData.events.find((event) => event.action === 'SMALL_BLIND').playerId);
+        this.bigBlindPlayerName = this.getPlayerNameById(this.handData.events.find((event) => event.action === 'BIG_BLIND').playerId);
+
+        let timestamp = this.handData.startTime;
 
         // 2014/01/06 7:47:13 ET
         this.timePlayed = moment(timestamp).format('YYYY/MM/DD h:m:s') + ' ET'; // todo: time zone
 
-        this.tableName = handData.table.tableName;
+        this.tableName = this.handData.table.tableName;
         this.minBuyIn = 40; // todo
         this.maxBuyIn = 100; // todo
-        this.maxSeats = handData.settings.capacity;
+        this.maxSeats = this.handData.settings.capacity;
 
-        let buttonPlayerId = handData.events.filter(event => event.type === 'PlayerCardsDealt')[2].playerId;
-        this.buttonSeatNumber = handData.seats.find(seat => seat.playerId === buttonPlayerId).seatId + 1;
+        let buttonPlayerId = this.handData.events.filter(event => event.type === 'PlayerCardsDealt')[2].playerId;
+        this.buttonSeatNumber = this.handData.seats.find(seat => seat.playerId === buttonPlayerId).seatId + 1;
 
-        this.totalPot = handData.results.transfers[0].pot.potSize; // todo: side pots?
-        this.totalRake = handData.results.totalRake;
+        this.totalPot = this.handData.results.transfers[0].pot.potSize; // todo: side pots?
+        this.totalRake = this.handData.results.totalRake;
 
         this.cardsMap = {
             'ACE': CARDS.ACE,

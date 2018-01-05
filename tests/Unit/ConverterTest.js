@@ -5,6 +5,7 @@ import {
     convertTitle,
     convertDescription,
     convertPlayerStartingChips,
+    convertBlindsPosted,
     convertPreFlopActions,
     convertHoleCards,
     convertFlopCards,
@@ -44,6 +45,17 @@ describe('Converter', () => {
 "Seat 1: mr_feek ($4.8 in chips)\n\
 Seat 3: Player#3699 ($9.54 in chips)\n\
 Seat 4: Player#4531 ($2.11 in chips)"
+            );
+        });
+    });
+
+    describe('#convertBlindsPosted()', () => {
+        it('works', () => {
+            const hand = new GlobalPokerHand(fixture);
+            assert.equal(
+                convertBlindsPosted(hand),
+"mr_feek: posts small blind $0.02\n\
+Player#3699: posts big blind $0.04"
             );
         });
     });
