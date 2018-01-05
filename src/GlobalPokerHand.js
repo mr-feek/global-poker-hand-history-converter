@@ -179,7 +179,6 @@ export default class GlobalPokerHand {
     get turnActions() {
         let slicedLeft = this.getActionsAfterTurnCardDealt();
         let sliced = slicedLeft.slice(0, slicedLeft.findIndex(event => event.type === 'PotUpdate'));
-
         return this.parseHandEvents(sliced);
     }
 
@@ -217,9 +216,17 @@ export default class GlobalPokerHand {
         let raiseAmount = 0;
 
         return handActions.map((event) => {
+            let action = '';
+
             switch(event.action) {
                 case 'CALL':
-                    event.action = `calls $${event.amount.amount}`;
+                    action = `calls $${event.amount.amount}`;
+
+                    if (event.balanceAfterAction < 0) {
+                        action += 'and is all-in';
+                    }
+
+                    event.action = action;
                     break;
                 case 'CHECK':
                     event.action = 'checks';
@@ -234,13 +241,25 @@ export default class GlobalPokerHand {
                 case 'RAISE':
                     totalBetAmount = event.amount.amount;
                     raiseAmount = (totalBetAmount - previousBet).toFixed(2);
-                    event.action = `raises $${raiseAmount} to $${totalBetAmount}`;
+                    action = `raises $${raiseAmount} to $${totalBetAmount}`;
                     previousBet = totalBetAmount;
+
+                    if (event.balanceAfterAction < 0) {
+                        action += 'and is all-in';
+                    }
+
+                    event.action = action;
                     break;
                 case 'BET':
                     totalBetAmount = event.amount.amount;
-                    event.action = `bets $${totalBetAmount}`;
+                    action = `bets $${totalBetAmount}`;
                     previousBet = totalBetAmount;
+
+                    if (event.balanceAfterAction < 0) {
+                        action += 'and is all-in';
+                    }
+
+                    event.action = action;
                     break;
                 case 'TIME_BANK':
                     // todo what does poker stars say when hand isn't shown at showdown?
