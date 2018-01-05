@@ -5,7 +5,7 @@ export default class GlobalPokerHand {
     constructor(handData) {
         this._handData = handData;
 
-        this.handId = this.handData.id;
+        this.handId = this.handData.startTime; // using the global poker handId uuid overflows PT4 db column
 
         const timestamp = this.handData.startTime;
 

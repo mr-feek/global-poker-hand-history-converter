@@ -11,7 +11,7 @@ describe('Converter', () => {
     describe('#convertHand()', () => {
         it('convertsCashHandMadeToRiverShowdown', () => {
             const expected = "\
-PokerStars Game #00d02b4c-8f1d-4fc4-8993-7ffe9758c177:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET\n\
+PokerStars Game #1515047411788:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET\n\
 Table 'Odessa 40-100 bb' 6-max Seat #1 is the button\n\
 Seat 1: mr_feek ($4.8 in chips)\n\
 Seat 3: Player#3699 ($9.54 in chips)\n\
@@ -43,14 +43,14 @@ Total pot $9.76 | Rake $0.48\n\
 Board [9d Kc Td 6c 2s]\n\
 Seat 3: Player#3699 showed (a hand...) and lost with (a hand...)\n\
 Seat 4: Player#4531 showed (a hand...) and lost with (a hand...)\n\
-Seat 1: mr_feek showed (a hand...) and won 9.28";
+Seat 1: mr_feek showed (a hand...) and won ($9.28)";
             const hand = new GlobalPokerHand(fixture);
             assert.equal(convertHand(hand), expected);
         });
 
         it('convertsCashHandEndingAtTurn', () => {
             const expected = "\
-PokerStars Game #3251a93a-013f-493e-a832-d24a73e4f37a:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:35:37 ET\n\
+PokerStars Game #1515047737811:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:35:37 ET\n\
 Table 'Odessa 40-100 bb' 6-max Seat #6 is the button\n\
 Seat 1: mr_feek ($11.31 in chips)\n\
 Seat 3: Player#5079 ($4.68 in chips)\n\

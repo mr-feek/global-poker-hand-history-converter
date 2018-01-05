@@ -24,7 +24,7 @@ describe('Converter', () => {
     describe('#convertTitle()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
-            assert.equal(convertTitle(hand), "PokerStars Game #00d02b4c-8f1d-4fc4-8993-7ffe9758c177:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET");
+            assert.equal(convertTitle(hand), "PokerStars Game #1515047411788:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET");
         });
     });
 
