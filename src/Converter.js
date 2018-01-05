@@ -95,8 +95,13 @@ export function convertPlayerSummary(hand) {
                 output += 'and lost with (a hand...)';
             }
         } else {
-            // todo: what street folded on
-            output += 'folded';
+            if (object.netWin > 0) {
+                output += `won ($${object.totalWin}) with (a hand...)`;
+            } else {
+                // todo: what street folded on
+                output += 'folded';
+            }
+
         }
 
         return output;
