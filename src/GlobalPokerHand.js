@@ -299,8 +299,8 @@ export default class GlobalPokerHand {
             case 'CALL':
                 action = `calls $${event.amount.amount}`;
 
-                if (event.balanceAfterAction < 0) {
-                    action += 'and is all-in';
+                if (event.balanceAfterAction <= 0) {
+                    action += ' and is all-in';
                 }
 
                 event.action = action;
@@ -320,8 +320,8 @@ export default class GlobalPokerHand {
                 action = `raises $${raiseAmount} to $${totalBetAmount}`;
                 previousBet = totalBetAmount;
 
-                if (event.balanceAfterAction < 0) {
-                    action += 'and is all-in';
+                if (event.balanceAfterAction <= 0) {
+                    action += ' and is all-in';
                 }
 
                 event.action = action;
@@ -339,8 +339,8 @@ export default class GlobalPokerHand {
                 action = `bets $${totalBetAmount}`;
                 previousBet = totalBetAmount;
 
-                if (event.balanceAfterAction < 0) {
-                    action += 'and is all-in';
+                if (event.balanceAfterAction <= 0) {
+                    action += ' and is all-in';
                 }
 
                 event.action = action;

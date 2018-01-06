@@ -37,7 +37,7 @@ Player#4531: folds\n\
 *** RIVER *** [9d Kc Td] [6c] [2s]\n\
 mr_feek: bets $0.72\n\
 Player#3699: raises $1.12 to $1.84\n\
-mr_feek: raises $2.32 to $4.16\n\
+mr_feek: raises $2.32 to $4.16 and is all-in\n\
 Player#3699: calls $2.32\n\
 *** SHOW DOWN ***\n\
 mr_feek: shows [Jh Qc] (a straight)\n\
@@ -74,7 +74,7 @@ Player#9470: checks\n\
 Player#8807: bets $0.56\n\
 Player#5079: raises $0.56 to $1.12\n\
 Player#9470: folds\n\
-Player#8807: raises $0.70 to $1.82\n\
+Player#8807: raises $0.70 to $1.82 and is all-in\n\
 Player#5079: calls $0.7\n\
 *** TURN *** [5s 8h 7s] [9d]\n\
 *** RIVER *** [5s 8h 7s] [9d] [2d]\n\

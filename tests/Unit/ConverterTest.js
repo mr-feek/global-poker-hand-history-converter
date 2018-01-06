@@ -120,7 +120,7 @@ Player#4531: folds',
                 convertRiverActions(hand),
                 'mr_feek: bets $0.72\n\
 Player#3699: raises $1.12 to $1.84\n\
-mr_feek: raises $2.32 to $4.16\n\
+mr_feek: raises $2.32 to $4.16 and is all-in\n\
 Player#3699: calls $2.32',
             );
         });
