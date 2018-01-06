@@ -85,7 +85,7 @@ export function convertPlayerSummary(hand) {
 
         if (object.cardsShown) {
             output += `showed [${object.cardsShown}] `;
-            if (object.netWin > 0) {
+            if (object.totalWin > 0) {
                 output += `and won ($${object.totalWin}) with a ${object.handType}`;
             } else {
                 output += `and lost with a ${object.handType}`;

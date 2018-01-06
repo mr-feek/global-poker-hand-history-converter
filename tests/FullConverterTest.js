@@ -10,6 +10,7 @@ import CashGameNoSmallBlind from './Fixtures/CashGameNoSmallBlind.json';
 import BigBlindWalkNoSmallBlindFixture from './Fixtures/BigBlindGetsWalkWithNoSmallBlindPosted.json';
 import CashHandWithAPost from './Fixtures/CashHandWithAPost.json';
 import SmallAndBigBlindPostedDead from './Fixtures/SmallAndBigBlindPostedDead.json';
+import SplitPotNetLoss from './Fixtures/SplitPotNetLoss.json';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -131,6 +132,14 @@ Player#6432: posts big blind $0.04';
 Player#7928: posts big blind $0.04\n\
 Player#5378: posts small & big blind $0.06';
             const hand = new GlobalPokerHand(SmallAndBigBlindPostedDead);
+            assert.include(convertHand(hand), expected);
+        });
+
+        it('convertsIfSplitPotNetLoss', () => {
+            const expected = 'Seat 3: Player#2263 showed [Js Ad] and won ($1.6) with a pair\n\
+Seat 1: Player#5265 folded\n\
+Seat 6: Player#5368 showed [Jh Ah] and won ($1.6) with a pair';
+            const hand = new GlobalPokerHand(SplitPotNetLoss);
             assert.include(convertHand(hand), expected);
         });
     });
