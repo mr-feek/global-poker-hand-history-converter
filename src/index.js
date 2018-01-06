@@ -1,4 +1,4 @@
-import { convertHand } from './Converter';
+import {convertHand} from './Converter';
 import GlobalPokerHand from './GlobalPokerHand';
 
 const fs = require('fs');

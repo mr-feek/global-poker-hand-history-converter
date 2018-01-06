@@ -1,23 +1,23 @@
-import { describe, it } from 'mocha';
-import { assert } from 'chai';
-import { convertHand } from '../src/Converter';
+import {describe, it} from 'mocha';
+import {assert} from 'chai';
+import {convertHand} from '../src/Converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
-import fixture from './Fixtures/CashHandMadeToRiverShowdown.json';
-import CashHandEndingAtTurn from './Fixtures/CashHandEndingAtTurn.json';
-import fixture2 from './Fixtures/bug.json';
-import fixture3 from './Fixtures/bug2.json';
-import CashGameNoSmallBlind from './Fixtures/CashGameNoSmallBlind.json';
-import BigBlindWalkNoSmallBlindFixture from './Fixtures/BigBlindGetsWalkWithNoSmallBlindPosted.json';
-import CashHandWithAPost from './Fixtures/CashHandWithAPost.json';
-import SmallAndBigBlindPostedDead from './Fixtures/SmallAndBigBlindPostedDead.json';
-import SplitPotNetLoss from './Fixtures/SplitPotNetLoss.json';
+import fixture from './Fixtures/CashHandMadeToRiverShowdown';
+import CashHandEndingAtTurn from './Fixtures/CashHandEndingAtTurn';
+import fixture2 from './Fixtures/bug';
+import fixture3 from './Fixtures/bug2';
+import CashGameNoSmallBlind from './Fixtures/CashGameNoSmallBlind';
+import BigBlindWalkNoSmallBlindFixture from './Fixtures/BigBlindGetsWalkWithNoSmallBlindPosted';
+import CashHandWithAPost from './Fixtures/CashHandWithAPost';
+import SmallAndBigBlindPostedDead from './Fixtures/SmallAndBigBlindPostedDead';
+import SplitPotNetLoss from './Fixtures/SplitPotNetLoss';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
         it('convertsCashHandMadeToRiverShowdown', () => {
-            const expected = "\
-PokerStars Game #1515047411788:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET\n\
-Table 'Odessa 40-100 bb' 6-max Seat #4 is the button\n\
+            const expected = '\
+PokerStars Game #1515047411788:  Hold\'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET\n\
+Table \'Odessa 40-100 bb\' 6-max Seat #4 is the button\n\
 Seat 1: mr_feek ($4.8 in chips)\n\
 Seat 3: Player#3699 ($9.54 in chips)\n\
 Seat 4: Player#4531 ($2.11 in chips)\n\
@@ -48,15 +48,15 @@ Total pot $9.76 | Rake $0.48\n\
 Board [9d Kc Td 6c 2s]\n\
 Seat 3: Player#3699 folded\n\
 Seat 4: Player#4531 folded\n\
-Seat 1: mr_feek showed [Jh Qc] and won ($9.28) with a straight";
+Seat 1: mr_feek showed [Jh Qc] and won ($9.28) with a straight';
             const hand = new GlobalPokerHand(fixture);
             assert.equal(convertHand(hand), expected);
         });
 
         it('convertsCashHandEndingAtTurn', () => {
-            const expected = "\
-PokerStars Game #1515047737811:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:35:37 ET\n\
-Table 'Odessa 40-100 bb' 6-max Seat #6 is the button\n\
+            const expected = '\
+PokerStars Game #1515047737811:  Hold\'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:35:37 ET\n\
+Table \'Odessa 40-100 bb\' 6-max Seat #6 is the button\n\
 Seat 1: mr_feek ($11.31 in chips)\n\
 Seat 3: Player#5079 ($4.68 in chips)\n\
 Seat 4: Player#9470 ($1.81 in chips)\n\
@@ -89,32 +89,32 @@ Board [5s 8h 7s 9d 2d]\n\
 Seat 3: Player#5079 showed [Ts 8c] and lost with a pair\n\
 Seat 6: Player#8807 showed [6h Qh] and won ($3.99) with a straight\n\
 Seat 4: Player#9470 folded\n\
-Seat 1: mr_feek folded";
+Seat 1: mr_feek folded';
             const hand = new GlobalPokerHand(CashHandEndingAtTurn);
             assert.equal(convertHand(hand), expected);
         });
 
         it('convertsThisHandItWasBreakingOn', () => {
-            // just assert no errors thrown im lazy
+            // Just assert no errors thrown im lazy
             const hand = new GlobalPokerHand(fixture2);
             convertHand(hand);
         });
 
         it('convertsIfThereAreNoHoleCards', () => {
-            // just assert no errors thrown im lazy
+            // Just assert no errors thrown im lazy
             // this is if hero was not in the hand
             const hand = new GlobalPokerHand(fixture3);
             convertHand(hand);
         });
 
         it('convertsAHandWithNoSmallBlind', () => {
-            // just assert no errors thrown im lazy
+            // Just assert no errors thrown im lazy
             const hand = new GlobalPokerHand(CashGameNoSmallBlind);
             convertHand(hand);
         });
 
         it('convertsIfBigBlindGotAWalkAndNoSmallBlindWasPosted', () => {
-            // this is a weird as hand, just going to ignore for now...
+            // This is a weird as hand, just going to ignore for now...
             const hand = new GlobalPokerHand(BigBlindWalkNoSmallBlindFixture);
             convertHand(hand);
         });

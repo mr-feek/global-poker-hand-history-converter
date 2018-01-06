@@ -8,6 +8,7 @@
   "scripts": {
     "build": "babel src -d build",
     "test": "xo && mocha ./tests --recursive --require babel-register",
+    "style": "xo --fix",
     "go": "node ./build/index"
   },
   "dependencies": {
@@ -24,6 +25,11 @@
   },
   "xo": {
     "space": 4,
-    "prettier": true
+    "prettier": true,
+    "rules": {
+      "comma-dangle": ["error", "always-multiline"],
+      "unicorn/filename-case": "off",
+      "no-multi-str": "off"
+    }
   }
 }

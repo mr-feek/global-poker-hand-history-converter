@@ -1,5 +1,5 @@
-import { describe, it } from 'mocha';
-import { assert } from 'chai';
+import {describe, it} from 'mocha';
+import {assert} from 'chai';
 import {
     convertTitle,
     convertDescription,
@@ -17,27 +17,27 @@ import {
     convertFinalBoard,
 } from '../../src/Converter';
 import GlobalPokerHand from '../../src/GlobalPokerHand';
-import fixture from '../Fixtures/CashHandMadeToRiverShowdown.json';
-import dealerButtonBugFixture from '../Fixtures/seatNumberBug.json';
-import CashHandWithPreFlopRaisesFixture from '../Fixtures/CashHandWithPreFlopRaises.json';
+import fixture from '../Fixtures/CashHandMadeToRiverShowdown';
+import dealerButtonBugFixture from '../Fixtures/seatNumberBug';
+import CashHandWithPreFlopRaisesFixture from '../Fixtures/CashHandWithPreFlopRaises';
 
 describe('Converter', () => {
     describe('#convertTitle()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
-            assert.equal(convertTitle(hand), "PokerStars Game #1515047411788:  Hold'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET");
+            assert.equal(convertTitle(hand), 'PokerStars Game #1515047411788:  Hold\'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET');
         });
     });
 
     describe('#convertDescription()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
-            assert.equal(convertDescription(hand), "Table 'Odessa 40-100 bb' 6-max Seat #4 is the button");
+            assert.equal(convertDescription(hand), 'Table \'Odessa 40-100 bb\' 6-max Seat #4 is the button');
         });
 
         it('knowsWhichSeatIsButton', () => {
             const hand = new GlobalPokerHand(dealerButtonBugFixture);
-            assert.equal(convertDescription(hand), "Table 'Clarksville 40-100 bb' 6-max Seat #1 is the button");
+            assert.equal(convertDescription(hand), 'Table \'Clarksville 40-100 bb\' 6-max Seat #1 is the button');
         });
     });
 

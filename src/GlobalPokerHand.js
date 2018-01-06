@@ -1,23 +1,23 @@
 import moment from 'moment';
-import { CARDS, SUITS, HAND_VALUES } from './PokerStars';
+import {CARDS, SUITS, HAND_VALUES} from './PokerStars';
 
 export default class GlobalPokerHand {
     constructor(handData) {
         this._handData = handData;
 
-        this.handId = this.handData.startTime; // using the global poker handId uuid overflows PT4 db column
+        this.handId = this.handData.startTime; // Using the global poker handId uuid overflows PT4 db column
 
         const timestamp = this.handData.startTime;
 
         // 2014/01/06 7:47:13 ET
-        this.timePlayed = `${moment(timestamp).format('YYYY/MM/DD h:m:s')} ET`; // todo: time zone
+        this.timePlayed = `${moment(timestamp).format('YYYY/MM/DD h:m:s')} ET`; // Todo: time zone
 
         this.tableName = this.handData.table.tableName;
-        this.minBuyIn = 40; // todo
-        this.maxBuyIn = 100; // todo
+        this.minBuyIn = 40; // Todo
+        this.maxBuyIn = 100; // Todo
         this.maxSeats = this.handData.settings.capacity;
 
-        // if there are no transfers, that means there was no small blind, and everyone folded. weird hand..
+        // If there are no transfers, that means there was no small blind, and everyone folded. weird hand..
         this.totalPot = this.handData.results.transfers ? this.handData.results.transfers[0].pot.potSize : 0;
         this.totalRake = this.handData.results.totalRake;
 
@@ -51,8 +51,8 @@ export default class GlobalPokerHand {
     }
 
     get buttonSeatNumber() {
-        // man this sucks but theres literally no other way to figure it out..
-        let { playerName } = this.bigBlind;
+        // Man this sucks but theres literally no other way to figure it out..
+        let {playerName} = this.bigBlind;
 
         if (this.smallBlind.playerName) {
             playerName = this.smallBlind.playerName;
@@ -60,7 +60,7 @@ export default class GlobalPokerHand {
 
         const blindIndex = this.players.findIndex(player => player.name === playerName);
         if (blindIndex === 0) {
-            // go to end of array
+            // Go to end of array
             return this.players[this.players.length - 1].seatId;
         }
         return this.players[blindIndex - 1].seatId;
@@ -104,7 +104,7 @@ export default class GlobalPokerHand {
     getAdditionalBlindsPosted() {
         return this.handData.events
             .filter(event => event.action === 'ENTRY_BET' || event.action === 'BIG_BLIND_PLUS_DEAD_SMALL_BLIND')
-            .map((event) => {
+            .map(event => {
                 let type = '';
 
                 if (event.amount.amount === this.bigBlind.amount) {
@@ -150,7 +150,7 @@ export default class GlobalPokerHand {
      *
      */
     get players() {
-        return this.handData.seats.map((seat) => {
+        return this.handData.seats.map(seat => {
             // global poker does seats 0-5, pt4 expects 1-6
             seat.seatId++;
 
@@ -192,7 +192,7 @@ export default class GlobalPokerHand {
         return cards.map(card => this.convertCard(card)).join(' ');
     }
 
-    // converts a global poker hand to a poker stars hand. belongs in converter but im lazy
+    // Converts a global poker hand to a poker stars hand. belongs in converter but im lazy
     convertCard(card) {
         const number = this.cardsMap[card.rank];
         const suit = this.suitsMap[card.suit];
@@ -230,7 +230,7 @@ export default class GlobalPokerHand {
        balanceAfterAction: 9.5 } ]
      */
     get preFlopActions() {
-        const { events } = this.handData;
+        const {events} = this.handData;
 
         const lastCardDealtIndex = events.length - 1 - events.slice().reverse().findIndex(event => event.type === 'PlayerCardsDealt');
 
@@ -262,7 +262,7 @@ export default class GlobalPokerHand {
     }
 
     getActionsAfterFlopCardsDealt() {
-        const { events } = this.handData;
+        const {events} = this.handData;
         const flopCardsDealtIndex = events.findIndex(event => event.type === 'TableCardsDealt');
         return events.slice(flopCardsDealtIndex + 1);
     }
@@ -288,65 +288,65 @@ export default class GlobalPokerHand {
         let totalBetAmount = 0;
         let raiseAmount = 0;
 
-        return handActions.map((event) => {
+        return handActions.map(event => {
             let action = '';
 
             switch (event.action) {
-            case 'CALL':
-                action = `calls $${event.amount.amount}`;
+                case 'CALL':
+                    action = `calls $${event.amount.amount}`;
 
-                if (event.balanceAfterAction <= 0) {
-                    action += ' and is all-in';
-                }
+                    if (event.balanceAfterAction <= 0) {
+                        action += ' and is all-in';
+                    }
 
-                event.action = action;
-                break;
-            case 'CHECK':
-                event.action = 'checks';
-                break;
-            case 'FOLD':
-                event.action = 'folds';
-                break;
-            case 'MUCK_CARDS':
-                event.action = 'mucks hand';
-                break;
-            case 'RAISE':
-                totalBetAmount = event.amount.amount;
-                raiseAmount = (totalBetAmount - previousBet).toFixed(2);
-                action = `raises $${raiseAmount} to $${totalBetAmount}`;
-                previousBet = totalBetAmount;
+                    event.action = action;
+                    break;
+                case 'CHECK':
+                    event.action = 'checks';
+                    break;
+                case 'FOLD':
+                    event.action = 'folds';
+                    break;
+                case 'MUCK_CARDS':
+                    event.action = 'mucks hand';
+                    break;
+                case 'RAISE':
+                    totalBetAmount = event.amount.amount;
+                    raiseAmount = (totalBetAmount - previousBet).toFixed(2);
+                    action = `raises $${raiseAmount} to $${totalBetAmount}`;
+                    previousBet = totalBetAmount;
 
-                if (event.balanceAfterAction <= 0) {
-                    action += ' and is all-in';
-                }
+                    if (event.balanceAfterAction <= 0) {
+                        action += ' and is all-in';
+                    }
 
-                event.action = action;
-                break;
-            case 'ENTRY_BET':
-                if (event.amount.amount === this.bigBlind.amount) {
-                    action = 'posts big blind';
-                } else {
-                    action = 'posts small blind';
-                }
+                    event.action = action;
+                    break;
+                case 'ENTRY_BET':
+                    if (event.amount.amount === this.bigBlind.amount) {
+                        action = 'posts big blind';
+                    } else {
+                        action = 'posts small blind';
+                    }
 
-                break;
-            case 'BET':
-                totalBetAmount = event.amount.amount;
-                action = `bets $${totalBetAmount}`;
-                previousBet = totalBetAmount;
+                    break;
+                case 'BET':
+                    totalBetAmount = event.amount.amount;
+                    action = `bets $${totalBetAmount}`;
+                    previousBet = totalBetAmount;
 
-                if (event.balanceAfterAction <= 0) {
-                    action += ' and is all-in';
-                }
+                    if (event.balanceAfterAction <= 0) {
+                        action += ' and is all-in';
+                    }
 
-                event.action = action;
-                break;
-            case 'TIME_BANK':
-                // todo what does poker stars say when hand isn't shown at showdown?
-                event.action = 'UNKNOWN';
-                break;
-            default:
-                throw new Error(`unknown action ${event.action}`);
+                    event.action = action;
+                    break;
+                case 'TIME_BANK':
+                // Todo what does poker stars say when hand isn't shown at showdown?
+                    event.action = 'UNKNOWN';
+                    break;
+                default:
+                    throw new Error(`unknown action ${event.action}`);
             }
 
             event.playerName = this.getPlayerNameById(event.playerId);
@@ -380,7 +380,7 @@ export default class GlobalPokerHand {
     }
 
     get madeItToShowDown() {
-        return !!this.handData.events.find(event => event.type === 'ShowDownSummary');
+        return Boolean(this.handData.events.find(event => event.type === 'ShowDownSummary'));
     }
 
     /**
@@ -390,7 +390,7 @@ export default class GlobalPokerHand {
     get playerSummaries() {
         const results = Array.from(Object.values(this.handData.results.results));
 
-        return results.map((result) => {
+        return results.map(result => {
             const playerName = this.getPlayerNameById(result.playerId);
             const cardsShownObject = this.cardsShown.find(player => player.playerName === playerName);
 
@@ -406,8 +406,8 @@ export default class GlobalPokerHand {
                 seatNumber: this.players.find(player => player.playerId === result.playerId).seatId,
                 playerName,
                 cardsShown,
-                totalWin: result.totalWin, // total pot awarded
-                netWin: result.netWin, // money won in this hand
+                totalWin: result.totalWin, // Total pot awarded
+                netWin: result.netWin, // Money won in this hand
                 handType,
             };
         });
