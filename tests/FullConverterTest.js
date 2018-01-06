@@ -9,6 +9,7 @@ import fixture3 from './Fixtures/bug2.json';
 import CashGameNoSmallBlind from './Fixtures/CashGameNoSmallBlind.json';
 import BigBlindWalkNoSmallBlindFixture from './Fixtures/BigBlindGetsWalkWithNoSmallBlindPosted.json';
 import CashHandWithAPost from './Fixtures/CashHandWithAPost.json';
+import SmallAndBigBlindPostedDead from './Fixtures/SmallAndBigBlindPostedDead.json';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -122,6 +123,14 @@ Seat 1: mr_feek folded";
 Player#0528: posts big blind $0.04\n\
 Player#6432: posts big blind $0.04';
             const hand = new GlobalPokerHand(CashHandWithAPost);
+            assert.include(convertHand(hand), expected);
+        });
+
+        it('convertsIfSmallAndBigBlindsPosted', () => {
+            const expected = 'Player#6081: posts small blind $0.02\n\
+Player#7928: posts big blind $0.04\n\
+Player#5378: posts small & big blind $0.06';
+            const hand = new GlobalPokerHand(SmallAndBigBlindPostedDead);
             assert.include(convertHand(hand), expected);
         });
     });
