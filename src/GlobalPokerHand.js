@@ -78,6 +78,7 @@ export default class GlobalPokerHand {
         return {
             playerName: playerName,
             amount: this.handData.settings.smallBlind,
+            type: 'small'
         }
     }
 
@@ -92,7 +93,22 @@ export default class GlobalPokerHand {
         return {
             playerName: playerName,
             amount: this.handData.settings.bigBlind,
+            type: 'big'
         }
+    }
+
+    get blindsPosted() {
+        return [this.smallBlind, this.bigBlind].concat(this.getAdditionalBlindsPosted());
+    }
+
+    getAdditionalBlindsPosted() {
+        return this.handData.events
+            .filter(event => event.action === 'ENTRY_BET')
+            .map(event => ({
+                playerName: this.getPlayerNameById(event.playerId),
+                amount: event.amount.amount,
+                type: 'big'
+            }));
     }
 
     get handData() {
@@ -309,6 +325,14 @@ export default class GlobalPokerHand {
                 }
 
                 event.action = action;
+                break;
+            case 'ENTRY_BET':
+                if (event.amount.amount === this.bigBlind.amount) {
+                    action = `posts big blind`;
+                } else {
+                    action = `posts small blind`;
+                }
+
                 break;
             case 'BET':
                 totalBetAmount = event.amount.amount;

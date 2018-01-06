@@ -1,5 +1,5 @@
 import { describe, it } from 'mocha';
-import assert from 'assert';
+import { assert } from 'chai';
 import { convertHand } from '../src/Converter';
 import GlobalPokerHand from '../src/GlobalPokerHand';
 import fixture from './Fixtures/CashHandMadeToRiverShowdown.json';
@@ -8,6 +8,7 @@ import fixture2 from './Fixtures/bug.json';
 import fixture3 from './Fixtures/bug2.json';
 import CashGameNoSmallBlind from './Fixtures/CashGameNoSmallBlind.json';
 import BigBlindWalkNoSmallBlindFixture from './Fixtures/BigBlindGetsWalkWithNoSmallBlindPosted.json';
+import CashHandWithAPost from './Fixtures/CashHandWithAPost.json';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -114,6 +115,14 @@ Seat 1: mr_feek folded";
             // this is a weird as hand, just going to ignore for now...
             const hand = new GlobalPokerHand(BigBlindWalkNoSmallBlindFixture);
             convertHand(hand);
+        });
+
+        it('convertsIfSomeonePostsAnotherBlind', () => {
+            const expected = 'Player#8283: posts small blind $0.02\n\
+Player#0528: posts big blind $0.04\n\
+Player#6432: posts big blind $0.04';
+            const hand = new GlobalPokerHand(CashHandWithAPost);
+            assert.include(convertHand(hand), expected);
         });
     });
 });

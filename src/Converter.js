@@ -11,15 +11,9 @@ export function convertPlayerStartingChips(hand) {
 }
 
 export function convertBlindsPosted(hand) {
-    let output = '';
-
-    if (hand.smallBlind.playerName) {
-        output += `${hand.smallBlind.playerName}: posts small blind $${hand.smallBlind.amount}\n`;
-    }
-
-    output += `${hand.bigBlind.playerName}: posts big blind $${hand.bigBlind.amount}`;
-
-    return output;
+    return hand.blindsPosted.map(blind => {
+        return `${blind.playerName}: posts ${blind.type} blind $${blind.amount}`;
+    }).join('\n');
 }
 
 export function convertHoleCards(hand) {
