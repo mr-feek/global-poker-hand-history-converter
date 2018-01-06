@@ -52,16 +52,16 @@ export default class GlobalPokerHand {
 
     get buttonSeatNumber() {
         // man this sucks but theres literally no other way to figure it out..
-        let playerName = this.bigBlind.playerName;
+        let { playerName } = this.bigBlind;
 
         if (this.smallBlind.playerName) {
             playerName = this.smallBlind.playerName;
         }
 
-        let blindIndex = this.players.findIndex((player) => player.name === playerName);
+        const blindIndex = this.players.findIndex(player => player.name === playerName);
         if (blindIndex === 0) {
             // go to end of array
-            return this.players[this.players.length -1].seatId;
+            return this.players[this.players.length - 1].seatId;
         }
         return this.players[blindIndex - 1].seatId;
     }
@@ -76,10 +76,10 @@ export default class GlobalPokerHand {
         }
 
         return {
-            playerName: playerName,
+            playerName,
             amount: this.handData.settings.smallBlind,
-            type: 'small'
-        }
+            type: 'small',
+        };
     }
 
     get bigBlind() {
@@ -91,10 +91,10 @@ export default class GlobalPokerHand {
         }
 
         return {
-            playerName: playerName,
+            playerName,
             amount: this.handData.settings.bigBlind,
-            type: 'big'
-        }
+            type: 'big',
+        };
     }
 
     get blindsPosted() {
@@ -104,11 +104,11 @@ export default class GlobalPokerHand {
     getAdditionalBlindsPosted() {
         return this.handData.events
             .filter(event => event.action === 'ENTRY_BET' || event.action === 'BIG_BLIND_PLUS_DEAD_SMALL_BLIND')
-            .map(event => {
+            .map((event) => {
                 let type = '';
 
                 if (event.amount.amount === this.bigBlind.amount) {
-                    type = 'big'
+                    type = 'big';
                 } else if (event.amount.amount < this.bigBlind.amount) {
                     type = 'small';
                 } else {
@@ -118,8 +118,8 @@ export default class GlobalPokerHand {
                 return {
                     playerName: this.getPlayerNameById(event.playerId),
                     amount: event.amount.amount,
-                    type
-                }
+                    type,
+                };
             });
     }
 
@@ -165,34 +165,22 @@ export default class GlobalPokerHand {
         }
         return {
             playerName: this.getPlayerNameById(event.playerId),
-            cards: this.convertCards(event.cards)
+            cards: this.convertCards(event.cards),
         };
     }
 
     get flopCards() {
         const event = this.handData.events.find(e => e.type === 'TableCardsDealt');
-        if (!event) {
-            console.error(`called .flopCards even though there were no events of type TableCardsDealt. HAND: ${this.handId}`);
-            //return;
-        }
         return this.convertCards(event.cards);
     }
 
     get turnCard() {
         const cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterFlopCardsDealt());
-        if (!cardEvent) {
-            console.error(`called .turnCard even though there were no events of type TableCardsDealt. HAND: ${this.handId}`);
-            //return;
-        }
         return this.convertCard(cardEvent.cards[0]);
     }
 
     get riverCard() {
         const cardEvent = GlobalPokerHand.getNextCardEvent(this.getActionsAfterTurnCardDealt());
-        if (!cardEvent) {
-            console.error(`called .riverCard even though there were no events of type TableCardsDealt. HAND: ${this.handId}`);
-            //return;
-        }
         return this.convertCard(cardEvent.cards[0]);
     }
 
@@ -292,10 +280,6 @@ export default class GlobalPokerHand {
     }
 
     getPlayerNameById(playerId) {
-        if (!this.handData.seats.find(seat => seat.playerId === playerId)) {
-            console.error(`could not find player name by player id. HAND: ${this.handId} PlayerID: ${playerId}`);
-            //return '';
-        }
         return this.handData.seats.find(seat => seat.playerId === playerId).name;
     }
 
@@ -340,9 +324,9 @@ export default class GlobalPokerHand {
                 break;
             case 'ENTRY_BET':
                 if (event.amount.amount === this.bigBlind.amount) {
-                    action = `posts big blind`;
+                    action = 'posts big blind';
                 } else {
-                    action = `posts small blind`;
+                    action = 'posts small blind';
                 }
 
                 break;
@@ -406,7 +390,7 @@ export default class GlobalPokerHand {
     get playerSummaries() {
         const results = Array.from(Object.values(this.handData.results.results));
 
-        return results.map(result => {
+        return results.map((result) => {
             const playerName = this.getPlayerNameById(result.playerId);
             const cardsShownObject = this.cardsShown.find(player => player.playerName === playerName);
 
@@ -424,13 +408,15 @@ export default class GlobalPokerHand {
                 cardsShown,
                 totalWin: result.totalWin, // total pot awarded
                 netWin: result.netWin, // money won in this hand
-                handType
-            }
+                handType,
+            };
         });
     }
 
     getPlayerHandType(playerId) {
-        const event = this.handData.events.filter(event => event.type === 'PlayerBestHand').find(event => event.playerHand.playerId === playerId);
+        const event = this.handData.events
+            .filter(e => e.type === 'PlayerBestHand')
+            .find(e => e.playerHand.playerId === playerId);
         if (!event) {
             return 'hand';
         }

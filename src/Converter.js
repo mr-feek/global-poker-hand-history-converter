@@ -11,9 +11,7 @@ export function convertPlayerStartingChips(hand) {
 }
 
 export function convertBlindsPosted(hand) {
-    return hand.blindsPosted.map(blind => {
-        return `${blind.playerName}: posts ${blind.type} blind $${blind.amount}`;
-    }).join('\n');
+    return hand.blindsPosted.map(blind => `${blind.playerName}: posts ${blind.type} blind $${blind.amount}`).join('\n');
 }
 
 export function convertHoleCards(hand) {
@@ -90,14 +88,11 @@ export function convertPlayerSummary(hand) {
             } else {
                 output += `and lost with a ${object.handType}`;
             }
+        } else if (object.netWin > 0) {
+            output += `won ($${object.totalWin}) with a ${object.handType}`;
         } else {
-            if (object.netWin > 0) {
-                output += `won ($${object.totalWin}) with a ${object.handType}`;
-            } else {
-                // todo: what street folded on
-                output += 'folded';
-            }
-
+            // todo: what street folded on
+            output += 'folded';
         }
 
         return output;
