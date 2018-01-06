@@ -1,0 +1,310 @@
+{
+"id": "5eb3bb41-e174-4c76-b80f-68cf3ed3038e",
+"table": {
+"tableId": 86825,
+"tableIntegrationId": "TABLE::9a06d5a7-9775-4503-8623-a06b83402416",
+"tableName": "Tulsa",
+"seats": 0,
+"handIndex": -1
+},
+"startTime": 1514750390183,
+"endTime": 1514750413493,
+"results": {
+"totalRake": 0,
+"results": {
+"166": {
+"playerId": 166,
+"netWin": 0,
+"totalWin": 0,
+"rake": 0,
+"totalBet": 0,
+"transactionIds": [
+null
+],
+"timeBank": 9529
+},
+"3831": {
+"playerId": 3831,
+"netWin": 0,
+"totalWin": 0,
+"rake": 0,
+"totalBet": 0,
+"transactionIds": [
+null
+],
+"timeBank": 30000
+},
+"4661": {
+"playerId": 4661,
+"netWin": 0,
+"totalWin": 0,
+"rake": 0,
+"totalBet": 0,
+"transactionIds": [
+null
+],
+"timeBank": 30000
+},
+"7547": {
+"playerId": 7547,
+"netWin": 0,
+"totalWin": 0,
+"rake": 0,
+"totalBet": 0,
+"transactionIds": [
+null
+],
+"timeBank": 21090
+},
+"1359767": {
+"playerId": 1359767,
+"netWin": 0,
+"totalWin": 0,
+"rake": 0,
+"totalBet": 0,
+"transactionIds": [
+null
+],
+"timeBank": 30000
+}
+}
+},
+"events": [
+{
+"type": "PlayerAction",
+"time": 1514750390550,
+"cards": [
+
+],
+"action": "BIG_BLIND",
+"amount": {
+"type": "BET",
+"amount": 0.04
+},
+"timeout": false,
+"playerId": 4661,
+"balanceAfterAction": 3.6
+},
+{
+"type": "PlayerCardsDealt",
+"time": 1514750390550,
+"playerId": 166,
+"cards": [
+{
+"id": 0
+},
+{
+"id": 1
+}
+],
+"exposed": false
+},
+{
+"type": "PlayerCardsDealt",
+"time": 1514750390550,
+"playerId": 7547,
+"cards": [
+{
+"id": 2
+},
+{
+"id": 3
+}
+],
+"exposed": false
+},
+{
+"type": "PlayerCardsDealt",
+"time": 1514750390550,
+"playerId": 4661,
+"cards": [
+{
+"id": 4
+},
+{
+"id": 5
+}
+],
+"exposed": false
+},
+{
+"type": "PlayerCardsDealt",
+"time": 1514750390550,
+"playerId": 1359767,
+"cards": [
+{
+"id": 6,
+"suit": "SPADES",
+"rank": "FIVE"
+},
+{
+"id": 7,
+"suit": "HEARTS",
+"rank": "THREE"
+}
+],
+"exposed": false
+},
+{
+"type": "PlayerCardsDealt",
+"time": 1514750390550,
+"playerId": 3831,
+"cards": [
+{
+"id": 8
+},
+{
+"id": 9
+}
+],
+"exposed": false
+},
+{
+"type": "PlayerAction",
+"time": 1514750393698,
+"cards": [
+
+],
+"action": "FOLD",
+"amount": {
+"type": "BET",
+"amount": 0
+},
+"timeout": false,
+"playerId": 1359767,
+"balanceAfterAction": 8.3
+},
+{
+"type": "PlayerAction",
+"time": 1514750398294,
+"cards": [
+
+],
+"action": "FOLD",
+"amount": {
+"type": "BET",
+"amount": 0
+},
+"timeout": false,
+"playerId": 3831,
+"balanceAfterAction": 3.33
+},
+{
+"type": "PlayerAction",
+"time": 1514750413294,
+"cards": [
+
+],
+"action": "FOLD",
+"timeout": true,
+"playerId": 166,
+"balanceAfterAction": 0.62
+},
+{
+"type": "PlayerAction",
+"time": 1514750413441,
+"cards": [
+
+],
+"action": "FOLD",
+"amount": {
+"type": "BET",
+"amount": 0
+},
+"timeout": false,
+"playerId": 7547,
+"balanceAfterAction": 4.62
+},
+{
+"type": "PotUpdate",
+"time": 1514750413441,
+"pots": [
+
+],
+"potTransitions": [
+{
+"playerId": 4661,
+"amount": 0.04,
+"fromChipStackToPlayer": true
+}
+]
+},
+{
+"type": "PlayerBalances",
+"time": 1514750413441,
+"playerBalances": [
+{
+"playerId": 3831,
+"balance": 3.33
+},
+{
+"playerId": 166,
+"balance": 0.62
+},
+{
+"playerId": 7547,
+"balance": 4.62
+},
+{
+"playerId": 4661,
+"balance": 3.64
+},
+{
+"playerId": 1359767,
+"balance": 8.3
+}
+]
+},
+{
+"type": "ShowDownSummary",
+"time": 1514750413493
+}
+],
+"seats": [
+{
+"playerId": 3831,
+"initialBalance": 3.33,
+"seatId": 0,
+"name": "Player#3831"
+},
+{
+"playerId": 166,
+"initialBalance": 0.62,
+"seatId": 1,
+"name": "Player#0166"
+},
+{
+"playerId": 7547,
+"initialBalance": 4.62,
+"seatId": 2,
+"name": "Player#7547"
+},
+{
+"playerId": 4661,
+"initialBalance": 3.64,
+"seatId": 4,
+"name": "Player#4661"
+},
+{
+"playerId": 1359767,
+"initialBalance": 8.3,
+"seatId": 5,
+"name": "mr_feek"
+}
+],
+"settings": {
+"variant": "TEXAS_HOLDEM",
+"currencyCode": "XSD",
+"betStrategyType": "NO_LIMIT",
+"capacity": 6,
+"bigBlind": 0.04,
+"smallBlind": 0.02,
+"ante": 0,
+"broadcast": false,
+"winPercentage": false,
+"rabbitHunting": false,
+"attributes": {
+
+}
+}
+}

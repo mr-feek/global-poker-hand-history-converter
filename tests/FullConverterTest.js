@@ -7,6 +7,7 @@ import CashHandEndingAtTurn from './Fixtures/CashHandEndingAtTurn.json';
 import fixture2 from './Fixtures/bug.json';
 import fixture3 from './Fixtures/bug2.json';
 import CashGameNoSmallBlind from './Fixtures/CashGameNoSmallBlind.json';
+import BigBlindWalkNoSmallBlindFixture from './Fixtures/BigBlindGetsWalkWithNoSmallBlindPosted.json';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -106,6 +107,12 @@ Seat 1: mr_feek folded";
         it('convertsAHandWithNoSmallBlind', () => {
             // just assert no errors thrown im lazy
             const hand = new GlobalPokerHand(CashGameNoSmallBlind);
+            convertHand(hand);
+        });
+
+        it('convertsIfBigBlindGotAWalkAndNoSmallBlindWasPosted', () => {
+            // this is a weird as hand, just going to ignore for now...
+            const hand = new GlobalPokerHand(BigBlindWalkNoSmallBlindFixture);
             convertHand(hand);
         });
     });

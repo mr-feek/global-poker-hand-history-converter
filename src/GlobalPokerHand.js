@@ -17,7 +17,8 @@ export default class GlobalPokerHand {
         this.maxBuyIn = 100; // todo
         this.maxSeats = this.handData.settings.capacity;
 
-        this.totalPot = this.handData.results.transfers[0].pot.potSize; // todo: side pots?
+        // if there are no transfers, that means there was no small blind, and everyone folded. weird hand..
+        this.totalPot = this.handData.results.transfers ? this.handData.results.transfers[0].pot.potSize : 0;
         this.totalRake = this.handData.results.totalRake;
 
         this.cardsMap = {
