@@ -25,3 +25,8 @@ Convert Global Poker hand histories to PokerStars format.  To download your hand
  - `yarn install`
 ## Running Tests
 `npm run test`
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/mr-feek/global-poker-hand-history-converter/badge.svg?style=beer-square)](https://beerpay.io/mr-feek/global-poker-hand-history-converter)  [![Beerpay](https://beerpay.io/mr-feek/global-poker-hand-history-converter/make-wish.svg?style=flat-square)](https://beerpay.io/mr-feek/global-poker-hand-history-converter?focus=wish)
