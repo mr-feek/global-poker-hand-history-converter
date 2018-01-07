@@ -1,5 +1,5 @@
 # global-poker-hand-history-converter
-Convert Global Poker hand histories to PokerStars format.  To download these histories from global poker, use [this chrome extension](https://github.com/mr-feek/global-poker-hand-history-converter-chrome-extension)
+Convert Global Poker hand histories to PokerStars format.  To download your hand histories from global poker, use [this chrome extension](https://github.com/mr-feek/global-poker-hand-history-converter-chrome-extension)
 
 *This package is a work in progress. It currently only supports converting cash games.*
 
