@@ -11,6 +11,7 @@ import BigBlindWalkNoSmallBlindFixture from './Fixtures/BigBlindGetsWalkWithNoSm
 import CashHandWithAPost from './Fixtures/CashHandWithAPost';
 import SmallAndBigBlindPostedDead from './Fixtures/SmallAndBigBlindPostedDead';
 import SplitPotNetLoss from './Fixtures/SplitPotNetLoss';
+import WinMultiplePots from './Fixtures/WinMultiplePots';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -141,6 +142,12 @@ Seat 1: Player#5265 folded\n\
 Seat 6: Player#5368 showed [Jh Ah] and won ($1.6) with a pair';
             const hand = new GlobalPokerHand(SplitPotNetLoss);
             assert.include(convertHand(hand), expected);
+        });
+
+        it('convertsIfPlayerWinsTwoPots', () => {
+            const expected = '';
+            const hand = new GlobalPokerHand(WinMultiplePots);
+            assert.equal(convertHand(hand), expected);
         });
     });
 });
