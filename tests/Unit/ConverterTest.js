@@ -20,12 +20,18 @@ import GlobalPokerHand from '../../src/GlobalPokerHand';
 import fixture from '../Fixtures/CashHandMadeToRiverShowdown';
 import dealerButtonBugFixture from '../Fixtures/seatNumberBug';
 import CashHandWithPreFlopRaisesFixture from '../Fixtures/CashHandWithPreFlopRaises';
+import MilitaryTimeHand from '../Fixtures/BigBlindGetsWalkWithNoSmallBlindPosted';
 
 describe('Converter', () => {
     describe('#convertTitle()', () => {
         it('works', () => {
             const hand = new GlobalPokerHand(fixture);
             assert.equal(convertTitle(hand), 'PokerStars Game #1515047411788:  Hold\'em No Limit ($0.02/$0.04 USD) - 2018/01/04 1:30:11 ET');
+        });
+
+        it('converts time to military time', () => {
+            const hand = new GlobalPokerHand(MilitaryTimeHand);
+            assert.equal(convertTitle(hand), 'PokerStars Game #1514750390183:  Hold\'em No Limit ($0.02/$0.04 USD) - 2017/12/31 14:59:50 ET');
         });
     });
 
