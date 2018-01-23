@@ -47,6 +47,7 @@ export default class GlobalPokerHand {
         this.handTypeMap = {
             STRAIGHT: HAND_VALUES.STRAIGHT,
             PAIR: HAND_VALUES.PAIR,
+            TWO_PAIRS: HAND_VALUES.TWO_PAIR,
         };
     }
 
