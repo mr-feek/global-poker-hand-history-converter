@@ -12,7 +12,8 @@
     "go": "node ./build/index"
   },
   "dependencies": {
-    "moment": "^2.20.1"
+    "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

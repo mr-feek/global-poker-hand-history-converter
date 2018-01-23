@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment-timezone';
 import {CARDS, SUITS, HAND_VALUES} from './PokerStars';
 
 export default class GlobalPokerHand {
@@ -10,7 +10,7 @@ export default class GlobalPokerHand {
         const timestamp = this.handData.startTime;
 
         // 2014/01/06 7:47:13 ET
-        this.timePlayed = `${moment(timestamp).format('YYYY/MM/DD h:m:s')} ET`; // Todo: time zone
+        this.timePlayed = `${moment(timestamp).tz('America/New_York').format('YYYY/MM/DD H:m:s')} ET`;
 
         this.tableName = this.handData.table.tableName;
         this.minBuyIn = 40; // Todo
