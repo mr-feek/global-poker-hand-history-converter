@@ -127,8 +127,12 @@ export default class GlobalPokerHand {
 
     getAdditionalBlindsPosted() {
         return this.handData.events
-            .filter(event => event.action === 'ENTRY_BET' || event.action === 'BIG_BLIND_PLUS_DEAD_SMALL_BLIND')
-            .map(event => {
+            .filter(
+                event => event.action === 'ENTRY_BET' ||
+                event.action === 'DEAD_SMALL_BLIND' ||
+                event.action === 'DEAD_BIG_BLIND' ||
+                event.action === 'BIG_BLIND_PLUS_DEAD_SMALL_BLIND'
+            ).map(event => {
                 let type = '';
 
                 if (event.amount.amount === this.bigBlind.amount) {

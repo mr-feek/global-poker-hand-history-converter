@@ -12,6 +12,7 @@ import CashHandWithAPost from './Fixtures/CashHandWithAPost';
 import SmallAndBigBlindPostedDead from './Fixtures/SmallAndBigBlindPostedDead';
 import SplitPotNetLoss from './Fixtures/SplitPotNetLoss';
 import WinMultiplePots from './Fixtures/WinMultiplePots';
+import HandWithDeadSmallBlind from './Fixtures/HandWithDeadSmallBlind';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -196,6 +197,15 @@ Seat 6: Player#4479 folded\n\
 Seat 4: mr_feek showed [Ac Ad] and won ($11.76) with a two pair';
             const hand = new GlobalPokerHand(WinMultiplePots);
             assert.equal(convertHand(hand), expected);
+        });
+
+        it('includes dead small blind', () => {
+            const expected = '\
+Player#2211: posts small blind $0.02\n\
+Player#6378: posts big blind $0.04\n\
+Player#8100: posts small blind $0.02';
+            const hand = new GlobalPokerHand(HandWithDeadSmallBlind);
+            assert.include(convertHand(hand), expected);
         });
     });
 });
