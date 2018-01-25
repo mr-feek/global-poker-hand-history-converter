@@ -45,7 +45,7 @@ Player#3699: calls $2.32\n\
 *** SHOW DOWN ***\n\
 mr_feek: shows [Jh Qc] (a straight)\n\
 *** SUMMARY ***\n\
-Total pot $9.76 | Rake $0.48\n\
+Total pot $10.24 | Rake $0.48\n\
 Board [9d Kc Td 6c 2s]\n\
 Seat 3: Player#3699 folded\n\
 Seat 4: Player#4531 folded\n\
@@ -85,7 +85,7 @@ Player#5079: calls $0.7\n\
 Player#5079: shows [Ts 8c] (a pair)\n\
 Player#8807: shows [6h Qh] (a straight)\n\
 *** SUMMARY ***\n\
-Total pot $4.2 | Rake $0.21\n\
+Total pot $4.41 | Rake $0.21\n\
 Board [5s 8h 7s 9d 2d]\n\
 Seat 3: Player#5079 showed [Ts 8c] and lost with a pair\n\
 Seat 6: Player#8807 showed [6h Qh] and won ($3.99) with a straight\n\
@@ -145,7 +145,55 @@ Seat 6: Player#5368 showed [Jh Ah] and won ($1.6) with a pair';
         });
 
         it('convertsIfPlayerWinsTwoPots', () => {
-            const expected = '';
+            const expected = '\
+PokerStars Game #1516687510132:  Hold\'em No Limit ($0.02/$0.04 USD) - 2018/01/23 1:5:10 ET\n\
+Table \'Columbus 40-100 bb\' 6-max Seat #5 is the button\n\
+Seat 1: Player#0983 ($6.03 in chips)\n\
+Seat 2: Player#3863 ($2.15 in chips)\n\
+Seat 3: Player#3247 ($3.87 in chips)\n\
+Seat 4: mr_feek ($4.24 in chips)\n\
+Seat 5: Player#3894 ($4.29 in chips)\n\
+Seat 6: Player#4479 ($1.34 in chips)\n\
+Player#4479: posts small blind $0.02\n\
+Player#0983: posts big blind $0.04\n\
+*** HOLE CARDS ***\n\
+Dealt to mr_feek [Ac Ad]\n\
+Player#3863: folds\n\
+Player#3247: calls $0.04\n\
+mr_feek: raises $0.14 to $0.18\n\
+Player#3894: folds\n\
+Player#4479: folds\n\
+Player#0983: calls $0.14\n\
+Player#3247: calls $0.14\n\
+*** FLOP *** [5s Qs 6h]\n\
+Player#0983: checks\n\
+Player#3247: bets $0.04\n\
+mr_feek: raises $0.36 to $0.4\n\
+Player#0983: calls $0.4\n\
+Player#3247: calls $0.36\n\
+*** TURN *** [5s Qs 6h] [5d]\n\
+Player#0983: checks\n\
+Player#3247: checks\n\
+mr_feek: bets $1.11\n\
+Player#0983: calls $1.11\n\
+Player#3247: calls $1.11\n\
+*** RIVER *** [5s Qs 6h] [5d] [9d]\n\
+Player#0983: checks\n\
+Player#3247: bets $0.2\n\
+mr_feek: raises $2.35 to $2.55 and is all-in\n\
+Player#0983: calls $2.55\n\
+Player#3247: calls $1.98 and is all-in\n\
+*** SHOW DOWN ***\n\
+mr_feek: shows [Ac Ad] (a two pair)\n\
+*** SUMMARY ***\n\
+Total pot $12.98 | Side pot $0.74. | Side pot $11.63. | Rake $0.61\n\
+Board [5s Qs 6h 5d 9d]\n\
+Seat 1: Player#0983 folded\n\
+Seat 3: Player#3247 folded\n\
+Seat 2: Player#3863 folded\n\
+Seat 5: Player#3894 folded\n\
+Seat 6: Player#4479 folded\n\
+Seat 4: mr_feek showed [Ac Ad] and won ($11.76) with a two pair';
             const hand = new GlobalPokerHand(WinMultiplePots);
             assert.equal(convertHand(hand), expected);
         });

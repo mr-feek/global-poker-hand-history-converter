@@ -70,8 +70,7 @@ export function convertRiverActions(hand) {
 }
 
 export function convertPotInfo(hand) {
-    // side pot: Total pot $3030 Main pot $3007. Side pot $20. | Rake $3
-    return `Total pot $${hand.totalPot} | Rake $${hand.totalRake}`;
+    return hand.pots.map(pot => `${pot.description}`).join(' | ');
 }
 
 export function convertCardsShown(hand) {

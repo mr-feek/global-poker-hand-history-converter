@@ -177,7 +177,7 @@ Player#3699: calls $2.32',
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertPotInfo(hand),
-                'Total pot $9.76 | Rake $0.48',
+                'Total pot $10.24 | Rake $0.48',
             );
         });
     });
