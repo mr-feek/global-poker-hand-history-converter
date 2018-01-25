@@ -100,9 +100,10 @@ export default class GlobalPokerHand {
 
     get pots() {
         const totalRake = this.handData.results.totalRake;
+
         // If there are no transfers, that means there was no small blind, and everyone folded. weird hand..
         const totalPot = this.handData.results.transfers ?
-            this.handData.results.transfers.reduce((accumulator, transfer) => accumulator + transfer.pot.potSize, 0) + totalRake :
+            this.handData.results.transfers.reduce((accumulator, transfer) => accumulator + transfer.pot.potSize, 0).toFixed(2) :
             0;
 
         const pots = [{

@@ -45,7 +45,7 @@ Player#3699: calls $2.32\n\
 *** SHOW DOWN ***\n\
 mr_feek: shows [Jh Qc] (a straight)\n\
 *** SUMMARY ***\n\
-Total pot $10.24. | Rake $0.48\n\
+Total pot $9.76. | Rake $0.48\n\
 Board [9d Kc Td 6c 2s]\n\
 Seat 3: Player#3699 folded\n\
 Seat 4: Player#4531 folded\n\
@@ -85,7 +85,7 @@ Player#5079: calls $0.7\n\
 Player#5079: shows [Ts 8c] (a pair)\n\
 Player#8807: shows [6h Qh] (a straight)\n\
 *** SUMMARY ***\n\
-Total pot $4.41. | Rake $0.21\n\
+Total pot $4.20. | Rake $0.21\n\
 Board [5s 8h 7s 9d 2d]\n\
 Seat 3: Player#5079 showed [Ts 8c] and lost with a pair\n\
 Seat 6: Player#8807 showed [6h Qh] and won ($3.99) with a straight\n\
@@ -186,7 +186,7 @@ Player#3247: calls $1.98 and is all-in\n\
 *** SHOW DOWN ***\n\
 mr_feek: shows [Ac Ad] (a two pair)\n\
 *** SUMMARY ***\n\
-Total pot $12.98. Side pot $0.74. Main pot $11.63. | Rake $0.61\n\
+Total pot $12.37. Side pot $0.74. Main pot $11.63. | Rake $0.61\n\
 Board [5s Qs 6h 5d 9d]\n\
 Seat 1: Player#0983 folded\n\
 Seat 3: Player#3247 folded\n\

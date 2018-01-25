@@ -21,6 +21,7 @@ import fixture from '../Fixtures/CashHandMadeToRiverShowdown';
 import dealerButtonBugFixture from '../Fixtures/seatNumberBug';
 import CashHandWithPreFlopRaisesFixture from '../Fixtures/CashHandWithPreFlopRaises';
 import MilitaryTimeHand from '../Fixtures/BigBlindGetsWalkWithNoSmallBlindPosted';
+import HandWithFloatErrorForPotTotals from '../Fixtures/HandWithFloatErrorForPotTotals';
 
 describe('Converter', () => {
     describe('#convertTitle()', () => {
@@ -177,7 +178,15 @@ Player#3699: calls $2.32',
             const hand = new GlobalPokerHand(fixture);
             assert.equal(
                 convertPotInfo(hand),
-                'Total pot $10.24. | Rake $0.48',
+                'Total pot $9.76. | Rake $0.48',
+            );
+        });
+
+        it('rounds pot info', () => {
+            const hand = new GlobalPokerHand(HandWithFloatErrorForPotTotals);
+            assert.equal(
+                convertPotInfo(hand),
+                'Total pot $0.20. | Rake $0.01'
             );
         });
     });
