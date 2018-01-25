@@ -70,7 +70,7 @@ export function convertRiverActions(hand) {
 }
 
 export function convertPotInfo(hand) {
-    return `Total pot $${hand.totalPot} | Rake $${hand.totalRake}`;
+    return hand.pots.map(pot => `${pot.description}`).join(' ');
 }
 
 export function convertCardsShown(hand) {

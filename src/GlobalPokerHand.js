@@ -17,10 +17,6 @@ export default class GlobalPokerHand {
         this.maxBuyIn = 100; // Todo
         this.maxSeats = this.handData.settings.capacity;
 
-        // If there are no transfers, that means there was no small blind, and everyone folded. weird hand..
-        this.totalPot = this.handData.results.transfers ? this.handData.results.transfers[0].pot.potSize : 0;
-        this.totalRake = this.handData.results.totalRake;
-
         this.cardsMap = {
             ACE: CARDS.ACE,
             TWO: CARDS.TWO,
@@ -47,6 +43,7 @@ export default class GlobalPokerHand {
         this.handTypeMap = {
             STRAIGHT: HAND_VALUES.STRAIGHT,
             PAIR: HAND_VALUES.PAIR,
+            TWO_PAIRS: HAND_VALUES.TWO_PAIR,
         };
     }
 
@@ -99,6 +96,32 @@ export default class GlobalPokerHand {
 
     get blindsPosted() {
         return [this.smallBlind, this.bigBlind].concat(this.getAdditionalBlindsPosted());
+    }
+
+    get pots() {
+        const totalRake = this.handData.results.totalRake;
+        // If there are no transfers, that means there was no small blind, and everyone folded. weird hand..
+        const totalPot = this.handData.results.transfers ?
+            this.handData.results.transfers.reduce((accumulator, transfer) => accumulator + transfer.pot.potSize, 0) + totalRake :
+            0;
+
+        const pots = [{
+            description: `Total pot $${totalPot}.`,
+        }];
+
+        if (this.handData.results.transfers && this.handData.results.transfers.length > 1) {
+            this.handData.results.transfers.forEach(transfer => {
+                pots.push({
+                    description: `${transfer.pot.type.charAt(0) + transfer.pot.type.slice(1).toLowerCase()} pot $${transfer.pot.potSize}.`,
+                });
+            });
+        }
+
+        pots.push({
+            description: `| Rake $${totalRake}`,
+        });
+
+        return pots;
     }
 
     getAdditionalBlindsPosted() {

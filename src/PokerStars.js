@@ -23,5 +23,6 @@ export const SUITS = {
 
 export const HAND_VALUES = {
     PAIR: 'pair',
+    TWO_PAIR: 'two pair',
     STRAIGHT: 'straight',
 };
