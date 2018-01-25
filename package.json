@@ -1,6 +1,6 @@
 {
   "name": "@mr-feek/global-poker-hand-history-converter",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Convert Global Poker hand histories to the PokerStars format",
   "main": "src/index.js",
   "license": "MIT",
