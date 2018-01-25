@@ -106,20 +106,19 @@ export default class GlobalPokerHand {
             0;
 
         const pots = [{
-            description: `Total pot $${totalPot}`,
+            description: `Total pot $${totalPot}.`,
         }];
 
         if (this.handData.results.transfers && this.handData.results.transfers.length > 1) {
             this.handData.results.transfers.forEach(transfer => {
-                // Todo: determine main pot
                 pots.push({
-                    description: `Side pot $${transfer.pot.potSize}.`,
+                    description: `${transfer.pot.type.charAt(0) + transfer.pot.type.slice(1).toLowerCase()} pot $${transfer.pot.potSize}.`,
                 });
             });
         }
 
         pots.push({
-            description: `Rake $${totalRake}`,
+            description: `| Rake $${totalRake}`,
         });
 
         return pots;
