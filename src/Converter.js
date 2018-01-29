@@ -77,6 +77,10 @@ export function convertCardsShown(hand) {
     return hand.cardsShown.map(object => `${object.playerName}: shows [${object.cards}] (a ${object.handType})`).join('\n');
 }
 
+export function convertMoneyTransfers(hand) {
+    return hand.playerSummaries.filter(object => object.totalWin > 0).map(object => `${object.playerName} collected $${object.totalWin} from pot`).join('\n');
+}
+
 export function convertPlayerSummary(hand) {
     return hand.playerSummaries.map(object => {
         let output = `Seat ${object.seatNumber}: ${object.playerName} `;
@@ -134,6 +138,7 @@ export function convertHand(hand) {
         outputParts.push(
             '*** SHOW DOWN ***',
             convertCardsShown(hand),
+            convertMoneyTransfers(hand),
         );
     }
 
