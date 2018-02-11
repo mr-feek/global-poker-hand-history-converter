@@ -3,7 +3,13 @@ export function convertTitle(hand) {
 }
 
 export function convertDescription(hand) {
-    return `Table '${hand.tableName} ${hand.minBuyIn}-${hand.maxBuyIn} bb' ${hand.maxSeats}-max Seat #${hand.buttonSeatNumber} is the button`;
+    let tableDescription = `Table '${hand.tableName} ${hand.minBuyIn}-${hand.maxBuyIn} bb' ${hand.maxSeats}-max`;
+
+    if (hand.buttonSeatNumber) {
+        tableDescription += ` Seat #${hand.buttonSeatNumber} is the button`;
+    }
+
+    return tableDescription;
 }
 
 export function convertPlayerStartingChips(hand) {

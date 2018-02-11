@@ -60,7 +60,15 @@ export default class GlobalPokerHand {
             // Go to end of array
             return this.players[this.players.length - 1].seatId;
         }
-        return this.players[blindIndex - 1].seatId;
+
+        const player = this.players[blindIndex - 1];
+
+        if (!player) {
+            // Sometimes there is no button
+            return;
+        }
+
+        return player.seatId;
     }
 
     get smallBlind() {
