@@ -1,5 +1,5 @@
 export function convertTitle(hand) {
-    return `PokerStars Game #${hand.handId}:  Hold'em No Limit ($${hand.smallBlind.amount}/$${hand.bigBlind.amount} USD) - ${hand.timePlayed}`;
+    return `PokerStars Game #${hand.handId}:  ${hand.gameType === 'OMAHA' ? 'Omaha' : 'Hold\'em'} ${hand.betting === 'NO_LIMIT' ? 'No Limit' : 'Pot Limit'} ($${hand.smallBlind.amount}/$${hand.bigBlind.amount} USD) - ${hand.timePlayed}`;
 }
 
 export function convertDescription(hand) {

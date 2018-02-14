@@ -17,6 +17,9 @@ export default class GlobalPokerHand {
         this.maxBuyIn = 100; // Todo
         this.maxSeats = this.handData.settings.capacity;
 
+        this.gameType = this.handData.settings.variant;
+        this.betting = this.handData.settings.betStrategyType;
+
         this.cardsMap = {
             ACE: CARDS.ACE,
             TWO: CARDS.TWO,
