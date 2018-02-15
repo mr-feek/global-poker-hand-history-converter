@@ -1,1200 +1,1167 @@
 {
-  "id": "d9b67c58-8fef-46c6-914e-b1cfeb1a9131",
-  "table": {
-	"tableId": 61400,
-	"tableIntegrationId": "TABLE::23edf120-4147-4957-805b-d22cef0cd64f",
-	"tableName": "Columbus",
-	"seats": 0,
-	"handIndex": -1
-  },
-  "startTime": 1516687510132,
-  "endTime": 1516687681938,
-  "results": {
-	"totalRake": 0.61,
+	"id": "d9b67c58-8fef-46c6-914e-b1cfeb1a9131",
+	"table": {
+		"tableId": 61400,
+		"tableIntegrationId": "TABLE::23edf120-4147-4957-805b-d22cef0cd64f",
+		"tableName": "Columbus",
+		"seats": 0,
+		"handIndex": -1
+	},
+	"startTime": 1516687510132,
+	"endTime": 1516687681938,
 	"results": {
-	  "1359767": {
-		"playerId": 1359767,
-		"netWin": 7.52,
-		"totalWin": 11.76,
-		"rake": 0.20,
-		"totalBet": 4.24,
-		"transactionIds": [
-		  "173805100"
-		],
-		"timeBank": 30000
-	  },
-	  "3894": {
-		"playerId": 3894,
-		"netWin": 0,
-		"totalWin": 0,
-		"rake": 0.01,
-		"totalBet": 0,
-		"transactionIds": [
-		  "173805100"
-		],
-		"timeBank": 30000
-	  },
-	  "3863": {
-		"playerId": 3863,
-		"netWin": 0,
-		"totalWin": 0,
-		"rake": 0.00,
-		"totalBet": 0,
-		"transactionIds": [
-		  null
-		],
-		"timeBank": 20939
-	  },
-	  "983": {
-		"playerId": 983,
-		"netWin": -4.24,
-		"totalWin": 0.00,
-		"rake": 0.20,
-		"totalBet": 4.24,
-		"transactionIds": [
-		  "173805100"
-		],
-		"timeBank": 3128
-	  },
-	  "4479": {
-		"playerId": 4479,
-		"netWin": -0.02,
-		"totalWin": 0.00,
-		"rake": 0.00,
-		"totalBet": 0.02,
-		"transactionIds": [
-		  "173805100"
-		],
-		"timeBank": 27070
-	  },
-	  "3247": {
-		"playerId": 3247,
-		"netWin": -3.87,
-		"totalWin": 0.00,
-		"rake": 0.20,
-		"totalBet": 3.87,
-		"transactionIds": [
-		  "173805100"
-		],
-		"timeBank": 30000
-	  }
-	},
-	"transfers": [
-	  {
-		"playerId": 1359767,
-		"pot": {
-		  "potId": 1,
-		  "type": "SIDE",
-		  "potSize": 0.74
+		"totalRake": 0.61,
+		"results": {
+			"1359767": {
+				"playerId": 1359767,
+				"netWin": 7.52,
+				"totalWin": 11.76,
+				"rake": 0.20,
+				"totalBet": 4.24,
+				"transactionIds": [
+					"173805100"
+				],
+				"timeBank": 30000
+			},
+			"3894": {
+				"playerId": 3894,
+				"netWin": 0,
+				"totalWin": 0,
+				"rake": 0.01,
+				"totalBet": 0,
+				"transactionIds": [
+					"173805100"
+				],
+				"timeBank": 30000
+			},
+			"3863": {
+				"playerId": 3863,
+				"netWin": 0,
+				"totalWin": 0,
+				"rake": 0.00,
+				"totalBet": 0,
+				"transactionIds": [
+					null
+				],
+				"timeBank": 20939
+			},
+			"983": {
+				"playerId": 983,
+				"netWin": -4.24,
+				"totalWin": 0.00,
+				"rake": 0.20,
+				"totalBet": 4.24,
+				"transactionIds": [
+					"173805100"
+				],
+				"timeBank": 3128
+			},
+			"4479": {
+				"playerId": 4479,
+				"netWin": -0.02,
+				"totalWin": 0.00,
+				"rake": 0.00,
+				"totalBet": 0.02,
+				"transactionIds": [
+					"173805100"
+				],
+				"timeBank": 27070
+			},
+			"3247": {
+				"playerId": 3247,
+				"netWin": -3.87,
+				"totalWin": 0.00,
+				"rake": 0.20,
+				"totalBet": 3.87,
+				"transactionIds": [
+					"173805100"
+				],
+				"timeBank": 30000
+			}
 		},
-		"amount": 0.71,
-		"fromChipStackToPlayer": false
-	  },
-	  {
-		"playerId": 1359767,
-		"pot": {
-		  "potId": 0,
-		  "type": "MAIN",
-		  "potSize": 11.63
-		},
-		"amount": 11.05,
-		"fromChipStackToPlayer": false
-	  }
-	]
-  },
-  "events": [
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687511194,
-	  "cards": [],
-	  "action": "SMALL_BLIND",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.02
-	  },
-	  "timeout": false,
-	  "playerId": 4479,
-	  "balanceAfterAction": 1.32
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687511194,
-	  "cards": [],
-	  "action": "BIG_BLIND",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.04
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 5.99
-	},
-	{
-	  "type": "PlayerCardsDealt",
-	  "time": 1516687511194,
-	  "playerId": 3863,
-	  "cards": [
-		{
-		  "id": 0
-		},
-		{
-		  "id": 1
-		}
-	  ],
-	  "exposed": false
-	},
-	{
-	  "type": "PlayerCardsDealt",
-	  "time": 1516687511194,
-	  "playerId": 3247,
-	  "cards": [
-		{
-		  "id": 2
-		},
-		{
-		  "id": 3
-		}
-	  ],
-	  "exposed": false
-	},
-	{
-	  "type": "PlayerCardsDealt",
-	  "time": 1516687511194,
-	  "playerId": 1359767,
-	  "cards": [
-		{
-		  "id": 4,
-		  "suit": "CLUBS",
-		  "rank": "ACE"
-		},
-		{
-		  "id": 5,
-		  "suit": "DIAMONDS",
-		  "rank": "ACE"
-		}
-	  ],
-	  "exposed": false
-	},
-	{
-	  "type": "PlayerCardsDealt",
-	  "time": 1516687511194,
-	  "playerId": 3894,
-	  "cards": [
-		{
-		  "id": 6
-		},
-		{
-		  "id": 7
-		}
-	  ],
-	  "exposed": false
-	},
-	{
-	  "type": "PlayerCardsDealt",
-	  "time": 1516687511194,
-	  "playerId": 4479,
-	  "cards": [
-		{
-		  "id": 8
-		},
-		{
-		  "id": 9
-		}
-	  ],
-	  "exposed": false
-	},
-	{
-	  "type": "PlayerCardsDealt",
-	  "time": 1516687511194,
-	  "playerId": 983,
-	  "cards": [
-		{
-		  "id": 10
-		},
-		{
-		  "id": 11
-		}
-	  ],
-	  "exposed": false
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687516991,
-	  "cards": [],
-	  "action": "FOLD",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 3863,
-	  "balanceAfterAction": 2.15
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687528545,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.04
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 3.83
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687532084,
-	  "cards": [],
-	  "action": "RAISE",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.18
-	  },
-	  "timeout": false,
-	  "playerId": 1359767,
-	  "balanceAfterAction": 4.06
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687538933,
-	  "cards": [],
-	  "action": "FOLD",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 3894,
-	  "balanceAfterAction": 4.29
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687547818,
-	  "cards": [],
-	  "action": "FOLD",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 4479,
-	  "balanceAfterAction": 1.32
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687549948,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.14
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 5.85
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687555409,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.14
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 3.69
-	},
-	{
-	  "type": "PotUpdate",
-	  "time": 1516687555409,
-	  "pots": [
-		{
-		  "potId": 0,
-		  "players": [
-			1359767,
-			983,
-			4479,
-			3247
-		  ],
-		  "potSize": 0.56
-		}
-	  ],
-	  "potTransitions": [
-		{
-		  "playerId": 3247,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 0.56
-		  },
-		  "amount": 0.18,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 983,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 0.56
-		  },
-		  "amount": 0.18,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 1359767,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 0.56
-		  },
-		  "amount": 0.18,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 4479,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 0.56
-		  },
-		  "amount": 0.02,
-		  "fromChipStackToPlayer": false
-		}
-	  ]
-	},
-	{
-	  "type": "PlayerBalances",
-	  "time": 1516687555409,
-	  "playerBalances": [
-		{
-		  "playerId": 983,
-		  "balance": 5.85
-		},
-		{
-		  "playerId": 3863,
-		  "balance": 2.15
-		},
-		{
-		  "playerId": 3247,
-		  "balance": 3.69
-		},
-		{
-		  "playerId": 1359767,
-		  "balance": 4.06
-		},
-		{
-		  "playerId": 3894,
-		  "balance": 4.29
-		},
-		{
-		  "playerId": 4479,
-		  "balance": 1.32
-		}
-	  ]
-	},
-	{
-	  "type": "TableCardsDealt",
-	  "time": 1516687555409,
-	  "cards": [
-		{
-		  "id": 12,
-		  "suit": "SPADES",
-		  "rank": "FIVE"
-		},
-		{
-		  "id": 13,
-		  "suit": "SPADES",
-		  "rank": "QUEEN"
-		},
-		{
-		  "id": 14,
-		  "suit": "HEARTS",
-		  "rank": "SIX"
-		}
-	  ],
-	  "stackId": 0
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687559332,
-	  "cards": [],
-	  "action": "CHECK",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 5.85
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687563706,
-	  "cards": [],
-	  "action": "BET",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.04
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 3.65
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687575378,
-	  "cards": [],
-	  "action": "RAISE",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.40
-	  },
-	  "timeout": false,
-	  "playerId": 1359767,
-	  "balanceAfterAction": 3.66
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687583228,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.40
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 5.45
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687590893,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.36
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 3.29
-	},
-	{
-	  "type": "PotUpdate",
-	  "time": 1516687590893,
-	  "pots": [
-		{
-		  "potId": 0,
-		  "players": [
-			1359767,
-			983,
-			4479,
-			3247
-		  ],
-		  "potSize": 1.76
-		}
-	  ],
-	  "potTransitions": [
-		{
-		  "playerId": 3247,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 1.76
-		  },
-		  "amount": 0.40,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 983,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 1.76
-		  },
-		  "amount": 0.40,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 1359767,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 1.76
-		  },
-		  "amount": 0.40,
-		  "fromChipStackToPlayer": false
-		}
-	  ]
-	},
-	{
-	  "type": "PlayerBalances",
-	  "time": 1516687590893,
-	  "playerBalances": [
-		{
-		  "playerId": 983,
-		  "balance": 5.45
-		},
-		{
-		  "playerId": 3863,
-		  "balance": 2.15
-		},
-		{
-		  "playerId": 3247,
-		  "balance": 3.29
-		},
-		{
-		  "playerId": 1359767,
-		  "balance": 3.66
-		},
-		{
-		  "playerId": 3894,
-		  "balance": 4.29
-		},
-		{
-		  "playerId": 4479,
-		  "balance": 1.32
-		}
-	  ]
-	},
-	{
-	  "type": "TableCardsDealt",
-	  "time": 1516687590893,
-	  "cards": [
-		{
-		  "id": 15,
-		  "suit": "DIAMONDS",
-		  "rank": "FIVE"
-		}
-	  ],
-	  "stackId": 0
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687595339,
-	  "cards": [],
-	  "action": "CHECK",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 5.45
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687601698,
-	  "cards": [],
-	  "action": "CHECK",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 3.29
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687611817,
-	  "cards": [],
-	  "action": "BET",
-	  "amount": {
-		"type": "BET",
-		"amount": 1.11
-	  },
-	  "timeout": false,
-	  "playerId": 1359767,
-	  "balanceAfterAction": 2.55
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687620745,
-	  "cards": [],
-	  "action": "TIME_BANK",
-	  "amount": {
-		"type": "BET",
-		"amount": 7.32
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 5.45
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687628964,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 1.11
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 4.34
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687636624,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 1.11
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 2.18
-	},
-	{
-	  "type": "PotUpdate",
-	  "time": 1516687636625,
-	  "pots": [
-		{
-		  "potId": 0,
-		  "players": [
-			1359767,
-			983,
-			4479,
-			3247
-		  ],
-		  "potSize": 5.09
-		}
-	  ],
-	  "potTransitions": [
-		{
-		  "playerId": 3247,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 5.09
-		  },
-		  "amount": 1.11,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 983,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 5.09
-		  },
-		  "amount": 1.11,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 1359767,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 5.09
-		  },
-		  "amount": 1.11,
-		  "fromChipStackToPlayer": false
-		}
-	  ]
-	},
-	{
-	  "type": "PlayerBalances",
-	  "time": 1516687636625,
-	  "playerBalances": [
-		{
-		  "playerId": 983,
-		  "balance": 4.34
-		},
-		{
-		  "playerId": 3863,
-		  "balance": 2.15
-		},
-		{
-		  "playerId": 3247,
-		  "balance": 2.18
-		},
-		{
-		  "playerId": 1359767,
-		  "balance": 2.55
-		},
-		{
-		  "playerId": 3894,
-		  "balance": 4.29
-		},
-		{
-		  "playerId": 4479,
-		  "balance": 1.32
-		}
-	  ]
-	},
-	{
-	  "type": "TableCardsDealt",
-	  "time": 1516687636625,
-	  "cards": [
-		{
-		  "id": 16,
-		  "suit": "DIAMONDS",
-		  "rank": "NINE"
-		}
-	  ],
-	  "stackId": 0
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687640434,
-	  "cards": [],
-	  "action": "CHECK",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 4.34
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687647752,
-	  "cards": [],
-	  "action": "BET",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.20
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 1.98
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687653902,
-	  "cards": [],
-	  "action": "RAISE",
-	  "amount": {
-		"type": "BET",
-		"amount": 2.55
-	  },
-	  "timeout": false,
-	  "playerId": 1359767,
-	  "balanceAfterAction": 0.00
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687665809,
-	  "cards": [],
-	  "action": "TIME_BANK",
-	  "amount": {
-		"type": "BET",
-		"amount": 4.17
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 4.34
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687668950,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 2.55
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 1.79
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687677911,
-	  "cards": [],
-	  "action": "CALL",
-	  "amount": {
-		"type": "BET",
-		"amount": 1.98
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 0.00
-	},
-	{
-	  "type": "PotUpdate",
-	  "time": 1516687677911,
-	  "pots": [
-		{
-		  "potId": 0,
-		  "players": [
-			1359767,
-			983,
-			4479,
-			3247
-		  ],
-		  "potSize": 11.63
-		},
-		{
-		  "potId": 1,
-		  "players": [
-			1359767,
-			983
-		  ],
-		  "potSize": 0.74
-		}
-	  ],
-	  "potTransitions": [
-		{
-		  "playerId": 3247,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 11.63
-		  },
-		  "amount": 2.18,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 983,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 11.63
-		  },
-		  "amount": 2.18,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 1359767,
-		  "pot": {
-			"potId": 0,
-			"players": [
-			  1359767,
-			  983,
-			  4479,
-			  3247
-			],
-			"potSize": 11.63
-		  },
-		  "amount": 2.18,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 983,
-		  "pot": {
-			"potId": 1,
-			"players": [
-			  1359767,
-			  983
-			],
-			"potSize": 0.74
-		  },
-		  "amount": 0.37,
-		  "fromChipStackToPlayer": false
-		},
-		{
-		  "playerId": 1359767,
-		  "pot": {
-			"potId": 1,
-			"players": [
-			  1359767,
-			  983
-			],
-			"potSize": 0.74
-		  },
-		  "amount": 0.37,
-		  "fromChipStackToPlayer": false
-		}
-	  ]
-	},
-	{
-	  "type": "PlayerBalances",
-	  "time": 1516687677911,
-	  "playerBalances": [
-		{
-		  "playerId": 983,
-		  "balance": 1.79
-		},
-		{
-		  "playerId": 3863,
-		  "balance": 2.15
-		},
-		{
-		  "playerId": 3247,
-		  "balance": 0.00
-		},
-		{
-		  "playerId": 1359767,
-		  "balance": 0.00
-		},
-		{
-		  "playerId": 3894,
-		  "balance": 4.29
-		},
-		{
-		  "playerId": 4479,
-		  "balance": 1.32
-		}
-	  ]
-	},
-	{
-	  "type": "PlayerCardsExposed",
-	  "time": 1516687677912,
-	  "playerId": 1359767,
-	  "cards": [
-		{
-		  "id": 4,
-		  "suit": "CLUBS",
-		  "rank": "ACE"
-		},
-		{
-		  "id": 5,
-		  "suit": "DIAMONDS",
-		  "rank": "ACE"
-		}
-	  ]
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687679151,
-	  "cards": [],
-	  "action": "MUCK_CARDS",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 983,
-	  "balanceAfterAction": 1.79
-	},
-	{
-	  "type": "PlayerAction",
-	  "time": 1516687681892,
-	  "cards": [],
-	  "action": "MUCK_CARDS",
-	  "amount": {
-		"type": "BET",
-		"amount": 0.00
-	  },
-	  "timeout": false,
-	  "playerId": 3247,
-	  "balanceAfterAction": 0.00
-	},
-	{
-	  "type": "ShowDownSummary",
-	  "time": 1516687681938
-	},
-	{
-	  "type": "PlayerBestHand",
-	  "time": 1516687681938,
-	  "playerHand": {
-		"playerId": 1359767,
-		"handId": 0,
-		"cards": [
-		  {
-			"id": 4,
-			"suit": "CLUBS",
-			"rank": "ACE"
-		  },
-		  {
-			"id": 5,
-			"suit": "DIAMONDS",
-			"rank": "ACE"
-		  },
-		  {
-			"id": 12,
-			"suit": "SPADES",
-			"rank": "FIVE"
-		  },
-		  {
-			"id": 13,
-			"suit": "SPADES",
-			"rank": "QUEEN"
-		  },
-		  {
-			"id": 14,
-			"suit": "HEARTS",
-			"rank": "SIX"
-		  },
-		  {
-			"id": 15,
-			"suit": "DIAMONDS",
-			"rank": "FIVE"
-		  },
-		  {
-			"id": 16,
-			"suit": "DIAMONDS",
-			"rank": "NINE"
-		  }
+		"transfers": [{
+				"playerId": 1359767,
+				"pot": {
+					"potId": 1,
+					"type": "SIDE",
+					"potSize": 0.74
+				},
+				"amount": 0.71,
+				"fromChipStackToPlayer": false
+			},
+			{
+				"playerId": 1359767,
+				"pot": {
+					"potId": 0,
+					"type": "MAIN",
+					"potSize": 11.63
+				},
+				"amount": 11.05,
+				"fromChipStackToPlayer": false
+			}
 		]
-	  },
-	  "handInfoCommon": {
-		"handType": "TWO_PAIRS",
-		"cardsUsedInHand": [
-		  {
-			"id": 4,
-			"suit": "CLUBS",
-			"rank": "ACE"
-		  },
-		  {
-			"id": 5,
-			"suit": "DIAMONDS",
-			"rank": "ACE"
-		  },
-		  {
-			"id": 12,
-			"suit": "SPADES",
-			"rank": "FIVE"
-		  },
-		  {
-			"id": 15,
-			"suit": "DIAMONDS",
-			"rank": "FIVE"
-		  },
-		  {
-			"id": 13,
-			"suit": "SPADES",
-			"rank": "QUEEN"
-		  }
-		]
-	  },
-	  "bestHandCards": [
-		{
-		  "id": 4,
-		  "suit": "CLUBS",
-		  "rank": "ACE"
+	},
+	"events": [{
+			"type": "PlayerAction",
+			"time": 1516687511194,
+			"cards": [],
+			"action": "SMALL_BLIND",
+			"amount": {
+				"type": "BET",
+				"amount": 0.02
+			},
+			"timeout": false,
+			"playerId": 4479,
+			"balanceAfterAction": 1.32
 		},
 		{
-		  "id": 5,
-		  "suit": "DIAMONDS",
-		  "rank": "ACE"
+			"type": "PlayerAction",
+			"time": 1516687511194,
+			"cards": [],
+			"action": "BIG_BLIND",
+			"amount": {
+				"type": "BET",
+				"amount": 0.04
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 5.99
 		},
 		{
-		  "id": 12,
-		  "suit": "SPADES",
-		  "rank": "FIVE"
+			"type": "PlayerCardsDealt",
+			"time": 1516687511194,
+			"playerId": 3863,
+			"cards": [{
+					"id": 0
+				},
+				{
+					"id": 1
+				}
+			],
+			"exposed": false
 		},
 		{
-		  "id": 15,
-		  "suit": "DIAMONDS",
-		  "rank": "FIVE"
+			"type": "PlayerCardsDealt",
+			"time": 1516687511194,
+			"playerId": 3247,
+			"cards": [{
+					"id": 2
+				},
+				{
+					"id": 3
+				}
+			],
+			"exposed": false
 		},
 		{
-		  "id": 13,
-		  "suit": "SPADES",
-		  "rank": "QUEEN"
+			"type": "PlayerCardsDealt",
+			"time": 1516687511194,
+			"playerId": 1359767,
+			"cards": [{
+					"id": 4,
+					"suit": "CLUBS",
+					"rank": "ACE"
+				},
+				{
+					"id": 5,
+					"suit": "DIAMONDS",
+					"rank": "ACE"
+				}
+			],
+			"exposed": false
+		},
+		{
+			"type": "PlayerCardsDealt",
+			"time": 1516687511194,
+			"playerId": 3894,
+			"cards": [{
+					"id": 6
+				},
+				{
+					"id": 7
+				}
+			],
+			"exposed": false
+		},
+		{
+			"type": "PlayerCardsDealt",
+			"time": 1516687511194,
+			"playerId": 4479,
+			"cards": [{
+					"id": 8
+				},
+				{
+					"id": 9
+				}
+			],
+			"exposed": false
+		},
+		{
+			"type": "PlayerCardsDealt",
+			"time": 1516687511194,
+			"playerId": 983,
+			"cards": [{
+					"id": 10
+				},
+				{
+					"id": 11
+				}
+			],
+			"exposed": false
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687516991,
+			"cards": [],
+			"action": "FOLD",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 3863,
+			"balanceAfterAction": 2.15
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687528545,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 0.04
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 3.83
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687532084,
+			"cards": [],
+			"action": "RAISE",
+			"amount": {
+				"type": "BET",
+				"amount": 0.18
+			},
+			"timeout": false,
+			"playerId": 1359767,
+			"balanceAfterAction": 4.06
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687538933,
+			"cards": [],
+			"action": "FOLD",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 3894,
+			"balanceAfterAction": 4.29
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687547818,
+			"cards": [],
+			"action": "FOLD",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 4479,
+			"balanceAfterAction": 1.32
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687549948,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 0.14
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 5.85
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687555409,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 0.14
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 3.69
+		},
+		{
+			"type": "PotUpdate",
+			"time": 1516687555409,
+			"pots": [{
+				"potId": 0,
+				"players": [
+					1359767,
+					983,
+					4479,
+					3247
+				],
+				"potSize": 0.56
+			}],
+			"potTransitions": [{
+					"playerId": 3247,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 0.56
+					},
+					"amount": 0.18,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 983,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 0.56
+					},
+					"amount": 0.18,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 1359767,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 0.56
+					},
+					"amount": 0.18,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 4479,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 0.56
+					},
+					"amount": 0.02,
+					"fromChipStackToPlayer": false
+				}
+			]
+		},
+		{
+			"type": "PlayerBalances",
+			"time": 1516687555409,
+			"playerBalances": [{
+					"playerId": 983,
+					"balance": 5.85
+				},
+				{
+					"playerId": 3863,
+					"balance": 2.15
+				},
+				{
+					"playerId": 3247,
+					"balance": 3.69
+				},
+				{
+					"playerId": 1359767,
+					"balance": 4.06
+				},
+				{
+					"playerId": 3894,
+					"balance": 4.29
+				},
+				{
+					"playerId": 4479,
+					"balance": 1.32
+				}
+			]
+		},
+		{
+			"type": "TableCardsDealt",
+			"time": 1516687555409,
+			"cards": [{
+					"id": 12,
+					"suit": "SPADES",
+					"rank": "FIVE"
+				},
+				{
+					"id": 13,
+					"suit": "SPADES",
+					"rank": "QUEEN"
+				},
+				{
+					"id": 14,
+					"suit": "HEARTS",
+					"rank": "SIX"
+				}
+			],
+			"stackId": 0
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687559332,
+			"cards": [],
+			"action": "CHECK",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 5.85
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687563706,
+			"cards": [],
+			"action": "BET",
+			"amount": {
+				"type": "BET",
+				"amount": 0.04
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 3.65
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687575378,
+			"cards": [],
+			"action": "RAISE",
+			"amount": {
+				"type": "BET",
+				"amount": 0.40
+			},
+			"timeout": false,
+			"playerId": 1359767,
+			"balanceAfterAction": 3.66
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687583228,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 0.40
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 5.45
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687590893,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 0.36
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 3.29
+		},
+		{
+			"type": "PotUpdate",
+			"time": 1516687590893,
+			"pots": [{
+				"potId": 0,
+				"players": [
+					1359767,
+					983,
+					4479,
+					3247
+				],
+				"potSize": 1.76
+			}],
+			"potTransitions": [{
+					"playerId": 3247,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 1.76
+					},
+					"amount": 0.40,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 983,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 1.76
+					},
+					"amount": 0.40,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 1359767,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 1.76
+					},
+					"amount": 0.40,
+					"fromChipStackToPlayer": false
+				}
+			]
+		},
+		{
+			"type": "PlayerBalances",
+			"time": 1516687590893,
+			"playerBalances": [{
+					"playerId": 983,
+					"balance": 5.45
+				},
+				{
+					"playerId": 3863,
+					"balance": 2.15
+				},
+				{
+					"playerId": 3247,
+					"balance": 3.29
+				},
+				{
+					"playerId": 1359767,
+					"balance": 3.66
+				},
+				{
+					"playerId": 3894,
+					"balance": 4.29
+				},
+				{
+					"playerId": 4479,
+					"balance": 1.32
+				}
+			]
+		},
+		{
+			"type": "TableCardsDealt",
+			"time": 1516687590893,
+			"cards": [{
+				"id": 15,
+				"suit": "DIAMONDS",
+				"rank": "FIVE"
+			}],
+			"stackId": 0
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687595339,
+			"cards": [],
+			"action": "CHECK",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 5.45
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687601698,
+			"cards": [],
+			"action": "CHECK",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 3.29
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687611817,
+			"cards": [],
+			"action": "BET",
+			"amount": {
+				"type": "BET",
+				"amount": 1.11
+			},
+			"timeout": false,
+			"playerId": 1359767,
+			"balanceAfterAction": 2.55
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687620745,
+			"cards": [],
+			"action": "TIME_BANK",
+			"amount": {
+				"type": "BET",
+				"amount": 7.32
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 5.45
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687628964,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 1.11
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 4.34
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687636624,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 1.11
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 2.18
+		},
+		{
+			"type": "PotUpdate",
+			"time": 1516687636625,
+			"pots": [{
+				"potId": 0,
+				"players": [
+					1359767,
+					983,
+					4479,
+					3247
+				],
+				"potSize": 5.09
+			}],
+			"potTransitions": [{
+					"playerId": 3247,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 5.09
+					},
+					"amount": 1.11,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 983,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 5.09
+					},
+					"amount": 1.11,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 1359767,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 5.09
+					},
+					"amount": 1.11,
+					"fromChipStackToPlayer": false
+				}
+			]
+		},
+		{
+			"type": "PlayerBalances",
+			"time": 1516687636625,
+			"playerBalances": [{
+					"playerId": 983,
+					"balance": 4.34
+				},
+				{
+					"playerId": 3863,
+					"balance": 2.15
+				},
+				{
+					"playerId": 3247,
+					"balance": 2.18
+				},
+				{
+					"playerId": 1359767,
+					"balance": 2.55
+				},
+				{
+					"playerId": 3894,
+					"balance": 4.29
+				},
+				{
+					"playerId": 4479,
+					"balance": 1.32
+				}
+			]
+		},
+		{
+			"type": "TableCardsDealt",
+			"time": 1516687636625,
+			"cards": [{
+				"id": 16,
+				"suit": "DIAMONDS",
+				"rank": "NINE"
+			}],
+			"stackId": 0
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687640434,
+			"cards": [],
+			"action": "CHECK",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 4.34
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687647752,
+			"cards": [],
+			"action": "BET",
+			"amount": {
+				"type": "BET",
+				"amount": 0.20
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 1.98
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687653902,
+			"cards": [],
+			"action": "RAISE",
+			"amount": {
+				"type": "BET",
+				"amount": 2.55
+			},
+			"timeout": false,
+			"playerId": 1359767,
+			"balanceAfterAction": 0.00
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687665809,
+			"cards": [],
+			"action": "TIME_BANK",
+			"amount": {
+				"type": "BET",
+				"amount": 4.17
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 4.34
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687668950,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 2.55
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 1.79
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687677911,
+			"cards": [],
+			"action": "CALL",
+			"amount": {
+				"type": "BET",
+				"amount": 1.98
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 0.00
+		},
+		{
+			"type": "PotUpdate",
+			"time": 1516687677911,
+			"pots": [{
+					"potId": 0,
+					"players": [
+						1359767,
+						983,
+						4479,
+						3247
+					],
+					"potSize": 11.63
+				},
+				{
+					"potId": 1,
+					"players": [
+						1359767,
+						983
+					],
+					"potSize": 0.74
+				}
+			],
+			"potTransitions": [{
+					"playerId": 3247,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 11.63
+					},
+					"amount": 2.18,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 983,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 11.63
+					},
+					"amount": 2.18,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 1359767,
+					"pot": {
+						"potId": 0,
+						"players": [
+							1359767,
+							983,
+							4479,
+							3247
+						],
+						"potSize": 11.63
+					},
+					"amount": 2.18,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 983,
+					"pot": {
+						"potId": 1,
+						"players": [
+							1359767,
+							983
+						],
+						"potSize": 0.74
+					},
+					"amount": 0.37,
+					"fromChipStackToPlayer": false
+				},
+				{
+					"playerId": 1359767,
+					"pot": {
+						"potId": 1,
+						"players": [
+							1359767,
+							983
+						],
+						"potSize": 0.74
+					},
+					"amount": 0.37,
+					"fromChipStackToPlayer": false
+				}
+			]
+		},
+		{
+			"type": "PlayerBalances",
+			"time": 1516687677911,
+			"playerBalances": [{
+					"playerId": 983,
+					"balance": 1.79
+				},
+				{
+					"playerId": 3863,
+					"balance": 2.15
+				},
+				{
+					"playerId": 3247,
+					"balance": 0.00
+				},
+				{
+					"playerId": 1359767,
+					"balance": 0.00
+				},
+				{
+					"playerId": 3894,
+					"balance": 4.29
+				},
+				{
+					"playerId": 4479,
+					"balance": 1.32
+				}
+			]
+		},
+		{
+			"type": "PlayerCardsExposed",
+			"time": 1516687677912,
+			"playerId": 1359767,
+			"cards": [{
+					"id": 4,
+					"suit": "CLUBS",
+					"rank": "ACE"
+				},
+				{
+					"id": 5,
+					"suit": "DIAMONDS",
+					"rank": "ACE"
+				}
+			]
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687679151,
+			"cards": [],
+			"action": "MUCK_CARDS",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 983,
+			"balanceAfterAction": 1.79
+		},
+		{
+			"type": "PlayerAction",
+			"time": 1516687681892,
+			"cards": [],
+			"action": "MUCK_CARDS",
+			"amount": {
+				"type": "BET",
+				"amount": 0.00
+			},
+			"timeout": false,
+			"playerId": 3247,
+			"balanceAfterAction": 0.00
+		},
+		{
+			"type": "ShowDownSummary",
+			"time": 1516687681938
+		},
+		{
+			"type": "PlayerBestHand",
+			"time": 1516687681938,
+			"playerHand": {
+				"playerId": 1359767,
+				"handId": 0,
+				"cards": [{
+						"id": 4,
+						"suit": "CLUBS",
+						"rank": "ACE"
+					},
+					{
+						"id": 5,
+						"suit": "DIAMONDS",
+						"rank": "ACE"
+					},
+					{
+						"id": 12,
+						"suit": "SPADES",
+						"rank": "FIVE"
+					},
+					{
+						"id": 13,
+						"suit": "SPADES",
+						"rank": "QUEEN"
+					},
+					{
+						"id": 14,
+						"suit": "HEARTS",
+						"rank": "SIX"
+					},
+					{
+						"id": 15,
+						"suit": "DIAMONDS",
+						"rank": "FIVE"
+					},
+					{
+						"id": 16,
+						"suit": "DIAMONDS",
+						"rank": "NINE"
+					}
+				]
+			},
+			"handInfoCommon": {
+				"handType": "TWO_PAIRS",
+				"cardsUsedInHand": [{
+						"id": 4,
+						"suit": "CLUBS",
+						"rank": "ACE"
+					},
+					{
+						"id": 5,
+						"suit": "DIAMONDS",
+						"rank": "ACE"
+					},
+					{
+						"id": 12,
+						"suit": "SPADES",
+						"rank": "FIVE"
+					},
+					{
+						"id": 15,
+						"suit": "DIAMONDS",
+						"rank": "FIVE"
+					},
+					{
+						"id": 13,
+						"suit": "SPADES",
+						"rank": "QUEEN"
+					}
+				]
+			},
+			"bestHandCards": [{
+					"id": 4,
+					"suit": "CLUBS",
+					"rank": "ACE"
+				},
+				{
+					"id": 5,
+					"suit": "DIAMONDS",
+					"rank": "ACE"
+				},
+				{
+					"id": 12,
+					"suit": "SPADES",
+					"rank": "FIVE"
+				},
+				{
+					"id": 15,
+					"suit": "DIAMONDS",
+					"rank": "FIVE"
+				},
+				{
+					"id": 13,
+					"suit": "SPADES",
+					"rank": "QUEEN"
+				}
+			]
 		}
-	  ]
+	],
+	"seats": [{
+			"playerId": 983,
+			"initialBalance": 6.03,
+			"seatId": 0,
+			"name": "Player#0983"
+		},
+		{
+			"playerId": 3863,
+			"initialBalance": 2.15,
+			"seatId": 1,
+			"name": "Player#3863"
+		},
+		{
+			"playerId": 3247,
+			"initialBalance": 3.87,
+			"seatId": 2,
+			"name": "Player#3247"
+		},
+		{
+			"playerId": 1359767,
+			"initialBalance": 4.24,
+			"seatId": 3,
+			"name": "mr_feek"
+		},
+		{
+			"playerId": 3894,
+			"initialBalance": 4.29,
+			"seatId": 4,
+			"name": "Player#3894"
+		},
+		{
+			"playerId": 4479,
+			"initialBalance": 1.34,
+			"seatId": 5,
+			"name": "Player#4479"
+		}
+	],
+	"settings": {
+		"variant": "TEXAS_HOLDEM",
+		"currencyCode": "XSD",
+		"betStrategyType": "NO_LIMIT",
+		"capacity": 6,
+		"bigBlind": 0.04,
+		"smallBlind": 0.02,
+		"ante": 0.00,
+		"broadcast": false,
+		"winPercentage": false,
+		"rabbitHunting": false,
+		"attributes": {}
 	}
-  ],
-  "seats": [
-	{
-	  "playerId": 983,
-	  "initialBalance": 6.03,
-	  "seatId": 0,
-	  "name": "Player#0983"
-	},
-	{
-	  "playerId": 3863,
-	  "initialBalance": 2.15,
-	  "seatId": 1,
-	  "name": "Player#3863"
-	},
-	{
-	  "playerId": 3247,
-	  "initialBalance": 3.87,
-	  "seatId": 2,
-	  "name": "Player#3247"
-	},
-	{
-	  "playerId": 1359767,
-	  "initialBalance": 4.24,
-	  "seatId": 3,
-	  "name": "mr_feek"
-	},
-	{
-	  "playerId": 3894,
-	  "initialBalance": 4.29,
-	  "seatId": 4,
-	  "name": "Player#3894"
-	},
-	{
-	  "playerId": 4479,
-	  "initialBalance": 1.34,
-	  "seatId": 5,
-	  "name": "Player#4479"
-	}
-  ],
-  "settings": {
-	"variant": "TEXAS_HOLDEM",
-	"currencyCode": "XSD",
-	"betStrategyType": "NO_LIMIT",
-	"capacity": 6,
-	"bigBlind": 0.04,
-	"smallBlind": 0.02,
-	"ante": 0.00,
-	"broadcast": false,
-	"winPercentage": false,
-	"rabbitHunting": false,
-	"attributes": {}
-  }
 }

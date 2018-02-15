@@ -13,6 +13,7 @@ import SmallAndBigBlindPostedDead from './Fixtures/SmallAndBigBlindPostedDead';
 import SplitPotNetLoss from './Fixtures/SplitPotNetLoss';
 import WinMultiplePots from './Fixtures/WinMultiplePots';
 import HandWithDeadSmallBlind from './Fixtures/HandWithDeadSmallBlind';
+import PloHandWithSidePot from './Fixtures/PloHandWithSidePot';
 
 describe('Converter', () => {
     describe('#convertHand()', () => {
@@ -102,6 +103,11 @@ Seat 1: mr_feek folded';
             // Just assert no errors thrown im lazy
             const hand = new GlobalPokerHand(fixture2);
             convertHand(hand);
+        });
+
+        it('convertsPloHand', () => {
+            const hand = new GlobalPokerHand(PloHandWithSidePot);
+            assert.include(convertHand(hand), 'PokerStars Game #1518629217433:  Omaha Pot Limit ($10/$20 USD) - 2018/02/14 12:26:57 ET\n');
         });
 
         it('convertsIfThereAreNoHoleCards', () => {
