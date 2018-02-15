@@ -26,3 +26,13 @@ export const HAND_VALUES = {
     TWO_PAIR: 'two pair',
     STRAIGHT: 'straight',
 };
+
+export const GAME_TYPES = {
+    OMAHA: 'Omaha',
+    TEXAS_HOLDEM: 'Hold\'em',
+};
+
+export const BETTING_TYPES = {
+    POT_LIMIT: 'Pot Limit',
+    NO_LIMIT: 'No Limit',
+};
